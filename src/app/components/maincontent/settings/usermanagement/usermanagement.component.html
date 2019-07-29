@@ -8,7 +8,7 @@
                     <div class="table-responsive nopad">
                         <table datatable id="tblusermanagement"
                             class="table table-bordered table-striped  dataTable no-footer text-center cust-table" role="grid"
-                            aria-describedby="myTable_info" [dtOptions]="dtOptions" width="100%" >
+                            aria-describedby="myTable_info" [dtOptions]="dtOptions" >
                             <thead>
                                 <tr role="row">
                                     <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
@@ -31,7 +31,7 @@
                                         aria-sort="ascending" aria-label="Name: activate to sort column descending"
                                         style="width: 38px;">Savills Office</th>
                                     <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="ascending"
-                                            aria-label="Name: activate to sort column descending" style="width: 38px;">Office No.</th>
+                                            aria-label="Name: activate to sort column descending" style="width: 38px;">Savills Office NO.</th>
                                     <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
                                         aria-sort="ascending" aria-label="Name: activate to sort column descending"
                                         style="width: 38px;">Mobile No.</th>
@@ -127,8 +127,8 @@
     </div>
 
 
-    <div class="modal-body" *ngIf="!spinnershow">
-        <div class="p-0-20">
+    <div class="modal-body modal_scroll" *ngIf="!spinnershow">
+        <div class="p-40">
             <div class="form-group m-t-4 row">
                 <div class="col-md-3">
                     <label for="example-text-input" class="col-form-label">Is Superuser</label>
@@ -345,7 +345,7 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div class="modal-body ">
+    <div class="modal-body modal_scroll">
         <div class="p-40">
             <p class="col-form-label">Work In Progress</p>
            
@@ -376,7 +376,7 @@
                 <p class="loader__label">Loading ...</p>
         </div>
     </div>
-    <div class="modal-body " *ngIf="!spinnershow">
+    <div class="modal-body modal_scroll" *ngIf="!spinnershow">
         <div class="p-10">
                 <div class="form-group row">
                         

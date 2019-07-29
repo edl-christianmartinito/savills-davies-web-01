@@ -6,11 +6,10 @@ import { HttpClient, HttpEvent, HttpErrorResponse, HttpEventType,HttpResponse  }
 })
 export class ApiService {
 
-        // SERVER_URL: string = "https://savillsvmsapi.azurewebsites.net/api"; // STAGING IAT
-        // SERVER_URL: string = "http://savillsvmsapidev.azurewebsites.net/api"; // DEV
+        SERVER_URL: string = "https://savillsvmsapi.azurewebsites.net/api"; // STAGING IAT
+        //SERVER_URL: string = "http://savillsvmsapidev.azurewebsites.net/api"; // DEV
         //SERVER_URL: string = "https://localhost:44306/api"; // LOCAL
-        // SERVER_URL: string = "https://savillsuatvmsapp.azurewebsites.net/api"; // UAT savills server
-        SERVER_URL: string = "https://savillsvmslocalhost.azurewebsites.net/api";
+        //SERVER_URL: string = "https://savillsuatvmsapp.azurewebsites.net/api"; // UAT savills server
         
     
 

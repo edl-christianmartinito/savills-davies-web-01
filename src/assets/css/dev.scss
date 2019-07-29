@@ -5,53 +5,6 @@
 .nopad-l{ padding-left:0!important }
 .nopad-r{ padding-right:0!important }
 
-input[type=date] {
-    font-size: 13px;
-    &::-webkit-clear-button {
-        color: transparent;
-        font-size: 18px;
-        height: 30px;
-        position: relative;
-         font-size: 10px
-        // right: 5px;
-        // margin-right: 4px;
-    }
-    &::-webkit-inner-spin-button {
-        height: 20px;
-        color: transparent;
-    }
-    &::-webkit-calendar-picker-indicator {
-        right: -5px;
-        margin-right: -4px;
-        font-size: 18px;
-        font-size: 10px;
-        &:hover {
-            background-color: lighten(#2f2f2f,40%);
-            color: darken(#fff, 10%);
-            cursor: pointer;
-        }
-        &:active {
-            color: blue;
-        }
-    }
-}
-
-.settings .appbread h4.text-themecolor{
-    display:none!important;
-}
-
-.p-0-20{
-    padding: 0 20px;
-}
-// input[value=""]::-webkit-datetime-edit{ color: transparent; }
-// input:focus::-webkit-datetime-edit{ color: #000; }
-
-// ::-webkit-datetime-edit-year-field:not([aria-valuenow]),
-// ::-webkit-datetime-edit-month-field:not([aria-valuenow]),
-// ::-webkit-datetime-edit-day-field:not([aria-valuenow]) {
-//     color: transparent;
-// }
-
 .test{
     background:red;
 }
@@ -89,9 +42,6 @@ input[type=date] {
 }
 .wid-25{
     width: 25px;
-}
-.pad-l-0{
-    padding-left: 0
 }
 
 .modal_scroll{

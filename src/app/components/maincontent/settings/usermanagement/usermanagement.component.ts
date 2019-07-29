@@ -272,7 +272,7 @@ export class UsermanagementComponent implements OnInit, OnDestroy {
     
             this.message = 'Successfully updated!';
     
-            $('#myTable').DataTable().clear().draw();
+            $('#tblusermanagement').DataTable().clear().draw();
     
             } else {
             this.message = 'Update failed!';

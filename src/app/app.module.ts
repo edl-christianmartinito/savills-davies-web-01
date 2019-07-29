@@ -37,7 +37,7 @@ import { HttpServiceHelper } from './common/HttpServiceHelper';
 //api://259e1e45-d02d-4758-96e5-34c33b9c2712/user.read
 //https://edlwebapitester.azurewebsites.net/api
 
-// IAT
+
 export const protectedResourceMap: [string, string[]][] = [
 
     ['https://edlwebapitester.azurewebsites.net/api', ['api://259e1e45-d02d-4758-96e5-34c33b9c2712/user.read']],
@@ -45,19 +45,20 @@ export const protectedResourceMap: [string, string[]][] = [
 
 ];
 
+/* UAT
 
-// export const protectedResourceMap: [string, string[]][] = [
+export const protectedResourceMap: [string, string[]][] = [
 
-//     ['https://edlwebapitester.azurewebsites.net/api', ['https://savills.onmicrosoft.com/d556084e-d976-4ec8-8831-997c4affb31c/user.read']],
-//     ['https://graph.microsoft.com/v1.0/me', ['user.read']]
+    ['https://edlwebapitester.azurewebsites.net/api', ['https://savills.onmicrosoft.com/d556084e-d976-4ec8-8831-997c4affb31c/user.read']],
+    ['https://graph.microsoft.com/v1.0/me', ['user.read']]
 
-// ];
+];
 
-
+*/
 
 // WEB SERVERS
-           var server = 'http://localhost:4200/'; // LOCAL SERVER
-        // var server = 'https://edlwebapitester.azurewebsites.net/'; // IAT
+       //     var server = 'http://localhost:4200/'; // LOCAL SERVER
+        var server = 'https://edlwebapitester.azurewebsites.net/'; // IAT
         // var server = 'https://savillsuatvmsweb.azurewebsites.net/'; //UAT 
     
 
@@ -84,8 +85,8 @@ export const protectedResourceMap: [string, string[]][] = [
         MDBBootstrapModule.forRoot(),
         HttpClientModule,
         MsalModule.forRoot({
-           clientID: '259e1e45-d02d-4758-96e5-34c33b9c2712', // IAT
-            // clientID: 'd556084e-d976-4ec8-8831-997c4affb31c', // UAT
+           //clientID: '259e1e45-d02d-4758-96e5-34c33b9c2712', // IAT
+            clientID: 'd556084e-d976-4ec8-8831-997c4affb31c', // UAT
             authority: 'https://login.microsoftonline.com/organizations/',
             validateAuthority: true,
             redirectUri: server,
@@ -95,8 +96,8 @@ export const protectedResourceMap: [string, string[]][] = [
             //  postLogoutRedirectUri: 'https://edlwebapitester.azurewebsites.net/',
             navigateToLoginRequestUrl: true,
             popUp: false,
-           consentScopes: ['user.read', 'api://259e1e45-d02d-4758-96e5-34c33b9c2712/user.read'], // IAT
-        //    consentScopes: ['user.read', 'https://savills.onmicrosoft.com/d556084e-d976-4ec8-8831-997c4affb31c/user.read','user_impersonation','https://savills.onmicrosoft.com/d556084e-d976-4ec8-8831-997c4affb31c/user_impersonation'],
+           //consentScopes: ['user.read', 'api://259e1e45-d02d-4758-96e5-34c33b9c2712/user.read'], // IAT
+           consentScopes: ['user.read', 'https://savills.onmicrosoft.com/d556084e-d976-4ec8-8831-997c4affb31c/user.read','user_impersonation','https://savills.onmicrosoft.com/d556084e-d976-4ec8-8831-997c4affb31c/user_impersonation'],
            //consentScopes: ['user.read', 'https://savills.onmicrosoft.com/d556084e-d976-4ec8-8831-997c4affb31c/user.read'],
             unprotectedResources: ['https://www.microsoft.com/en-us/'],
             protectedResourceMap: protectedResourceMap,

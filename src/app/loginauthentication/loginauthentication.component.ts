@@ -53,8 +53,8 @@ export class LoginauthenticationComponent implements OnInit {
 
   login()
   {
-   this.authService.loginPopup(["user.read","api://259e1e45-d02d-4758-96e5-34c33b9c2712/user.read"]); // IAT
-  //  this.authService.loginPopup(["user.read","https://savills.onmicrosoft.com/d556084e-d976-4ec8-8831-997c4affb31c/user.read"]); // UAT
+    this.authService.loginPopup(["user.read","api://259e1e45-d02d-4758-96e5-34c33b9c2712/user.read"]); // IAT
+    //this.authService.loginPopup(["user.read","https://savills.onmicrosoft.com/d556084e-d976-4ec8-8831-997c4affb31c/user.read"]); // UAT
   }
   ngOnDestroy() {
     this.broadcastService.getMSALSubject().next(1);
