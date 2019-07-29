@@ -1,0 +1,1691 @@
+<app-breadcrumbs [pagetitle]="pageTitle"></app-breadcrumbs>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <form class="form-horizontal" name="form_newvalidation" #f_newval="ngForm" novalidate>
+                <div class="card-body nopad">
+                    <div id="topbutton">
+                        <button class="btn btn-danger btn-sm fL bcolor-blue" type="button"><i class="fa fa-refresh"></i> Refresh </button>
+                        <button class="btn btn-danger btn-sm fL bcolor-green" type="submit"><i class="fa fa-save"></i> Save </button>
+                    </div>
+                    <!--<h4 class="card-title">Default Tab</h4>
+                    <h6 class="card-subtitle">Use default tab with class <code>nav-tabs &amp; tabcontent-border </code></h6>-->
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist" id="valuationTab">
+                        <li class="nav-item">
+                            <a class="nav-link active show" data-toggle="tab" href="#section-valuation" role="tab" aria-selected="false">
+                                <span class="hidden-xs-down">Main</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " data-toggle="tab" href="#profile" role="tab" aria-selected="true">
+                                <span class="hidden-xs-down">COI</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#messages" role="tab" aria-selected="false">
+                                <span class="hidden-xs-down">Documents</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#messages4" role="tab" aria-selected="false">
+                                <span class="hidden-xs-down">Invoice</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#messages5" role="tab" aria-selected="false">
+                                <span class="hidden-xs-down">Log</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content tabcontent-border">
+                        <div class="tab-pane active show" id="section-valuation" role="tabpanel">
+                            <div class="p-40">
+                                <!-- <form class="form"> -->
+                                    <!-- <div fullpage id="fullpage" [options]="config" (ref)="getRef($event)"> -->
+                                    <div id="fullpage">
+                                        <nav id="cd-vertical-nav">
+                                            <ul>
+                                                <li>
+                                                    <a href="#section1" data-number="1">
+                                                        <span class="cd-dot"></span>
+                                                        <span class="cd-label">Top</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#section2" data-number="2">
+                                                        <span class="cd-dot"></span>
+                                                        <span class="cd-label">Property Address</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#section3" data-number="3">
+                                                        <span class="cd-dot"></span>
+                                                        <span class="cd-label">Property Details</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#section4" data-number="4">
+                                                        <span class="cd-dot"></span>
+                                                        <span class="cd-label">Client Details</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#section5" data-number="5">
+                                                        <span class="cd-dot"></span>
+                                                        <span class="cd-label">Property Values</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#section6" data-number="6">
+                                                        <span class="cd-dot"></span>
+                                                        <span class="cd-label">Related Indication</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#section7" data-number="7">
+                                                        <span class="cd-dot"></span>
+                                                        <span class="cd-label">Job Information</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#section8" data-number="8">
+                                                        <span class="cd-dot"></span>
+                                                        <span class="cd-label">Remarks</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+
+                                        <div id="section1"  class="section cd-section">
+                                            <div class="form-group m-t-4 row">
+                                                <div class="col-md-4">
+                                                    <label for="">Status</label>
+                                                    <p class="col-form-label">New</p>
+                                                    <!-- <ul class="status">
+                                                        <li><a href="" class="col-form-label">New</a><span> | </span></li>
+                                                        <li><a href="">Assigned</a><span> | </span></li>
+                                                        <li><a href="">Completed</a><span> | </span></li>
+                                                        <li><a href="">Cancelled</a></li>
+                                                    </ul> -->
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="form-group-row col-md-4">
+                                                    <label for="">Administrator <span class="color-red">*</span></label>
+                                                    <select 
+                                                        class="custom-select col-12" 
+                                                        id="new_val_administrator"
+                                                        name="new_val_administrator"
+                                                        [(ngModel)]="model_nv.new_val_administrator"
+                                                        #new_val_administrator="ngModel"
+                                                        [ngClass]="{'is-invalid':f_newval.submitted && new_val_administrator.invalid}"
+                                                        required
+                                                    >
+                                                        <option selected="">Choose...</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                    <div class="clearfix"></div>
+                                                    <div class="invalid-feedback">
+                                                        <div>This field is required</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="" class="fR identy">ID: 1</label>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            
+                                            <div class="form-group m-t-4 row">
+                                                <div class="form-group-box col-md-4">
+                                                    <label for="">Request Date <span class="color-red">*</span></label>
+                                                    <div class="clearfix"></div>
+                                                    <input 
+                                                        type="date" 
+                                                        class="form-control col-form-label fL col-12" 
+                                                        value="02-Feb-2019" 
+                                                        id="new_val_requestdate"
+                                                        name="new_val_requestdate"
+                                                        [(ngModel)]="model_nv.new_val_requestdate"
+                                                        #new_val_requestdate="ngModel"
+                                                        [ngClass]="{'is-invalid':f_newval.submitted && new_val_requestdate.invalid}"
+                                                        required
+                                                    >
+                                                    <!-- <label class="col-4 col-form-label fL"><i class="fa fa-calendar"></i></label> -->
+                                                    <div class="clearfix"></div>
+                                                    <div class="invalid-feedback">
+                                                        <div>This field is required</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="">Taken By</label>
+                                                    <select class="custom-select col-12" id="inlineFormCustomSelect">
+                                                        <option selected="">Peter Tan</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="">Supervisor</label>
+                                                    <select class="custom-select col-12" id="inlineFormCustomSelect">
+                                                        <option selected="">Peter Tan</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+
+                                            <div class="form-group m-t-4 row">
+                                                <div class="form-group-box col-md-4">
+                                                    <label for="">Expected Completion Date <span class="color-red">*</span></label>
+                                                    <div class="clearfix"></div>
+                                                    <input 
+                                                        type="date" 
+                                                        class="form-control col-form-label fL col-12" 
+                                                        value="12-Feb-2019" 
+                                                        id="new_val_expecteddate"
+                                                        name="new_val_expecteddate"
+                                                        [(ngModel)]="model_nv.new_val_expecteddate"
+                                                        #new_val_expecteddate="ngModel"
+                                                        [ngClass]="{'is-invalid':f_newval.submitted && new_val_expecteddate.invalid}"
+                                                        required
+                                                    >
+                                                    <!-- <label class="col-4 col-form-label fL"><i class="fa fa-calendar"></i></label> -->
+                                                    <!-- <input class="form-control" type="date" value="2011-08-19" id="example-date-input"> -->
+                                                    <div class="clearfix"></div>
+                                                    <div class="invalid-feedback">
+                                                        <div>This field is required</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="">Valuer</label>
+                                                    <select class="custom-select col-12" id="inlineFormCustomSelect">
+                                                        <option selected="">Cindy Lim</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group-box col-md-4">
+                                                    <label for="">Assignor <span class="color-red">*</span></label>
+                                                    <select 
+                                                        class="custom-select col-12"
+                                                        id="new_val_assignor"
+                                                        name="new_val_assignor"
+                                                        [(ngModel)]="model_nv.new_val_assignor"
+                                                        #new_val_assignor="ngModel"
+                                                        [ngClass]="{'is-invalid':f_newval.submitted && new_val_assignor.invalid}"
+                                                        required
+                                                    >
+                                                        <option selected="">Cindy Lim</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                    <div class="clearfix"></div>
+                                                    <div class="invalid-feedback">
+                                                        <div>This field is required</div>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+
+                                            <div class="form-group m-t-4 row">
+                                                <div class="col-md-4">
+                                                    <label for="">Valuation Date </label>
+                                                    <!-- <input class="form-control" type="date" value="2011-08-19" id="example-date-input"> -->
+                                                    <div class="clearfix"></div>
+                                                    <input type="date" class="form-control col-form-label fL col-12" value="2011-08-19" id="example-date-input">
+                                                    <!-- <label class="col-4 col-form-label fL"><i class="fa fa-calendar"></i></label> -->
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="">Valuation Type <span class="color-red">*</span></label>
+                                                    <select 
+                                                        class="custom-select col-12" 
+                                                        id="new_val_valtype"
+                                                        name="new_val_valtype"
+                                                        [(ngModel)]="model_nv.new_val_valtype"
+                                                        #new_val_valtype="ngModel"
+                                                        [ngClass]="{'is-invalid':f_newval.submitted && new_val_valtype.invalid}"
+                                                        required
+                                                    >
+                                                        <option selected="">market Value.</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                    <div class="clearfix"></div>
+                                                    <div class="invalid-feedback">
+                                                        <div>This field is required</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="">Valuation Ref. No.</label>
+                                                    <p class="col-form-label">2019 / 2065 / DBS</p>
+                                                    
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+
+                                            <div class="form-group m-t-4 row">
+                                                <div class="col-md-4">
+                                                    <label for="">Actual Completion Date </label>
+                                                    <!-- <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                                                    <div class="clearfix"></div> -->
+                                                    <div class="clearfix"></div>
+                                                    <input type="date" class="form-control col-form-label fL col-12" value="2011-08-19" id="example-date-input">
+                                                    <!-- <label class="col-4 col-form-label fL"><i class="fa fa-calendar"></i></label> -->
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <label for="">Other Currency</label>
+                                                            <select class="custom-select " id="inlineFormCustomSelect">
+                                                                <option selected="">MYR</option>
+                                                                <option value="1">One</option>
+                                                                <option value="2">Two</option>
+                                                                <option value="3">Three</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <label for="">Other Currency</label>
+                                                            <input class="form-control" type="text" value="0.33" id="example-date-input">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="">Created On</label>
+                                                    <p class="col-form-label">02-Mar-18 03:45 pm GMT +8</p>
+                                                    
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            
+                                            <div class="form-group m-t-4 row">
+                                                <div class="col-md-4">
+                                                    <p class="col-form-label"><i class="fa fa-info-circle"></i> LOI LINK: <i class="fa fa-link"></i> LOI Folder</p>
+                                                    
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <button class="btn btn-primary btn-sm fL" type="button"><i class="fa fa-plus-circle"></i> Set </button>
+                                                    <p class="col-form-label"> 02-Mar-18 03:56pm GMT +8</p>
+                                                </div>
+                                                <div class="col-md-4">
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                        <br><hr>
+                                        <!-- end of section row -->
+                                        <div id="section2" class="section cd-section">
+                                            <h3>Property Address</h3>
+                                            <div class="form-group m-t-4 row">
+                                            <div class="col-md-6">
+                                                <button class="btn btn-primary btn-sm fL" type="button" (click)="open(mymodalnewvaluation)"><i class="fa fa-plus-circle"></i> Property </button>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <button class="btn btn-danger btn-sm fR bcolor-green" type="button" (click)="openXL(mymodalsearchindication)"><i class="fa fa-search"></i> Search Past
+                                                    Indication</button>
+                                            </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+
+                                            <table datatable id="myTable" class="table table-bordered table-striped dataTable no-footer text-center" role="grid"
+                                                aria-describedby="myTable_info">
+                                                <thead>
+                                                    <tr role="row">
+                                                        <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="ascending"
+                                                            aria-label="Name: activate to sort column descending" style="width: 38px;">Property Name</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                            aria-label="Position: activate to sort column ascending" style="width: 65px;">Blk</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                                aria-label="Age: activate to sort column ascending" style="width: 64px;">Unit No.</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                            aria-label="Office: activate to sort column ascending" style="width: 127px;">Street Name</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                            aria-label="Start date: activate to sort column ascending" style="width: 118px;">Postal Code</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">Old Postal Code</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">ID</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr role="row" class="odd">
+                                                        <td class="sorting_1">Parkway Parade</td>
+                                                        <td>80</td>
+                                                        <td>#0-01</td>
+                                                        <td>Marine Parade Road</td>
+                                                        <td>449269</td>  
+                                                        <td>1544</td>
+                                                        <td>24</td>
+                                                        <td class="">
+                                                            <div class="centerbuttons row p-10">
+                                                                <button class="btn btn-info btn-sm col-5 fL" type="button"><i class="fa fa-edit"></i></button>
+                                                                <button class="btn btn-info btn-sm col-5 fL" type="button"><i class="fa fa-trash"></i></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="clearfix"></div>
+                                            
+                                            <br>
+                                            <p class="col-form-label">Including these other blks / units</p>
+                                            <input type="text" class="form-control" value="#01-02, #01-03">
+                                        </div>
+                                        <br><hr>
+                                        <!-- end of seciton 2 -->
+                                        <div id="section3" class="section cd-section">
+                                            <h3>Property Details</h3>
+                                            <div class="clearfix"></div>
+                                            <div class="form-group m-t-4 row">
+                                            
+                                                <div class="col-md-8">
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            <label for="">Tenure</label>
+                                                            <div class="clearfix"></div>
+                                                            <select class="custom-select col-12" id="inlineFormCustomSelect">
+                                                                <option selected="">Leasehold</option>
+                                                                <option value="1">One</option>
+                                                                <option value="2">Two</option>
+                                                                <option value="3">Three</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <label for="">No. Of Yrs</label>
+                                                            <div class="clearfix"></div>
+                                                            <select class="custom-select col-12" id="inlineFormCustomSelect">
+                                                                <option selected="">99 (# only)</option>
+                                                                <option value="1">One</option>
+                                                                <option value="2">Two</option>
+                                                                <option value="3">Three</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <label for="">Commencement Date</label>
+                                                            <div class="clearfix"></div>
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <select class="custom-select col-12" id="inlineFormCustomSelect">
+                                                                        <option selected="">DD</option>
+                                                                        <option value="1">One</option>
+                                                                        <option value="2">Two</option>
+                                                                        <option value="3">Three</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <select class="custom-select col-12" id="inlineFormCustomSelect">
+                                                                        <option selected="">MM</option>
+                                                                        <option value="1">One</option>
+                                                                        <option value="2">Two</option>
+                                                                        <option value="3">Three</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <select class="custom-select col-12" id="inlineFormCustomSelect">
+                                                                        <option selected="">YY</option>
+                                                                        <option value="1">One</option>
+                                                                        <option value="2">Two</option>
+                                                                        <option value="3">Three</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                            
+                                                        </div>
+                                            
+                                                    </div>
+                                            
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="">Property Type</label>
+                                                    <div class="clearfix"></div>
+                                                    <select class="custom-select col-12" id="inlineFormCustomSelect">
+                                                        <option selected="">Apartment (APT)</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="form-group m-t-4 row">
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label for="">Lot # </label>
+                                                            <input type="text" class="form-control col-form-label" value="">
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label for="">MK /TS </label>
+                                                            <input type="text" class="form-control col-form-label" value="">
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <div class="col-md-7">
+                                                            <label for="">Condition </label>
+                                                            <select class="custom-select " id="inlineFormCustomSelect">
+                                                                <option selected="">Choose...</option>
+                                                                <option value="1">One</option>
+                                                                <option value="2">Two</option>
+                                                                <option value="3">Three</option>
+                                                            </select>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                            <label for="">Age / TOP </label>
+                                                            <select class="custom-select " id="inlineFormCustomSelect">
+                                                                <option selected="">Choose...</option>
+                                                                <option value="1">One</option>
+                                                                <option value="2">Two</option>
+                                                                <option value="3">Three</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                        
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group m-t-4 row">
+                                                <div class="col-md-3">
+                                                    <label for="">Land Area </label>
+                                                    <div class="clearix"></div>
+                                                    <input type="text" class="form-control col-form-label fL col-8" >
+                                                    <label class="col-4 col-form-label fL">sq.m</label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for=""> </label>
+                                                    <div class="clearix"></div>
+                                                    <input type="text" class="form-control col-form-label fL col-8">
+                                                    <label class="col-4 col-form-label fL">sq.ft</label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="">Floor Area </label>
+                                                    <div class="clearix"></div>
+                                                    <input type="text" class="form-control col-form-label fL col-8">
+                                                    <label class="col-4 col-form-label fL">sq.m</label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for=""> </label>
+                                                    <div class="clearix"></div>
+                                                    <input type="text" class="form-control col-form-label fL col-8">
+                                                    <label class="col-4 col-form-label fL">sq.ft</label>
+                                                </div>
+                                                
+                                            </div>
+
+                                            <div class="form-group m-t-4 row">
+                                                <div class="col-md-12">
+                                                    <label for="">Remarks</label>
+                                                    <textarea class="form-control" name="" id="" cols="30" rows="5"></textarea>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                        <br><hr>
+                                        <!-- end of section 3  -->
+                                        <div id="section4" class="section cd-section">
+                                            <h3>Client Details</h3>
+                                            <div class="clearfix"></div>
+                                            <div class="form-group m-t-4 row">
+                                                <div class="form-group-row col-md-4">
+                                                    <label for="">Company Name <span class="color-red">*</span></label>
+                                                    <div class="clearix"></div>
+                                                    <select 
+                                                        class="custom-select fL col-8" 
+                                                        id="new_val_companyname"
+                                                        name="new_val_companyname"
+                                                        [(ngModel)]="model_nv.new_val_companyname"
+                                                        #new_val_companyname="ngModel"
+                                                        [ngClass]="{'is-invalid':f_newval.submitted && new_val_companyname.invalid}"
+                                                        required
+                                                    >
+                                                        <option selected="">Choose...</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                    
+                                                    <p class="col-4 col-form-label fL color-blue" (click)="openXL(mymodalmyModal_addcompanyvaluationn)"> <i class="fa fa-plus"></i></p>
+                                                    <div class="clearfix"></div>
+                                                    <div class="invalid-feedback">
+                                                        <div>This field is required</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="">Company Category </label>
+                                                    <div class="clearix"></div>
+                                                    <p class="col-4 col-form-label fL">Bank </p>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="">Company Code </label>
+                                                    <div class="clearix"></div>
+                                                    <p class="col-4 col-form-label fL">Bank </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group m-t-4 row">
+                                                <div class="form-group-row col-md-4">
+                                                    <label for="">Client Name <span class="color-red">*</span></label>
+                                                    <div class="clearix"></div>
+                                                    <select 
+                                                        class="custom-select fL col-8"
+                                                        id="new_val_clientname"
+                                                        name="new_val_clientname"
+                                                        [(ngModel)]="model_nv.new_val_clientname"
+                                                        #new_val_clientname="ngModel"
+                                                        [ngClass]="{'is-invalid':f_newval.submitted && new_val_clientname.invalid}"
+                                                        required
+                                                    >
+                                                        <option selected="">Choose...</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                
+                                                    <p class="col-4 col-form-label fL color-blue" (click)="openXL(mymodalmyModal_addclientcontact)"> <i class="fa fa-plus"></i></p>
+                                                    <div class="clearfix"></div>
+                                                    <div class="invalid-feedback">
+                                                        <div>This field is required</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="">Email</label>
+                                                    <div class="clearix"></div>
+                                                    <input type="text" class="form-control col-form-label " value="jess.cheng@sif.com.sg">
+                                                </div>
+                                                <div class="form-group-box col-md-4">
+                                                    <label for="">Phone 1 <span class="color-red">*</span></label>
+                                                    <div class="clearix"></div>
+                                                    <input 
+                                                        type="text" 
+                                                        class="form-control col-form-label " 
+                                                        value="9823 2423"
+                                                        id="new_val_phone1"
+                                                        name="new_val_phone1"
+                                                        [(ngModel)]="model_nv.new_val_phone1"
+                                                        #new_val_phone1="ngModel"
+                                                        [ngClass]="{'is-invalid':f_newval.submitted && new_val_phone1.invalid}"
+                                                        required
+                                                    >
+                                                    <div class="clearfix"></div>
+                                                    <div class="invalid-feedback">
+                                                        <div>This field is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group m-t-4 row">
+                                                <div class="col-md-3">
+                                                    <label for="">Property Classification </label>
+                                                    <div class="clearix"></div>
+                                                    <select class="custom-select " id="inlineFormCustomSelect">
+                                                        <option selected="">Choose...</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="">Client Ref Number:</label>
+                                                    <div class="clearix"></div>
+                                                    <input type="text" class="form-control col-form-label " value="">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="">Applicant Name </label>
+                                                    <div class="clearix"></div>
+                                                    <input type="text" class="form-control col-form-label " value="">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="">Applicant Phone No. </label>
+                                                    <div class="clearix"></div>
+                                                    <input type="text" class="form-control col-form-label " value="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br><hr>
+                                        <!-- end of section 4 -->
+                                        <div id="section5" class="section cd-section">
+                                            <h3>Property Values</h3>
+                                            <div class="clearfix"></div>
+                                            <div class="form-group m-t-4 row">
+                                                <div class="col-md-3">
+                                                    <!-- <label class="col-3 col-form-label fL"></label> -->
+                                                    <label for="" class="col-form-label  col-9 nopad-l">Market Value $ ( Home Currency ) </label>
+                                                    <div class="clearix"></div>
+                                                    <label class="col-3 col-form-label fL">SGD</label>
+                                                    <input type="text" class="form-control col-form-label  col-9" value="">
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <!-- <label class="col-3 col-form-label fL"></label> -->
+                                                    <label for="" class="col-form-label  col-9 nopad-l">$ ( Other Currency ) </label>
+                                                    <div class="clearix"></div>
+                                                    <label class="col-3 col-form-label fL">MYR</label>
+                                                    <input type="text" class="form-control col-form-label col-9" value="">
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label for="">FSV $</label>
+                                                    <div class="clearix"></div>
+                                                    <input type="text" class="form-control col-form-label " value="">
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label for="">FIRV $</label>
+                                                    <div class="clearix"></div>
+                                                    <input type="text" class="form-control col-form-label " value="">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group m-t-4 row">
+                                                <div class="col-md-3">
+                                                    <label for="">FIRV Rate $</label>
+                                                    <div class="clearix"></div>
+                                                    <input type="text" class="form-control col-form-label fL col-8">
+                                                    <label class="col-4 col-form-label fL">PSM</label>
+                                                </div>
+                                            
+                                                <div class="col-md-3">
+                                                    <label for=""></label>
+                                                    <div class="clearix"></div>
+                                                    <input type="text" class="form-control col-form-label fL col-8">
+                                                    <label class="col-4 col-form-label fL">PSF</label>
+                                                </div>
+                                            
+                                                <div class="col-md-3">
+                                                    <label for="">Land Rate $</label>
+                                                    <div class="clearix"></div>
+                                                    <input type="text" class="form-control col-form-label fL col-8">
+                                                    <label class="col-4 col-form-label fL">PSM</label>
+                                                </div>
+                                            
+                                                <div class="col-md-3">
+                                                    <label for=""></label>
+                                                    <div class="clearix"></div>
+                                                    <input type="text" class="form-control col-form-label fL col-8">
+                                                    <label class="col-4 col-form-label fL">PSF</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group m-t-4 row">
+                                                <div class="col-md-3">
+                                                    <label for="">Floor Rate $</label>
+                                                    <div class="clearix"></div>
+                                                    <input type="text" class="form-control col-form-label fL col-8">
+                                                    <label class="col-4 col-form-label fL">PSM</label>
+                                                </div>
+                                            
+                                                <div class="col-md-3">
+                                                    <label for=""></label>
+                                                    <div class="clearix"></div>
+                                                    <input type="text" class="form-control col-form-label fL col-8">
+                                                    <label class="col-4 col-form-label fL">PSF</label>
+                                                </div>
+                                            
+                                                <div class="col-md-3">
+                                                    <label for="">Rental Amount $</label>
+                                                    <div class="clearix"></div>
+                                                    <input type="text" class="form-control col-form-label fL col-8">
+                                                    <label class="col-4 col-form-label fL"></label>
+                                                </div>
+                                            
+                                                <div class="col-md-3">
+                                                    <label for="">Rental Rate $</label>
+                                                    <div class="clearix"></div>
+                                                    <input type="text" class="form-control col-form-label fL col-8">
+                                                    <label class="col-4 col-form-label fL">PSF</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group m-t-4 row">
+                                                <div class="col-md-4">
+                                                    <label for="">Occupancy</label>
+                                                    <div class="clearix"></div>
+                                                    <select class="custom-select " id="inlineFormCustomSelect">
+                                                        <option selected="">Select</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="">Lease Commencement</label>
+                                                    <div class="clearix"></div>
+                                                    <input type="date" class="form-control col-form-label fL col-12" value="15-jan-2018">
+                                                    <!-- <label class="col-2 col-form-label fL"><i class="fa fa-calendar"></i></label> -->
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="">Lease Expiry</label>
+                                                    <div class="clearix"></div>
+                                                    <input type="date" class="form-control col-form-label fL col-12" value="15-jan-2018">
+                                                    <!-- <label class="col-2 col-form-label fL"><i class="fa fa-calendar"></i></label> -->
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <br><hr>
+                                        <!-- end of section 5 -->
+                                        <div id="section6" class="section cd-section">
+                                            <h3>Related Indication</h3>
+                                            <div class="clearfix"></div>
+                                            <div class="form-group m-t-4 row">
+                                                <div class="col-md-6">
+                                                    <label for="">Indication Value $ ( Home Currency )</label>
+                                                    <div class="clearix"></div>
+                                                    <label class="col-form-label m-r-10 fL">SGD</label>
+                                                    <input type="text" class="form-control col-form-label col-5 fL" value="850,000" disabled>
+                                                    <span class="col-1 fL text-center"> - </span>
+                                                    <input type="text" class="form-control col-form-label col-4 fL" value="850,000" disabled>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="col-8 fL">
+                                                        <label for="">Indication Date</label>
+                                                        <div class="clearix"></div>
+                                                        <input type="date" class="form-control col-form-label fL col-112" value="15-jan-2018" disabled>
+                                                        <!-- <label class="col-2 col-form-label fL"><i class="fa fa-calendar"></i></label> -->
+                                                    </div>
+                                                    <div class="col-4 fL">
+                                                        <label for=""></label>
+                                                        <div class="clearix"></div>
+                                                        <button  class="btn btn-primary btn-sm fL" type="button"><i class="fa fa-search"></i> Search Related Indication </button>
+                                                    
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="col-md-12 p-15">
+                                                    <div class="custom-control custom-radio fL m-r-20">
+                                                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                                                        <label class="custom-control-label" for="customRadio1">Low</label>
+                                                    </div>
+                                                    <div class="custom-control custom-radio fL m-r-20">
+                                                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                                                        <label class="custom-control-label" for="customRadio1">Fair</label>
+                                                    </div>
+                                                    <div class="custom-control custom-radio fL m-r-20">
+                                                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                                                        <label class="custom-control-label" for="customRadio1">High</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group m-t-4 row">
+                                                <div class="col-md-4">
+                                                    <label for="">Client Name </label>
+                                                    <div class="clearix"></div>
+                                                    <input type="date" class="form-control col-form-label " value="Jess Cheng" disabled>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="">Company Name </label>
+                                                    <div class="clearix"></div>
+                                                    <select class="custom-select " id="inlineFormCustomSelect" disabled>
+                                                        <option selected="">Sing Investments & Finance Ptee Ltd</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="">Valuer </label>
+                                                    <div class="clearix"></div>
+                                                    <select class="custom-select " id="inlineFormCustomSelect" disabled>
+                                                        <option selected="">Peter Tan</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group m-t-4 row">
+                                                <div class="col-md-12">
+                                                    <table datatable id="myTable2" class="table table-bordered table-striped dataTable no-footer" role="grid"
+                                                        aria-describedby="myTable_info">
+                                                        <thead>
+                                                            <tr role="row">
+                                                                <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="ascending"
+                                                                    aria-label="Name: activate to sort column descending" style="width: 38px;">Property Name</th>
+                                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                                    aria-label="Position: activate to sort column ascending" style="width: 65px;">Blk</th>
+                                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                                        aria-label="Age: activate to sort column ascending" style="width: 64px;">Unit No.</th>
+                                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                                    aria-label="Office: activate to sort column ascending" style="width: 127px;">Street Name</th>
+                                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                                    aria-label="Start date: activate to sort column ascending" style="width: 118px;">Postal Code</th>
+                                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                                    aria-label="Salary: activate to sort column ascending" style="width: 92px;">Old Postal Code</th>
+
+                                                            </tr>
+                                                    
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr role="row" class="odd">
+                                                                <td class="sorting_1">Parkway Parade</td>
+                                                                <td>80</td>
+                                                                <td>#0-01</td>
+                                                                <td>Marine Parade Road</td>
+                                                                <td>449269</td>
+                                                                <td></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <br><hr>
+                                        <!-- end of section 6 -->
+                                        <div id="section7" class="section cd-section">
+                                            <h3>Job Information</h3>
+                                            <div class="clearfix"></div>
+                                            <div class="form-group m-t-4 row">
+                                                <div class="col-md-4">
+                                                    <label for="">First Contact Date </label>
+                                                    <div class="clearix"></div>
+                                                    <input type="date" class="form-control col-form-label fL col-12" value="" >
+                                                    <!-- <label class="col-2 col-form-label fL"><i class="fa fa-calendar"></i></label> -->
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="">Contact Date Person</label>
+                                                    <div class="clearix"></div>
+                                                    <input type="date" class="form-control col-form-label " value="" >
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="">Contact Number</label>
+                                                    <div class="clearix"></div>
+                                                    <select class="custom-select " id="inlineFormCustomSelect" >
+                                                        <option selected=""></option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group m-t-4 row">
+                                                <div class="col-md-4">
+                                                    <label for="">Inspection Arranged Date </label>
+                                                    <div class="clearix"></div>
+                                                    <input type="date" class="form-control col-form-label fL col-12" value="">
+                                                    <!-- <label class="col-2 col-form-label fL"><i class="fa fa-calendar"></i></label> -->
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="">Inspection Actual Date </label>
+                                                    <div class="clearix"></div>
+                                                    <input type="date" class="form-control col-form-label fL col-12" value="">
+                                                    <!-- <label class="col-2 col-form-label fL"><i class="fa fa-calendar"></i></label> -->
+                                                </div>
+                                                <div class="col-md-4">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group m-t-4 row">
+                                                <div class="col-md-4">
+                                                    <label for="">Report Sent Date </label>
+                                                    <div class="clearix"></div>
+                                                    <input type="date" class="form-control col-form-label fL col-12" value="">
+                                                    <!-- <label class="col-2 col-form-label fL"><i class="fa fa-calendar"></i></label> -->
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <label for="">Format</label>
+                                                    <div class="clearix"></div>
+                                                    <select class="custom-select " id="inlineFormCustomSelect">
+                                                        <option selected=""></option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <label for="">Delivery Type</label>
+                                                    <div class="clearix"></div>
+                                                    <select class="custom-select " id="inlineFormCustomSelect">
+                                                        <option selected=""></option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br><hr>
+                                        <!-- end of section 7 -->
+                                        <div id="section8" class="section cd-section">
+                                            <h3>Remarks</h3>
+                                            <div class="clearfix"></div>
+                                            <div class="form-group m-t-4 row">
+                                                <div class="col-md-12">
+                                                    <label for=""> Internal Remarks</label>
+                                                    <div class="clearfix"></div>
+                                                        <textarea class="form-control col-form-label fL" name="" id="" rows="5"></textarea>
+                                                    
+                                                    <br> <br>
+                                                
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-t-4 row">
+                                                <div class="col-md-12">
+                                                    <button class="btn btn-danger btn-sm fL" type="button"><i class="fa fa-close"></i> Cancel Valuation </button>
+                                                    <button class="btn btn-danger btn-sm fL bcolor-darkblue" type="button"><i class="fa fa-hand-paper-o"></i> On-hold /Restart </button>
+                                                    <button class="btn btn-danger btn-sm fL bcolor-darkblue" type="button"><i class="fa fa-check"></i> Complete Valuation</button>
+                                                    <button class="btn btn-danger btn-sm fL bcolor-darkblue" type="button"><i class="fa  fa-eye"></i> View Appendix</button>
+                                                    <button class="btn btn-danger btn-sm fL bcolor-blue" type="button"><i class="fa fa-refresh"></i> Refresh </button>
+                                                    <button class="btn btn-danger btn-sm fL bcolor-green" type="submit"><i class="fa fa-save"></i> Save </button>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            
+                                            </div>
+                                            
+                                        </div>
+
+                                        <div class="clearfix"></div>
+                                    </div>
+                                
+                                    <br>
+                                    <br>
+                                    <!-- end of section 8 -->
+
+                                <!-- </form> -->
+                                <!-- end of FORM  -->
+                                <div class="clearfix"></div>
+                            </div>
+                            <!-- end of p-4 -->
+                        </div>
+                        <div class="tab-pane p-20 " id="profile" role="tabpanel">2</div>
+                        <div class="tab-pane p-20" id="messages" role="tabpanel">3</div>
+                        <div class="tab-pane p-20" id="messages4" role="tabpanel">3</div>
+                        <div class="tab-pane p-20" id="messages5" role="tabpanel">3</div>
+                    </div>
+                </div>
+            </form>
+            <!--end of card body-->
+        </div>
+    </div>
+</div>
+
+<!-- ANGULAR MODAL NGBOOTSTRAP MODULE  newvaluation -->
+<ng-template id="myModal_newvaluation" #mymodalnewvaluation let-c="close" let-d="dismiss">
+    <form class="form-horizontal" name="form_mymodalnewvaluation" #f_modalnewvaluation="ngForm" novalidate>
+        <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Add Property</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body c_newvaluation">
+            <div class="p-30">
+                <div class="form-group m-t-4 row">
+                    <div class="form-group-row col-md-6">
+                        <label for="">Postal Code <span class="color-red">*</span></label>
+                        <div class="clearix"></div>
+                        <input 
+                            type="text" 
+                            class="form-control col-form-label " 
+                            value="449269"
+                            id="new_val_modal_postalcode"
+                            name="new_val_modal_postalcode"
+                            [(ngModel)]="model_modalnv.new_val_modal_postalcode"
+                            #new_val_modal_postalcode="ngModel"
+                            [ngClass]="{'is-invalid':f_modalnewvaluation.submitted && new_val_modal_postalcode.invalid}"
+                            required
+                        >
+                        <div class="clearfix"></div>
+                        <div class="invalid-feedback">
+                            <div>This field is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Old Code </label>
+                        <div class="clearix"></div>
+                        <input type="text" class="form-control col-form-label fL" value="1544">
+                    </div>
+                </div>
+
+                <div class="form-group m-t-4 row">
+                    <div class="col-md-12">
+                        <label for="">Property Name </label>
+                        <div class="clearix"></div>
+                        <input type="text" class="form-control col-form-label " value="Parkway Parade">
+                    </div>
+                </div>
+
+                <div class="form-group m-t-4 row">
+                    <div class="form-group-box col-md-4">
+                        <label for="">Blk / No.<span class="color-red">*</span></label>
+                        <div class="clearix"></div>
+                        <input 
+                            type="text" 
+                            class="form-control col-form-label " 
+                            value="80"
+                            id="new_val_modal_blk"
+                            name="new_val_modal_blk"
+                            [(ngModel)]="model_modalnv.new_val_modal_blk"
+                            #new_val_modal_blk="ngModel"
+                            [ngClass]="{'is-invalid':f_modalnewvaluation.submitted && new_val_modal_blk.invalid}"
+                            required
+                        >
+                        <div class="invalid-feedback">
+                            <div>This field is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="">Floor no.<span class="color-red">*</span></label>
+                        <div class="clearix"></div>
+                        <input type="text" class="form-control col-form-label " 
+                        
+                             (keypress)="onlyNumbers($event)"
+                            required>
+                        <div class="invalid-feedback">
+                            <div>This field is required</div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <label for="">Unit no.<span class="color-red">*</span></label>
+                        <div class="clearix"></div>
+                        <input type="text" class="form-control col-form-label " 
+                       
+                        (keypress)="onlyNumbers($event)"
+                            required>
+                        <div class="invalid-feedback">
+                            <div>This field is required</div>
+                        </div>
+                    </div>
+                    <!-- 
+                        [(ngModel)]="propertydata.floor_num"
+                            [ngClass]="{'is-invalid':formaddpropertysubmitted && !propertydata.floor_num}"
+                         [(ngModel)]="propertydata.unit_num"
+                        [ngClass]="{'is-invalid':formaddpropertysubmitted && !propertydata.unit_num}" 
+                        <div class="form-group-row col-md-8">
+                        <label for="">Street Name<span class="color-red">*</span></label>
+                        <div class="clearix"></div>
+                        <input 
+                            type="text" 
+                            class="form-control col-form-label " 
+                            value="Marine Parade road"
+                            id="new_val_modal_street"
+                            name="new_val_modal_street"
+                            [(ngModel)]="model_modalnv.new_val_modal_street"
+                            #new_val_modal_street="ngModel"
+                            [ngClass]="{'is-invalid':f_modalnewvaluation.submitted && new_val_modal_street.invalid}"
+                            required
+                        >
+                        <div class="invalid-feedback">
+                            <div>This field is required</div>
+                        </div>
+                    </div> -->
+                </div>
+
+                <div class="form-group m-t-4 row">
+                    <div class="form-group-row col-md-12">
+                        <label for="">Street Name<span class="color-red">*</span></label>
+                        <div class="clearix"></div>
+                        <input type="text" class="form-control col-form-label " value="Marine Parade road" id="new_val_modal_street"
+                            name="new_val_modal_street" [(ngModel)]="model_modalnv.new_val_modal_street" #new_val_modal_street="ngModel"
+                            [ngClass]="{'is-invalid':f_modalnewvaluation.submitted && new_val_modal_street.invalid}" required>
+                        <div class="invalid-feedback">
+                            <div>This field is required</div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-12">
+                        <label for="">Unit no.</label>
+                        <div class="clearix"></div>
+                        <input type="text" class="form-control col-form-label " value="#01-02">
+                    </div> -->
+                    
+                </div>
+
+                <!-- <div class="form-group m-t-4 row">
+                    <div class="col-md-6">
+                        <label for="">City</label>
+                        <div class="clearix"></div>
+                        <select class="custom-select " id="inlineFormCustomSelect" disabled="disabled">
+                            <option selected="">City</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">District</label>
+                        <div class="clearix"></div>
+                        <select class="custom-select " id="inlineFormCustomSelect" disabled="disabled">
+                            <option selected="">District</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                
+                </div>
+
+                <div class="form-group m-t-4 row">
+                    <div class="form-group-box col-md-12">
+                        <label for="">Country <span class="color-red">*</span></label>
+                        <div class="clearix"></div>
+                        <select 
+                            class="custom-select" 
+                            id="new_val_modal_country"
+                            name="new_val_modal_country"
+                            [(ngModel)]="model_modalnv.new_val_modal_country"
+                            #new_val_modal_country="ngModel"
+                            [ngClass]="{'is-invalid':f_modalnewvaluation.submitted && new_val_modal_country.invalid}"
+                            required
+                        >
+                            <option selected="">Singapore</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            <div>This field is required</div>
+                        </div>
+                    </div>
+                </div>  -->
+
+            </div>
+        
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary btn-sm" (click)="d('Cross click')"><i class="fa fa-plus-circle"></i> Back</button>
+            <button type="submit" class="btn btn-primary btn-sm" > Save </button>
+        </div>
+        <!-- {{f_modalnewvaluation.submitted | json}}
+        {{f_modalnewvaluation.valid | json}} -->
+    </form>
+</ng-template>
+
+<!-- ANGULAR MODAL NGBOOTSTRAP MODULE  searchindication -->
+<ng-template id="myModal_searchindication" #mymodalsearchindication let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Search Indication [Parkway Parade 80 East Coast Road] [Peter Tan]</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body c_newvaluation">
+        <div class="p-30">
+            <div class="form-group m-t-4 row">
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">Date From</label>
+                            <div class="clearfix"></div>
+                            <input type="date" class="form-control col-form-label fL col-12" value="02-Feb-2019"
+                                id="example-date-input">
+                            <!-- <label class="col-4 col-form-label fL"><i class="fa fa-calendar"></i></label> -->
+                        </div>
+                        <div class="col-6">
+                            <label for="">To</label>
+                            <div class="clearfix"></div>
+                            <input type="date" class="form-control col-form-label fL col-12" value="02-Feb-2019"
+                                id="example-date-input">
+                            <!-- <label class="col-4 col-form-label fL"><i class="fa fa-calendar"></i></label> -->
+                        </div>
+            
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="">Postal Code</label>
+                    <div class="clearfix"></div>
+                    <input type="text" class="form-control col-form-label fL " value="449269" id="example-date-input">
+                </div>
+                <div class="col-md-4">
+                    <label for="">Old Postal Code</label>
+                    <div class="clearfix"></div>
+                    <input type="text" class="form-control col-form-label fL " value="449269" id="example-date-input">
+                </div>
+            </div>
+            
+            <div class="form-group m-t-4 row">
+                <div class="col-md-4">
+                    <label for="">Property Name</label>
+                    <div class="clearfix"></div>
+                    <input type="text" class="form-control col-form-label " value="Parkway Parade" id="example-date-input">
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="">Blk / No <span class="color-red">*</span></label>
+                            <div class="clearfix"></div>
+                            <input type="text" class="form-control col-form-label " value="80" id="example-date-input">
+                        </div>
+                        <div class="col-4">
+                            <label for="">Floor <span class="color-red">*</span></label>
+                            <div class="clearfix"></div>
+                            <input type="number" class="form-control col-form-label " value="80" id="example-date-input">
+                        </div>
+                        <div class="col-4">
+                            <label for="">Unit no. <span class="color-red">*</span></label>
+                            <div class="clearfix"></div>
+                            <input type="text" class="form-control col-form-label " value="80" id="example-date-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="">Street Name</label>
+                    <div class="clearfix"></div>
+                    <input type="text" class="form-control col-form-label " value="Parkway Parade" id="example-date-input">
+                </div>
+            </div>
+            
+            <div class="form-group m-t-4 row">
+                <div class="col-md-4">
+                    <label for="">Company Name</label>
+                    <div class="clearfix"></div>
+                    <select class="custom-select fL col-12" id="inlineFormCustomSelect">
+                        <option selected="">Sing Investments & finance Pte Ltd</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="">Client Name <span class="color-red">*</span></label>
+                    <div class="clearfix"></div>
+                    <select class="custom-select fL col-12" id="inlineFormCustomSelect">
+                        <option selected="">Jess Cheng</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for=""></label>
+                    <div class="clearfix"></div>
+                    <button class="btn btn-danger btn-sm fR bcolor-green" type="button" (click)="openXL(mymodalsearchindication)"><i
+                            class="fa fa-search"></i> Search Past Indication</button>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <table datatable id="myTablesearch" class="table table-responsive table-bordered table-striped dataTable no-footer text-center" role="grid"
+                aria-describedby="myTable_info">
+                <thead>
+                    <tr role="row">
+                        <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="ascending"
+                            aria-label="Name: activate to sort column descending" style="width: 38px;">Select</th>
+                        <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="ascending"
+                            aria-label="Name: activate to sort column descending" style="width: 38px;">Indication Date</th>
+                        <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="ascending"
+                            aria-label="Name: activate to sort column descending" style="width: 38px;">Property Name</th>
+                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                            aria-label="Position: activate to sort column ascending" style="width: 65px;">Blk</th>
+                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                            aria-label="Age: activate to sort column ascending" style="width: 64px;">Unit No.</th>
+                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                            aria-label="Office: activate to sort column ascending" style="width: 127px;">Street Name</th>
+                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                            aria-label="Start date: activate to sort column ascending" style="width: 118px;">Postal </th>
+                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">Company</th>
+                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">Client Name</th>
+                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">Indication Value</th>
+                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                aria-label="Salary: activate to sort column ascending" style="width: 92px;">Valuer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr role="row" class="odd">
+                        <td class="sorting_1">
+                            <input type="radio" id="customRadio1" name="customRadio">
+                        </td>
+                        <td><p class="col-form-label">01-Feb-19 <br>09:10am GMT+8</p></td>
+                        <td>Parkway Parade</td>
+                        <td>80</td>
+                        <td>#0-01</td>
+                        <td>Marine Parade Road</td>
+                        <td>449269</td>
+                        <td><p class="col-form-label">Sing Investments and Finance Ptr LTd</p></td>
+                        <td>Jessie Lim</td>
+                        <td>$850,000</td>
+                        <td>Valuer</td> 
+                    </tr>
+                    <tr role="row" c>
+                        <td class="sorting_1">
+                            <input type="radio" id="customRadio1" name="customRadio">
+                        </td>
+                        <td>
+                            <p class="col-form-label">01-Feb-19 <br>09:10am GMT+8</p>
+                        </td>
+                        <td>Parkway Parade</td>
+                        <td>80</td>
+                        <td>#0-01</td>
+                        <td>Marine Parade Road</td>
+                        <td>449269</td>
+                        <td>
+                            <p class="col-form-label">Sing Investments and Finance Ptr LTd</p>
+                        </td>
+                        <td>Jessie Lim</td>
+                        <td>$850,000</td>
+                        <td>Valuer</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm" (click)="d('Cross click')"><i
+                class="fa fa-plus-circle"></i> Back</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="c('Save click')"> Save </button>
+    </div>
+</ng-template>
+
+<!-- CLIENT DETAILA POP UP -->
+<!-- ANGULAR MODAL NGBOOTSTRAP MODULE  newvaluation ADD COMPANY-->
+<ng-template id="myModal_addcompanyvaluation" #mymodalmyModal_addcompanyvaluationn let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Add Company</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body c_newvaluation">
+        <div class="p-30">
+            <div class="form-group m-t-4 row">
+                <div class="col-md-12">
+                   
+                    <label for="">Company Name <span class="color-red">*</span></label>
+                    <div class="clearfix"></div>
+                    <input type="text" class="form-control col-form-label fL " placeholder="" value="">
+                  
+                </div>
+            </div>
+            <div class="form-group m-t-4 row">
+                <div class="col-md-4">
+                    <label for="">Company Category <span class="color-red">*</span></label>
+                    <div class="clearfix"></div>
+                    <select class="custom-select fL" id="inlineFormCustomSelect">
+                        <option selected="">Bank</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="">Company Category <span class="color-red">*</span></label>
+                    <div class="clearfix"></div>
+                    <select class="custom-select fL" id="inlineFormCustomSelect">
+                        <option selected="">SIF</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">Finance Code</label>
+                            <div class="clearfix"></div>
+                            <p class="col-form-label">YYY</p>
+                        </div>
+                        <div class="col-6">
+                           <button class="btn btn-info btn-sm col-12 m-t-30"> Create</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group m-t-4 row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="">Blk / No <span class="color-red">*</span></label>
+                            <div class="clearfix"></div>
+                            <input type="text" class="form-control col-form-label fL " placeholder="" value="">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">Floor <span class="color-red">*</span></label>
+                            <div class="clearfix"></div>
+                            <input type="text" class="form-control col-form-label fL " placeholder="" value="">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">Unit No. <span class="color-red">*</span></label>
+                            <div class="clearfix"></div>
+                            <input type="text" class="form-control col-form-label fL " placeholder="" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="">Street Name <span class="color-red">*</span></label>
+                    <div class="clearfix"></div>
+                    <input type="text" class="form-control col-form-label fL " placeholder="" value="">
+                </div>
+            </div>
+
+            <div class="form-group m-t-4 row">
+                <div class="col-md-6">
+                    <label for="">City <span class="color-red">*</span></label>
+                    <div class="clearfix"></div>
+                    <select class="custom-select fL" id="inlineFormCustomSelect" disabled>
+                        <option selected="">City</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="">District <span class="color-red">*</span></label>
+                    <div class="clearfix"></div>
+                    <select class="custom-select fL" id="inlineFormCustomSelect" disabled>
+                        <option selected="">District</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group m-t-4 row">
+                <div class="col-md-6">
+                    <label for="">Country <span class="color-red">*</span></label>
+                    <div class="clearfix"></div>
+                    <select class="custom-select fL" id="inlineFormCustomSelect" disabled>
+                        <option selected="">Singapore</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="">Postal Code <span class="color-red">*</span></label>
+                    <div class="clearfix"></div>
+                    <input type="text" class="form-control col-form-label fL " placeholder="" value="">
+                </div>
+            </div>
+
+            <div class="form-group m-t-4 row">
+                <div class="col-md-6">
+                    <label for="">Phone No <span class="color-red">*</span></label>
+                    <div class="row">
+                        <div class="col-4">
+                            <select class="custom-select fL" id="inlineFormCustomSelect" >
+                                <option selected="">+ 65</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="form-control col-form-label fL " placeholder="" value="67867 9879">
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="col-md-6">
+                    <label for="">Fax <span class="color-red">*</span></label>
+                    <div class="row">
+                        <div class="col-4">
+                            <select class="custom-select fL" id="inlineFormCustomSelect" >
+                                <option selected="">+ 65</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="form-control col-form-label fL " placeholder="" value="67867 9879">
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="form-group m-t-4 row">
+                <div class="col-md-12">
+                    <label for="">Website <span class="color-red">*</span></label>
+                    <div class="clearfix"></div>
+                    <input type="text" class="form-control col-form-label fL " placeholder="" value="parkway Parade">
+                </div>
+            </div>
+                
+                
+
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm" (click)="d('Cross click')"><i
+                class="fa fa-plus-circle"></i> Back</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="c('Save click')"> Save </button>
+    </div>
+</ng-template>
+
+<!-- ANGULAR MODAL NGBOOTSTRAP MODULE  newvaluation ADD CLIENT CONTACT-->
+<ng-template id="myModal_addclientcontact" #mymodalmyModal_addclientcontact let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Add Client Company</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body c_newvaluation">
+        <div class="p-30">
+            <div class="form-group m-t-4 row">
+                <div class="col-md-12">
+                    <label for="">Company Name <span class="color-red">*</span></label>
+                    <div class="clearfix"></div>
+                    <select class="custom-select fL" id="inlineFormCustomSelect">
+                        <option selected="">Company 1</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group m-t-4 row">
+                <div class="col-md-4">
+                    <label for="">Title</label>
+                    <div class="clearfix"></div>
+                    <select class="custom-select fL" id="inlineFormCustomSelect">
+                        <option selected="">Ms</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-md-8">
+                    <label for="">Name <span class="color-red">*</span></label>
+                    <div class="clearfix"></div>
+                    <input type="text" class="form-control col-form-label fL " placeholder="" value="Jess Cheng">
+                </div>
+            </div>
+
+            <div class="form-group m-t-4 row">
+                <div class="col-md-6">
+                    <label for="">Designation </label>
+                    <div class="clearfix"></div>
+                    <input type="text" class="form-control col-form-label fL " placeholder="" value="Jess Cheng">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="">Department </label>
+                    <div class="clearfix"></div>
+                    <input type="text" class="form-control col-form-label fL " placeholder="" value="Jess Cheng">
+                </div>
+            </div>
+
+            <div class="form-group m-t-4 row">
+                <div class="col-md-12">
+                    <label for="">Email <span class="color-red">*</span> </label>
+                    <div class="clearfix"></div>
+                    <input type="text" class="form-control col-form-label fL " placeholder="" value="jess.cheng@sif.com.sg">
+                </div>
+
+            </div>
+
+            <div class="form-group m-t-4 row">
+                <div class="col-md-6">
+                    <label for="">Phone 1<span class="color-red">*</span></label>
+                    <div class="row">
+                        <div class="col-4">
+                            <select class="custom-select fL" id="inlineFormCustomSelect">
+                                <option selected="">+ 65</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="form-control col-form-label fL " placeholder="" value="67867 9879">
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="col-md-6">
+                    <label for="">Phone 2 </label>
+                    <div class="row">
+                        <div class="col-4">
+                            <select class="custom-select fL" id="inlineFormCustomSelect">
+                                <option selected="">+ 65</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="form-control col-form-label fL " placeholder="" value="67867 9879">
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="form-group m-t-4 row">
+                <div class="col-md-12">
+                    <label for="">Comments</label>
+                    <div class="clearfix"></div>
+                    <textarea name="" id="" cols="5" rows="5" class="form-control"></textarea>
+                </div>
+                
+            </div>
+
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm" (click)="d('Cross click')"><i
+                class="fa fa-plus-circle"></i> Back</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="c('Save click')"> Save </button>
+    </div>
+</ng-template>

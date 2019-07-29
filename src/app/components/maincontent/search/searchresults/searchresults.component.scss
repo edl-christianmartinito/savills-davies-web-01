@@ -1,0 +1,60 @@
+#section-searchresults{
+    .custom-control{
+       margin-left: 30px; 
+    }
+    .custom-checkbox{
+        .custom-control-label{
+            padding-left: 30px;
+            .bg_violet::before{
+
+            }
+        }
+
+        .custom-control-label.bg_violet::before{
+            background-color: #b72ab7!important
+        }
+
+        .custom-control-label.bg_skyblue::before{
+            background-color: #39bff7!important
+        }
+
+        .custom-control-label.bg_green::before{
+            background-color: #27d40b!important
+        }
+
+        .custom-control-label.bg_orange::before{
+            background-color: #ff8b0b!important
+        }
+    }
+}
+
+
+table{
+    tbody{
+        tr{
+            td.bg_violet{
+                background-color: #b72ab7!important
+            }
+            td.bg_skyblue{
+                background-color: #39bff7!important
+            }
+
+            td.bg_green{
+                background-color: #27d40b!important
+            }
+
+            td.bg_orange{
+                background-color: #ff8b0b!important
+            }
+        }
+    }
+}
+
+
+input[type="checkbox"] {
+    z-index: 999999;
+    left: -15px;
+    width: 17px;
+    height: 20px;
+    cursor: pointer;
+}

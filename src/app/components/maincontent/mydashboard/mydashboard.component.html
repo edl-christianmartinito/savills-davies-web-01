@@ -1,0 +1,292 @@
+<app-breadcrumbs [pagetitle]="pageTitle"></app-breadcrumbs>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <!--<h4 class="card-title">Jobs For Assigning</h4>-->
+                <div class="table-responsive ">
+                    <div id="myTable_wrapper" class="dataTables_wrapper no-footer">
+
+                        <h4 class="card-title">Jobs For Assigning</h4>
+                        <div class="table-responsive">
+                            <table datatable id="myTable" class="table table-bordered table-striped dataTable no-footer text-center" role="grid"
+                                aria-describedby="myTable_info">
+                                <thead>
+                                    <tr role="row">
+                                        <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="ascending"
+                                            aria-label="Name: activate to sort column descending" style="width: 38px;">ID</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Position: activate to sort column ascending" style="width: 65px;">Val. Ref. No.</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Office: activate to sort column ascending" style="width: 127px;">Property Address</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Age: activate to sort column ascending" style="width: 64px;">Company Code</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Start date: activate to sort column ascending" style="width: 118px;">Expected Completion
+                                            Date</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">Valuer</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">COI</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">Status</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">Created On</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">Appendix Report</th>
+                                    </tr>
+                            
+                                </thead>
+                                <tbody>
+                                    <tr role="row" class="odd">
+                                        <td class="sorting_1">27</td>
+                                        <td><a href="#" class="alink">2019/66/SIF</a></td>
+                                        <td>448 Geylang Road</td>
+                                        <td>SIF</td>
+                                        <td>2008/11/28</td>
+                                        <td>
+                                            <select class="form-control">
+                                                <option value="value">Select Valuer</option>
+                                            </select>
+                                        </td>
+                                        <td>Not Entered</td>
+                                        <td>New</td>
+                                        <td>01-02-19 <br /> 9:00 am</td>
+                                        <td>
+                                            <div class="centerbuttons row">
+                                                <a href="#" class=" btn btn-info btn-sm col-12"> <i class="fa fa-eye"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr role="row" class="odd">
+                                        <td class="sorting_1">37</td>
+                                        <td><a href="#" class="alink">2019/65/DBS</a></td>
+                                        <td>Parkway, 365 East Coast</td>
+                                        <td>DBS</td>
+                                        <td>2008/11/28</td>
+                                        <td>
+                                            <select class="form-control">
+                                                <option value="value">Select Valuer</option>
+                                            </select>
+                                        </td>
+                                        <td>Not Entered</td>
+                                        <td>Assigned</td>
+                                        <td>21-02-19 <br /> 11:00 am</td>
+                                        <td>
+                                            <div class="centerbuttons row">
+                                                <a href="#" class=" btn btn-info btn-sm col-12"> <i class="fa fa-eye"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                            
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <button class="btn btn-info btn-sm" (click)="open(mymodalconfirmvaluer)">Confirm Valuer</button>
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        
+
+                        <div class="clearfix"></div>
+                        <br /><br />
+                        <h4 class="card-title">Valuation Jobs</h4>
+                        <div class="table-responsive">
+                            <table datatable id="myTable2" class="table table-bordered table-striped dataTable no-footer  text-center" role="grid"
+                                aria-describedby="myTable_info">
+                                <thead>
+                                    <tr role="row">
+                                        <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="ascending"
+                                            aria-label="Name: activate to sort column descending" style="width: 38px;">ID</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Position: activate to sort column ascending" style="width: 65px;">Val. Ref. No.</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Office: activate to sort column ascending" style="width: 127px;">Property Address</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Age: activate to sort column ascending" style="width: 64px;">Company Code</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Start date: activate to sort column ascending" style="width: 118px;">Expected Completion
+                                            Date</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">Valuer</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">COI</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">Status</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">Created On</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">Appendix Report</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr role="row" class="odd">
+                                        <td class="sorting_1">27</td>
+                                        <td><a href="#" class="alink">2019/66/SIF</a></td>
+                                        <td>448 Geylang Road</td>
+                                        <td>SIF</td>
+                                        <td>2008/11/28</td>
+                                        <td>
+                                            Lesly
+                                            <!-- <select class="form-control">
+                                                                        <option value="value">Select Valuer</option>
+                                                                    </select> -->
+                                        </td>
+                                        <td>Not Entered</td>
+                                        <td>New</td>
+                                        <td>01-02-19 <br /> 9:00 am</td>
+                                        <td>
+                                            <div class="centerbuttons row">
+                                                <a href="#" class=" btn btn-info btn-sm col-12"> <i class="fa fa-eye"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr role="row" class="odd">
+                                        <td class="sorting_1">27</td>
+                                        <td><a href="#" class="alink">2019/66/SIF</a></td>
+                                        <td>448 Geylang Road</td>
+                                        <td>SIF</td>
+                                        <td>2008/11/28</td>
+                                        <td>
+                                            Cindy
+                                            <!-- <select class="form-control">
+                                                                        <option value="value">Select Valuer</option>
+                                                                    </select> -->
+                                        </td>
+                                        <td>Not Entered</td>
+                                        <td>New</td>
+                                        <td>01-02-19 <br /> 9:00 am</td>
+                                        <td>
+                                            <div class="centerbuttons row">
+                                                <a href="#" class=" btn btn-info btn-sm col-12"> <i class="fa fa-eye"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                            
+                                </tbody>
+                            </table>
+                        </div>
+                       
+
+                        <div class="clearfix"></div>
+                        <br /><br />
+                        <h4 class="card-title">Reports For Approval</h4>
+                        <div class="table-responsive">
+                            <table datatable id="myTable2" class="table table-bordered table-striped dataTable no-footer  text-center" role="grid"
+                                aria-describedby="myTable_info">
+                                <thead>
+                                    <tr role="row">
+                                        <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="ascending"
+                                            aria-label="Name: activate to sort column descending" style="width: 38px;">ID</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Position: activate to sort column ascending" style="width: 65px;">Val. Ref. No.</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Office: activate to sort column ascending" style="width: 127px;">Property Address</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Age: activate to sort column ascending" style="width: 64px;">Company Code</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Start date: activate to sort column ascending" style="width: 118px;">Expected Completion
+                                            Date</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">Valuer</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">Supervisor</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">COI</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">Status</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">Created On</th>
+                                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">Appendix Report</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr role="row" class="odd">
+                                        <td class="sorting_1">27</td>
+                                        <td><a href="#" class="alink">2019/66/SIF</a></td>
+                                        <td>448 Geylang Road</td>
+                                        <td>SIF</td>
+                                        <td>2008/11/28</td>
+                                        <td>
+                                            Cindy
+                                            <!-- <select class="form-control">
+                                                                        <option value="value">Select Valuer</option>
+                                                                    </select> -->
+                                        </td>
+                                        <td>supervisor 1</td>
+                                        <td>Not Entered</td>
+                                        <td>New</td>
+                                        <td>01-02-19 <br /> 9:00 am</td>
+                                        <td>
+                                            <div class="centerbuttons row">
+                                                <a href="#" class=" btn btn-info btn-sm col-12"> <i class="fa fa-eye"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr role="row" class="odd">
+                                        <td class="sorting_1">27</td>
+                                        <td><a href="#" class="alink">2019/66/SIF</a></td>
+                                        <td>448 Geylang Road</td>
+                                        <td>SIF</td>
+                                        <td>2008/11/28</td>
+                                        <td>
+                                            Ann
+                                            <!-- <select class="form-control">
+                                                                        <option value="value">Select Valuer</option>
+                                                                    </select> -->
+                                        </td>
+                                        <td>supervisor 2</td>
+                                        <td>Not Entered</td>
+                                        <td>New</td>
+                                        <td>01-02-19 <br /> 9:00 am</td>
+                                        <td>
+                                            <div class="centerbuttons row">
+                                                <a href="#" class=" btn btn-info btn-sm col-12"> <i class="fa fa-eye"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                            
+                                </tbody>
+                            </table>
+                        </div>
+                        
+
+                    </div>
+            </div>
+            <!--end of card body-->
+        </div>
+    </div>
+</div>
+
+
+<!-- ANGULAR MODAL NGBOOTSTRAP MODULE  confirmvaluer -->
+<ng-template id="myModal_confirmvaluer" #mymodalconfirmvaluer let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Confirm Valuer</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body modal_scroll">
+        <div class="p-30">
+            <h3>Please Confirm Changes?</h3>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm" (click)="d('Cross click')"><i class="fa fa-plus-circle"></i> No</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="c('Save click')"> Yes </button>
+    </div>
+</ng-template>

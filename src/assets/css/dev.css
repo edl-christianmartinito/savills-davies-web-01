@@ -1,0 +1,97 @@
+﻿/* DEV.CSS */
+/* @import '~fullpage.js/dist/fullpage.min.css'; */
+/*FONTS*/
+
+@font-face {
+    font-family: "Gotham-Black";
+    src: url(font/Gotham/Gotham-Black/Gotham-Black.eot); /* IE9*/
+    src: url(font/Gotham/Gotham-Black/Gotham-Black.eot?#iefix) format("embedded-opentype"), /* IE6-IE8 */
+    url(font/Gotham/Gotham-Black/Gotham-Black.woff2) format("woff2"), /* chrome、firefox */
+    url(font/Gotham/Gotham-Black/Gotham-Black.woff) format("woff"), /* chrome、firefox */
+    url(font/Gotham/Gotham-Black/Gotham-Black.ttf) format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url(font/Gotham/Gotham-Black/Gotham-Black.svg#Gotham-Black) format("svg"); /* iOS 4.1- */
+}
+
+@font-face {
+    font-family: "Gotham-Bold";
+    src: url(font/Gotham/Gotham-Bold/Gotham-Bold.eot); /* IE9*/
+    src: url(font/Gotham/Gotham-Bold/Gotham-Bold.eot?#iefix) format("embedded-opentype"), /* IE6-IE8 */
+    url(font/Gotham/Gotham-Bold/Gotham-Bold.woff2) format("woff2"), /* chrome、firefox */
+    url(font/Gotham/Gotham-Bold/Gotham-Bold.woff) format("woff"), /* chrome、firefox */
+    url(font/Gotham/Gotham-Bold/Gotham-Bold.ttf) format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url(font/Gotham/Gotham-Bold/Gotham-Bold.svg#Gotham-Bold) format("svg"); /* iOS 4.1- */
+}
+
+@font-face {
+    font-family: "Gotham-Light";
+    src: url(font/Gotham/Gotham-Light/Gotham-Light.eot); /* IE9*/
+    src: url(font/Gotham/Gotham-Light/Gotham-Light.eot?#iefix) format("embedded-opentype"), /* IE6-IE8 */
+    url(font/Gotham/Gotham-Light/Gotham-Light.woff2) format("woff2"), /* chrome、firefox */
+    url(font/Gotham/Gotham-Light/Gotham-Light.woff) format("woff"), /* chrome、firefox */
+    url(font/Gotham/Gotham-Light/Gotham-Light.ttf) format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url(font/Gotham/Gotham-Light/Gotham-Light.svg#Gotham-Light) format("svg"); /* iOS 4.1- */
+}
+
+@font-face {
+    font-family: "Gotham-Medium";
+    src: url(font/Gotham/Gotham-Medium/Gotham-Medium.eot); /* IE9*/
+    src: url(font/Gotham/Gotham-Medium/Gotham-Medium.eot?#iefix) format("embedded-opentype"), /* IE6-IE8 */
+    url(font/Gotham/Gotham-Medium/Gotham-Medium.woff2) format("woff2"), /* chrome、firefox */
+    url(font/Gotham/Gotham-Medium/Gotham-Medium.woff) format("woff"), /* chrome、firefox */
+    url(font/Gotham/Gotham-Medium/Gotham-Medium.ttf) format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url(font/Gotham/Gotham-Medium/Gotham-Medium.svg#Gotham-Medium) format("svg"); /* iOS 4.1- */
+}
+
+@font-face {
+    font-family: "Gotham";
+    src: url(font/Gotham/Gotham/Gotham.eot); /* IE9*/
+    src: url(font/Gotham/Gotham/Gotham.eot?#iefix) format("embedded-opentype"), /* IE6-IE8 */
+    url(font/Gotham/Gotham/Gotham.woff2) format("woff2"), /* chrome、firefox */
+    url(font/Gotham/Gotham/Gotham.woff) format("woff"), /* chrome、firefox */
+    url(font/Gotham/Gotham/Gotham.ttf) format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url(font/Gotham/Gotham/Gotham.svg#Gotham) format("svg"); /* iOS 4.1- */
+}
+
+body {
+    font-family: "Gotham-Medium" !important;
+}
+
+
+/* HEADER NEW COLOR */
+
+.skin-darkblue .topbar, 
+.skin-darkblue .topbar{
+    background: #001643;
+    z-index: 999!important;
+}
+.navbar.navbar-dark .navbar-nav .nav-item.header_navbuttons a.nav-link{
+    margin: 0!important;
+    padding: 5px 0!important;
+}
+
+
+.dropdown.show .dropdown-menu{
+    opacity: initial!important;
+}
+
+.collapse.in{
+    display: block!important;
+}
+/* .sidebar-nav ul li a{
+    color: #03a9f3!important;
+} */
+.sidebar-nav ul li a.active{
+    color: #03a9f3!important;
+}
+
+.sidebar-nav ul li a{
+    color: #515866!important;
+}
+#sidebarnav li a span {
+    /*font-family: "Gotham-Light" !important;*/
+    font-size: 14px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscales
+}

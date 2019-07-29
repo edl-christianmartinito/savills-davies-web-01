@@ -1,0 +1,176 @@
+<app-breadcrumbs [pagetitle]="pageTitle" [pagetitleBC]="pageTitleBC"></app-breadcrumbs>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4>{{pageTitleBC}}</h4>
+
+                <form class="form">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!--NAME-->
+                            <div class="form-group m-t-4 row">
+                                <label for="example-text-input"
+                                    class="col-4 col-form-label"><strong>Name</strong></label>
+                                <div class="col-8">
+                                    <input type="type" class="form-control col-form-label" name="name" 
+                                        [(ngModel)] ="name"
+                                        [ngClass]="{'is-invalid':updatesubmitted && !name}"
+                                        required    
+                                    />
+                                    <div class="invalid-feedback">
+                                        <div>This field is required</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--EMAIL-->
+                            <div class="form-group m-t-4 row">
+                                <label for="example-text-input"
+                                    class="col-4 col-form-label"><strong>Email</strong></label>
+                                <div class="col-8">
+                                    <input type="type" [(ngModel)] ="email" class="form-control col-form-label" name="email" disabled/>
+
+                                </div>
+                            </div>
+
+                            <!--Username  -->
+                            <div class="form-group m-t-4 row">
+                                <label for="example-text-input" class="col-4 col-form-label"><strong>User
+                                        Name</strong></label>
+                                <div class="col-8">
+                                    <input type="type" class="form-control col-form-label" name="username" [(ngModel)] ="username" />
+
+                                </div>
+                            </div>
+                              
+                            <!--Office-->
+                            <div class="form-group m-t-4 row">
+                                <label for="example-text-input" class="col-4 col-form-label"><strong>Savills
+                                        office</strong></label>
+                                <div class="col-8">
+                                    <select class="form-control" [(ngModel)] ="selectedoffice" name="selectoffice" id="selectoffice" disabled>
+                                        <option [value]="office.id" *ngFor="let office of offices"> {{office.name}}</option>
+                                    </select> 
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                            <!--Display Name-->
+                            <div class="form-group m-t-4 row">
+                                <label for="example-text-input" class="col-4 col-form-label"><strong>Display Name</strong></label>
+                                <div class="col-8">
+                                    <input type="type" class="form-control col-form-label" name="displayname" 
+                                        [(ngModel)] ="displayname"
+                                        [ngClass]="{'is-invalid':updatesubmitted && !displayname}"
+                                        required    
+                                    />
+                                    <div class="invalid-feedback">
+                                        <div>This field is required</div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!--User Role-->
+                            <div class="form-group m-t-4 row">
+                                <label for="example-text-input" class="col-4 col-form-label"><strong>User
+                                        Role</strong></label>
+                                <div class="col-8">
+                                    <select class="form-control" [(ngModel)] ="selectedrole" name="selectrole" id="selectrole" disabled>
+                                        <option [value]="role.id" *ngFor="let role of roles"> {{role.name}}</option>
+                                    </select> 
+
+                                </div>
+                            </div>
+
+                            <!--Mobile No.-->
+                            <div class="form-group m-t-4 row">
+                                <label for="example-text-input" class="col-4 col-form-label"><strong>Mobile
+                                        No.</strong></label>
+                                <div class="col-8">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <select class="form-control" [(ngModel)] ="mobileccode" name="mobileccode" id="mobileccode">
+                                                <option [value]="ccode.code" *ngFor="let ccode of countrycodes"> +{{ccode.code}}</option>
+                                            </select> 
+                                        </div>
+                                        <div class="col-md-9 nopad-l">
+                                            <input type="type" class=" form-control col-form-label fL" name="mobile_phone" 
+                                                [(ngModel)] ="mobile_phone" 
+                                                (keypress)="OnlyNumbers($event)"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Office No.-->
+                            <div class="form-group m-t-4 row">
+                                <label for="example-text-input" class="col-4 col-form-label"><strong>Office
+                                        No.</strong></label>
+                                <div class="col-8">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <select class="form-control" [(ngModel)] ="officeccode" name="officeccode" id="officeccode">
+                                                <option [value]="ccode.code" *ngFor="let ccode of countrycodes"> +{{ccode.code}}</option>
+                                            </select> 
+                                        </div>
+                                        <div class="col-md-9 nopad-l">
+                                            <input type="type" class=" form-control col-form-label fL" 
+                                                [(ngModel)] ="office_phone" name="office_phone" 
+                                                [ngClass]="{'is-invalid':updatesubmitted && !office_phone }"
+                                                (keypress)="OnlyNumbers($event)"
+                                                required
+                                            />
+                                            <div class="invalid-feedback">
+                                                <div>This field is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end of form row-->
+                    <button id="save_btn" (click)="openModal(modalconfirm)" class=" btn btn-success btn-xs fR"
+                        type="button"><i class="fa  fa-edit ti-menu"></i>Save</button>
+                    <button id="back_btn" (click)="handlebackClick()" class=" btn btn-success btn-xs fR"
+                        type="button"><i class="fa  fa-edit ti-menu"></i>Back</button>
+
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template id="modalconfirm" #modalconfirm let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title title-sm" id="myModalLabel">Confirm Edit Account</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div *ngIf="!spinnershow" class="modal-body ">
+        <p style="text-align: center;" *ngIf="processeditdone">{{message}}</p>
+        <p style="text-align: center;" *ngIf="!processeditdone">Are you sure you want to save changes?</p>
+    </div>
+
+    <div *ngIf="spinnershow" class="pageloader-modals">
+            <div class="loader loader-modals">
+                <div class="loader__figure"></div>
+                <p class="loader__label">Saving ...</p>
+            </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger btn-sm" (click)="d('Cross click')"><i
+                class="fa fa-plus-circle"></i>
+            {{processeditdone? "Close" : "Cancel"}}</button>
+        <button type="button" *ngIf="!processeditdone" class="btn btn-primary btn-sm" (click)="confirmEdit()"> Save </button>
+    </div>
+</ng-template>

@@ -1,0 +1,244 @@
+<app-breadcrumbs [pagetitle]="pageTitle"></app-breadcrumbs>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body nopad" id="section-usermanagement">
+                <div class="p-40">
+                    <h4>{{pageTitle}}</h4>
+                    <div class="form-group m-t-4 row">
+                        <div class="col-md-6">
+                            <label for="" class="col-form-label">Settings for Savills Office</label>
+                            <div class="clearfix"></div>
+                            <select class="custom-select " id="inlineFormCustomSelect">
+                                <option selected="">Singapore</option>
+                                <option value="1">Hong Kong</option>
+                                <option value="2">Macau</option>
+                                <option value="3">China</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                        
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="table-responsive nopad">
+                        <table datatable id="myTable"
+                            class="table table-bordered table-striped  dataTable no-footer text-center" role="grid"
+                            aria-describedby="myTable_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                        style="width: 38px;">Actions</th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                        style="width: 38px;">ID</th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                        style="width: 38px;">Created At</th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                        style="width: 38px;">Created By</th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                        style="width: 38px;">Updated At</th>
+
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                        style="width: 38px;">Updated By</th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                        style="width: 38px;">Field Category</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr role="row" class="odd">
+                                    <td>
+                                        <div class="centerbuttons row">
+                                            <a class="btn btn-success btn-sm" (click)="openXL(mymodaleditdropdown)"><i
+                                                    class="fa fa-edit"></i></a>
+                                        </div>
+                                    </td>
+                                    <td>1</td>
+                                    <td>ddmmyy hh:mm</td>
+                                    <td>Nicole Eng</td>
+                                    <td>ddmmyyyy hh:mm</td>
+
+                                    <td>Nicole Eng</td>
+                                    <td>Valuation Type</td>
+
+                                </tr>
+                                <tr role="row" class="odd">
+                                    <td>
+                                        <div class="centerbuttons row">
+                                            <a class="btn btn-success btn-sm" (click)="openXL(mymodaleditdropdown)"><i
+                                                    class="fa fa-edit"></i></a>
+                                        </div>
+                                    </td>
+                                    <td>1</td>
+                                    <td>ddmmyy hh:mm</td>
+                                    <td>Nicole Eng</td>
+                                    <td>ddmmyyyy hh:mm</td>
+
+                                    <td>Nicole Eng</td>
+                                    <td>Valuation Type</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- table -->
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ANGULAR MODAL NGBOOTSTRAP MODULE  mymodaleditdropdown -->
+<ng-template id="myModal2" #mymodaleditdropdown let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Edit - Dropdown List Value - Valuation Type</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body modal_scroll">
+        <div class="p-30">
+
+            <a class="btn btn-success btn-sm" type="button" (click)="open(mymodaladdropdown)"><i class="fa fa-plus"></i>
+                Add Value</a>
+
+            <!-- <div class="custom-control custom-radio form-group m-t-4 row"> -->
+            <div class="table-responsive nopad">
+                <table datatable id="myTable"
+                    class="table table-bordered table-striped  dataTable no-footer text-center" role="grid"
+                    aria-describedby="myTable_info">
+                    <thead>
+                        <tr role="row">
+                            <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                style="width: 38px;">Actions</th>
+                            <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                style="width: 38px;">ID</th>
+                            <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                style="width: 38px;">Created At</th>
+                            <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                style="width: 38px;">Created By</th>
+                            <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                style="width: 38px;">Value Text</th>
+
+                            <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                style="width: 38px;">Display Text</th>
+                            <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                style="width: 38px;">Updated On</th>
+                            <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                style="width: 38px;">Updated By</th>
+                            <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                style="width: 38px;">Active ?</th>
+                            <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                style="width: 38px;">Active By ?</th>
+
+                            <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                style="width: 38px;">Inactive on</th>
+                            <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                style="width: 38px;">Inactive By</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr role="row" class="odd">
+                            <td>
+                                <div class="centerbuttons row">
+                                    <button class="btn btn-success btn-sm" type="button"><i
+                                            class="fa fa-edit"></i></button>
+                                    <button class="btn btn-danger btn-sm" type="button"><i
+                                            class="fa fa-edit"></i></button>
+                                </div>
+                            </td>
+                            <td>1</td>
+                            <td>ddmmyy hh:mm</td>
+                            <td>Nicole Eng</td>
+                            <td>ddmmyyyy hh:mm</td>
+
+                            <td>1</td>
+                            <td>ddmmyy hh:mm</td>
+                            <td>Nicole Eng</td>
+                            <td>ddmmyyyy hh:mm</td>
+                            <td>1</td>
+
+                            <td>ddmmyy hh:mm</td>
+                            <td>Nicole Eng</td>
+
+
+
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <!-- table - table-responsive -->
+            <!-- </div> -->
+
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm" (click)="d('Cross click')"><i
+                class="fa fa-plus-circle"></i>
+            Back</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="c('Save click')"> Create </button>
+    </div>
+</ng-template>
+
+
+<!-- ANGULAR MODAL NGBOOTSTRAP MODULE  mymodaladdropdown -->
+<ng-template id="myModal" #mymodaladdropdown let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Add Value</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body modal_scroll">
+        <div class="p-30">
+            <div class="custom-control custom-radio form-group m-t-4 row">
+                <h5>Field Category: Valuation Type</h5>
+            </div>
+            <div class="custom-control custom-radio form-group m-t-4 row">
+                <label for="">Value Text</label>
+                <div class="clearfix"></div>
+                <input type="text" class="form-control col-form-label">
+            </div>
+            <div class="custom-control custom-radio form-group m-t-4 row">
+                <label for="">Display Text</label>
+                <div class="clearfix"></div>
+                <input type="text" class="form-control col-form-label">
+            </div>
+
+            <div class="custom-control form-group m-t-4 row">
+                <label for="">Active</label>
+                <div class="clearfix"></div>
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+            </div>
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm" (click)="d('Cross click')"><i
+                class="fa fa-plus-circle"></i>
+            Back</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="c('Save click')"> Create </button>
+    </div>
+</ng-template>

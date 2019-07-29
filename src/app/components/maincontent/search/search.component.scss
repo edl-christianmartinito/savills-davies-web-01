@@ -1,0 +1,15 @@
+#section-search{
+    .custom-control{
+       margin-left: 30px; 
+    }
+    .custom-checkbox{
+        .custom-control-label{
+            padding-left: 30px;
+        }
+    }
+}
+
+.fa-plus:before {
+    content: '\f067'!important;
+    font-size: 16px;
+}

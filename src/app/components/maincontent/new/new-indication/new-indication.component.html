@@ -1,0 +1,1634 @@
+<app-breadcrumbs [pagetitle]="pageTitle"></app-breadcrumbs>
+
+<div class="row" >
+
+    <div class="col-12" >
+
+        <div class="card" >
+                <div *ngIf="loadingalldata" class="pageloader-container">
+                        <div class="loader">
+                            <div class="loader__figure"></div>
+                            <p class="loader__label">Indication</p>
+                        </div>
+                </div>
+
+            <div class="card-body nopad" id="section-newindication" *ngIf="!loadingalldata" >
+                <div class="p-40">
+                    
+                    <!-- end of mt4 -->
+                    <div id="fullpage">
+                        <nav id="cd-vertical-nav">
+                            <ul>
+                                <li>
+                                    <a href="#section1" data-number="1" >
+                                        <span class="cd-dot"></span>
+                                        <span class="cd-label">Top</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#section2" data-number="2">
+                                        <span class="cd-dot"></span>
+                                        <span class="cd-label">Property Address</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#section3" data-number="3">
+                                        <span class="cd-dot"></span>
+                                        <span class="cd-label">Property Details</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#section4" data-number="4">
+                                        <span class="cd-dot"></span>
+                                        <span class="cd-label">Client Details</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#section5" data-number="5">
+                                        <span class="cd-dot"></span>
+                                        <span class="cd-label">Property Values</span>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </nav>
+
+                        <div id="section1" class="section cd-section">
+                            
+                            <div class="form-group m-t-4 row">
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="">Indication Date </label>
+                                            <div class="clearfix"></div>
+                                            <input type="date" class="form-control col-form-label fL col-12s" id="indicationdate" [(ngModel)] ="indicationdate" >
+                                            <!-- <label for="indicationdate" class="col-3 col-form-label fL"><i class="fa fa-calendar"></i> as</label> -->
+                                            <div class="clearfix"></div>
+                        
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="">Valuer</label>
+                                            <select class="form-control" [(ngModel)] ="selectedvaluers" name="selectedvaluers" id="selectedvaluers">
+                                                <option [value]="valuer.id" *ngFor="let valuer of valuers"> {{valuer.name ==null?"--":valuer.name}}</option>
+                                            </select> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label for="">Other Currency</label>
+                                            <!-- <select class="form-control" [(ngModel)] ="selectedcurrency" name="selectedcurrency" id="selectedcurrency" (change)="currencyChange(selectedcurrency)">
+                                                <option [value]="curr.key" *ngFor="let curr of currency | keyvalue"> {{curr.key}}</option>
+                                            </select>  -->
+                                            <select class="form-control" 
+                                                    [(ngModel)] ="selectedcurrency" 
+                                                    name="selectedcurrency" id="selectedcurrency" 
+                                                    (change)="currencyChange(selectedcurrency)" disabled>
+                                                    <option [value]="curr.id" *ngFor="let curr of currencies"> {{curr.unit}}</option>
+
+                                                </select> 
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="">Exchange Rate </label>
+                                            <div class="clearfix"></div>
+                                            <input type="text" class="form-control col-form-label fL col-9" [(ngModel)] ="exchangerate" disabled>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="">Indication Ref No.</label>
+                                            <div class="clearfix"></div>
+                                            <input type="text" class="form-control col-form-label fL col-9" id="indc" >
+                                            <!-- <p class="col-form-label"><i>(for HK System)</i></p> -->
+                                        </div>
+                                    </div>
+                        
+                                </div>
+                        
+                            </div>
+
+                            <div class="form-group m-t-4 row">
+                                <div class="col-md-6">
+                                </div>
+                                <div class="col-md-6">
+                                    <!-- <button class="btn btn-primary btn-sm fL" type="button"><i class="fa fa-plus-circle"></i> Set </button>
+                                    <p class="col-form-label"> 02-Mar-18 03:56pm GMT +8</p> -->
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <br>
+                        <hr>
+                        <!-- end of section 2 -->
+
+                        <div id="section2" class="section cd-section">
+                            <h3>Property Address</h3>
+                            <div class="form-group m-t-4 row">
+                               
+                                
+                                <div class="col-md-6">
+                                    <button class="btn btn-danger btn-sm fL bcolor-green" type="button" (click)="openSearchIndications(mymodalsearchindication)"><i class="fa fa-search"></i> Search Past Indication</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="btn btn-primary btn-sm fL" type="button"
+                                        (click)='openCreatePropertyModal(modalproperty,"createproperty")' [disabled]="allpropcount >= 1">
+                                        <i class="fa fa-plus-circle"></i> Property
+                                
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-group m-t-4 row">
+                                <div class="col-md-12">
+                                    <table id="myTable" class="table table-bordered table-striped dataTable no-footer text-center" role="grid"
+                                        aria-describedby="myTable_info"> 
+                                        <thead>
+                                            <tr role="row">
+                                                <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                                    style="width: 38px;">Property Name</th>
+                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-label="Position: activate to sort column ascending" style="width: 65px;">Blk</th>
+                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-label="Office: activate to sort column ascending" style="width: 127px;">Street Name</th>
+                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-label="Position: activate to sort column ascending" style="width: 65px;">Floor</th>
+                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-label="Age: activate to sort column ascending" style="width: 64px;">Unit No.</th>
+                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-label="Start date: activate to sort column ascending" style="width: 118px;">Postal Code
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-label="Salary: activate to sort column ascending" style="width: 92px;">Old Postal Code</th>
+                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-label="Salary: activate to sort column ascending" style="width: 92px;">ID</th>
+                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-label="Salary: activate to sort column ascending" style="width: 92px;">Actions</th>
+                                            </tr>
+                                        </thead>
+                                       div.form-group-row
+                                        <!-- [dtOptions]="dtOptions"  [dtTrigger]="dtTrigger" [dtTrigger]="!tablerendered?'':dtTrigger"
+                                        <tbody *ngIf="allproperties?.length != 0">
+                                                <tr *ngFor="let property of allproperties">
+                                                        <td>{{ property.name }}</td>
+                                                        <td>{{ property.block_num}}</td>
+                                                        <td>{{ property.unit_num }}</td>
+                                                        <td>{{ property.street_name }}</td>
+                                                        <td>{{ property.postal_code}}</td>
+                                                        <td>{{ property.old_postal_code == 0?"--":property.old_postal_code }}</td>
+                                                        <td>{{ property.id }}</td>
+                                                        <td>
+                                                            <div class="centerbuttons row p-10">
+                                                                    <button class="btn btn-success btn-sm col-5 fL" type="button" (click)='openUpdateModal(modalproperty,{"modal":"updateproperty","id":property.id})'><i
+                                                                        class="fa fa-edit" ></i></button>
+                                                                <button class="btn btn-danger btn-sm col-5 fL" type="button" (click)="openConfirmDelete(modalconfirm,property.id)"><i
+                                                                        class="fa fa-trash"></i></button>
+                                                            </div>
+                                                        </td>
+
+                                                </tr>
+                                        <tbody>
+                                        <tbody *ngIf="allproperties?.length == 0">
+                                                <tr>
+                                                    <td colspan="3" class="no-data-available">No data!</td>
+                                                </tr>
+                                        <tbody>
+
+                                        -->
+
+                                        <tbody >
+                                                <tr *ngFor="let property of allprop">
+                                                        <td>{{ property.name }}</td>
+                                                        <td>{{ property.block_num}}</td>
+                                                        <td>{{ property.street_name }}</td>
+                                                        <td>{{ property.floor_num }}</td>
+                                                        <td>{{ property.unit_num }}</td> 
+                                                        <td>{{ property.postal_code}}</td>
+                                                        <td>{{ property.old_postal_code == 0?"--":property.old_postal_code }}</td>
+                                                        <td>{{ property.id }}</td>
+                                                        <td>
+                                                            <div class="centerbuttons row p-10">
+                                                                    <button class="btn btn-success btn-sm col-5 fL" type="button" 
+                                                                    (click)='openUpdateModal(modalproperty,{"modal":"updateproperty",newprop:{
+                                                                                                                "name":property.name,
+                                                                                                                "block_num":property.block_num,
+                                                                                                                "unit_num":property.unit_num,
+                                                                                                                "street_name":property.street_name,
+                                                                                                                "floor_num":property.floor_num,
+                                                                                                                "postal_code":property.postal_code,
+                                                                                                                "old_postal_code":property.old_postal_code
+                                                                                                            }
+                                                                                                        })' *ngIf="!fromsearchindication"><i
+                                                                        class="fa fa-edit" ></i></button>
+                                                                <button class="btn btn-danger btn-sm col-5 fL" type="button" (click)="openConfirmDelete(modalconfirm,property.name)"><i
+                                                                        class="fa fa-trash"></i></button>
+                                                            </div>
+                                                        </td>
+
+                                                </tr>
+                                        <tbody>
+                                        <tbody *ngIf="allprop.length <= 0">
+                                                <tr>
+                                                    <td colspan="9" class="no-data-available">No data available in table!</td>
+                                                </tr>
+                                        <tbody> 
+
+
+                                    </table>
+                                </div> 
+                            </div>
+                            <div class="alert alert-danger" *ngIf="showerroralert"> Indication requires Property Address.</div>
+                            <div class="form-group m-t-4 row">
+                                <div class="col-md-12">
+                                    <label for="">Including these other blks / units</label>
+                                    <div class="clearfix"></div>
+                                    <input type="text" class="form-control col-form-label fL col-12">
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <br> <hr>
+                        <!-- end of section 2 -->
+
+                        <div id="section3" class="section cd-section">
+                            <h3>Property Details</h3>
+                            <div class="clearfix"></div>
+                            <div class="form-group m-t-4 row">
+                             
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <label for="">Tenure</label>
+                                            <div class="clearfix"></div>
+                                            <select class="custom-select col-12" id="selecttenure" [(ngModel)] ="selecttenure" (change)="onTenureChange($event)">
+                                                <option value="Leasehold" selected>Leasehold</option>
+                                                <option value="Freehold">Freehold</option>
+                                               
+                                            </select>
+                                        </div>
+                                        <div class="col-4">
+                                            <label for="">No. Of Yrs</label>
+                                            <div class="clearfix"></div>
+                                            
+                                            <select class="form-control" [(ngModel)] ="selectnumofyears" name="selectnumofyears" id="selectnumofyears" [disabled]="disablenumofyears">
+                                                    <option [value]="tnumyear.name" *ngFor="let tnumyear of tnumyears.slice().reverse()"> {{tnumyear.name}}</option>
+                                                    <option [value]="tnumyr.name" *ngFor="let tnumyr of tnumyearh.slice().reverse()"> {{tnumyr.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-4">
+                                            <label for="">Commencement Date</label>
+                                            <div class="clearfix"></div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                        <select class="form-control" 
+                                                            [(ngModel)] ="comcedate.comday" name="comday" id="comday" >
+                                                            <option [value]="DD">DD</option>
+                                                            <option [value]="comday.name" *ngFor="let comday of comdays"> {{comday.name}}</option>
+                                                               
+                                                        </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <select class="form-control" 
+                                                        [(ngModel)] ="comcedate.commonth" name="comday" id="comday" >
+                                                        <option [value]="MM">MM</option>
+                                                        <option [value]="commo.name" *ngFor="let commo of commonth"> {{commo.name}}</option>
+                                                           
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                        <select class="form-control" 
+                                                        [(ngModel)] ="comcedate.commyear" name="commyear" id="commyear" >
+                                                        <option [value]="YY">YY</option>
+                                                        <option [value]="comy.name" *ngFor="let comy of comyear"> {{comy.name}}</option>
+                                                           
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                   
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="">Property Type</label>
+                                    <div class="clearfix"></div>
+                                    <select class="form-control" [(ngModel)] ="selectproptype" name="selectproptype" id="selectproptype">
+                                            <option [value]="proptype.id" *ngFor="let proptype of proptypes"> {{proptype.property_type}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group m-t-4 row">
+                                <div class="col-md-3">
+                                    <label for="">Lot #</label>
+                                    <div class="clearfix"></div>
+                                    <input type="text" class="form-control col-form-label fL col-12" [(ngModel)] ="propdetails.lotnum">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">MK / TS</label>
+                                    <div class="clearfix"></div>
+                                    <input type="text" class="form-control col-form-label fL col-12" [(ngModel)] ="propdetails.mkts">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Condition</label>
+                                    <div class="clearfix"></div>
+                                    <select class="form-control" [(ngModel)] ="selectpropcondition" name="selectpropcondition" id="selectpropcondition">
+                                            <option [value]="propcondition.name" *ngFor="let propcondition of propconditions"> {{propcondition.name}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Age / TOP</label>
+                                    <div class="clearfix"></div>
+                                    <select class="form-control" [(ngModel)] ="selectagetop" name="selectagetop" id="selectagetop">
+                                            <option [value]="agetop.name" *ngFor="let agetop of agetops"> {{agetop.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group m-t-4 row">
+                                <div class="col-md-3">
+                                    <label for="">Land Area </label>
+                                    <div class="clearix"></div>
+                                    <input type="text" class="form-control col-form-label fL col-8" 
+                                        [(ngModel)] ="propdetails.landareasqm"
+                                        (input)="convertToSqft($event,'landarea')"
+                                        (keypress)="onlyNumbersWithDecimal($event)"
+                                        
+                                        
+                                    >
+                                    <label class="col-4 col-form-label fL">sq.m</label>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for=""> </label>
+                                    <div class="clearix"></div>
+                                    <input type="text" class="form-control col-form-label fL col-8" 
+                                        [(ngModel)] ="propdetails.landareasqft"
+                                        (input)="convertToSqmt($event,'landarea')"  
+                                        (keypress)="onlyNumbersWithDecimal($event)" 
+                                        
+                                    >
+                                    <label class="col-4 col-form-label fL">sq.ft</label>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Floor Area </label>
+                                    <div class="clearix"></div>
+                                    <input type="text" class="form-control col-form-label fL col-8" 
+                                        [(ngModel)] ="propdetails.floorareasqm"
+                                        (input)="convertToSqft($event,'floorarea')"
+                                        (keypress)="onlyNumbersWithDecimal($event)"
+                                        >
+                                    <label class="col-4 col-form-label fL">sq.m</label>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for=""> </label>
+                                    <div class="clearix"></div>
+                                    <input type="text" class="form-control col-form-label fL col-8" 
+                                        [(ngModel)] ="propdetails.floorareasqft"
+                                        (input)="convertToSqmt($event,'floorarea')"
+                                        (keypress)="onlyNumbersWithDecimal($event)"
+                                        >
+                                        
+                                    <label class="col-4 col-form-label fL">sq.ft</label>
+                                </div>
+                            
+                            </div>
+                            <div class="form-group m-t-4 row">
+                                <div class="col-md-12">
+                                    <label for="">Remarks</label>
+                                    <div class="clearfix"></div>
+                                    <textarea class="form-control col-form-label fL" name="" id="" rows="5" 
+                                    [(ngModel)] ="propdetails.propremarks"></textarea>
+                                    <br> 
+                            
+                                </div>
+                            </div>
+
+                        </div>
+                        <br> <hr>
+                        <!-- end section 3 -->
+
+                        <div id="section4" class="section cd-section">
+                            <h3>Client Details</h3>
+                            <div class="clearfix"></div>
+                            <div class="form-group m-t-4 row">
+                                <div class="col-md-4">
+                                    <label for="">Company Name <span class="color-red">*</span></label>
+                                    <div class="clearix"></div>
+
+                                    <select [ngClass]="{'is-invalid':formaddindicationsubmitted && selectcompany==0}"
+                                            class="form-control custom-select fL col-8" 
+                                            [(ngModel)] ="selectcompany" 
+                                            name="selectcompany" id="selectcompany" 
+                                            (change)="onCompanyChange($event)"
+                                        >
+                                            <option [value]="0" > Choose Company</option>
+                                            <option [value]="company.id" *ngFor="let company of companies"> {{company.name}}</option>
+                                    </select>
+                                    <p class="col-4 col-form-label fL color-blue"> <i class="fas fa-plus" (click)="openIndicationAddCompany(addcompanyinidcation)"></i></p>
+                                     
+                                    <div class="invalid-feedback">
+                                            <div>This field is required</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="">Company Category <span class="color-red">*</span></label>
+                                    <div class="clearix"></div>
+                                    <p class="col-form-label"><b>{{companycategory}}</b></p>
+                                   
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="">Company Code <span class="color-red">*</span></label>
+                                    <div class="clearix"></div>
+                                    <p class="col-form-label"><b>{{companycode}}</b></p>
+                                </div>
+                            </div>
+
+                            <div class="form-group m-t-4 row">
+                                <div class="col-md-4">
+                                    <label for="">Client Name <span class="color-red">*</span></label>
+                                    <div class="clearix"></div>
+                             
+
+                                    <select [ngClass]="{'is-invalid':formaddindicationsubmitted && selectclient==0}"
+                                        class="form-control custom-select fL col-8" 
+                                        [(ngModel)] ="selectclient" 
+                                        name="selectclient" 
+                                        id="selectclient" 
+                                        
+                                        (change)="onClientChange($event)" 
+                                        [disabled]="!companyselected"
+                                    >
+                                            <option [value]="0" > Choose Client</option>
+                                            <option [value]="filteredclient.id" *ngFor="let filteredclient of filteredclients"> {{filteredclient.title}} {{filteredclient.name}}</option>
+                                    </select>
+                                    <p class="col-4 col-form-label fL color-blue"> <i class="fas fa-plus" (click)="openIndicationAddClient(addclientinidcation)"></i></p>
+                                    <div class="invalid-feedback">
+                                            <div>This field is required</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="">Email <span class="color-red">*</span></label>
+                                    <div class="clearix"></div>
+                                    <input 
+                                        [ngClass]="{'is-invalid':formaddindicationsubmitted && !clientdata.email}"
+                                        type="text" 
+                                        class="form-control col-form-label fL col-8" 
+                                        [(ngModel)] ="clientdata.email"
+                                        [disabled]="!clientselected"
+                                    >
+                                   
+                                    <div class="invalid-feedback fL" >
+                                            <div>This field is required</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="">Phone 1 <span class="color-red">*</span></label>
+                                    <div class="clearix"></div>
+                                    <input 
+                                        [ngClass]="{'is-invalid':formaddindicationsubmitted && !clientdata.clientphone}"
+                                        type="text" 
+                                        class="form-control col-form-label fL col-8" 
+                                        [(ngModel)] ="clientdata.clientphone"
+                                        [disabled]="!clientselected"
+                                    >
+                                    <div class="invalid-feedback fL">
+                                            <div>This field is required</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group m-t-4 row">
+                                <!-- <div class="col-md-9">
+                                    
+
+                                </div> -->
+                                <div class="col-md-6">
+                                    <label for="">Proposed Fees ( Home Currency )</label>
+                                    <div class="clearix"></div>
+                                    <label class="col-form-label m-r-10 fL">{{homecurrency}}</label>
+                                    <input type="text" class="form-control col-form-label fL col-10 m-r-10" 
+                                        [(ngModel)] ="hcproposedfee" 
+                                        
+                                        (keypress)="onlyNumbersWithDecimal($event)"    
+                                    >
+                                    <!--(input)="onHCPFChange($event)"-->
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="">Proposed Fees ( Other Currency )</label>
+                                    <div class="clearix"></div>
+                                    <label class="col-form-label m-r-10 fL">{{selectedcurrencyunit}}</label>
+                                    <input type="text" class="form-control col-form-label fL col-10 m-r-10" 
+                                        [(ngModel)] ="ocproposedfee" 
+                                        (input)="onOCPFChange($event)"
+                                        (keypress)="onlyNumbersWithDecimal($event)"
+                                        value="N.A"
+                                        disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <br> <hr>
+                        <!-- end section 4 -->
+                        
+                        <div id="section5" class="section cd-section">
+                            <h3>Property Values</h3>
+                            <div class="clearfix"></div>
+                            <div class="form-group m-t-4 row">
+                                <div class="col-md-6">
+                                    <label for="">Indication Values ( Home Currency )</label>
+                                    <div class="clearix"></div>
+                                    <label class="col-form-label m-r-10 fL">{{homecurrency}}</label>
+                                    <input type="text" class="form-control col-form-label col-5 fL" 
+                                        [(ngModel)] ="indicationvaluevhpfrom" 
+                                        (input)="onHCIVFromChange($event)"
+                                        (keypress)="onlyNumbersWithDecimal($event)"
+                                    >
+                                    <!-- (input)="onHCIVFromChange($event)"-->
+                                    <span class="col-1 fL text-center"> - </span>
+                                    <input type="text" class="form-control col-form-label col-4 fL" 
+                                        [(ngModel)] ="indicationvaluevhpto" 
+                                        (keypress)="onlyNumbersWithDecimal($event)"
+                                       
+                                    >
+                                        <!-- 
+                                        (input)="onOCIVCTohange($event)" -->
+                                    
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="">Indication Values ( Other Currency )</label>
+                                    <div class="clearix"></div>
+                                    <label class="col-form-label m-r-10 fL">{{selectedcurrencyunit}}</label>
+                                    <input type="text" class="form-control col-form-label col-5 fL" 
+                                        [(ngModel)] ="indicationvaluevocfrom" 
+                                        disabled
+                                        (keypress)="onlyNumbersWithDecimal($event)"
+                                    >
+                                    <!-- (input)="onOCIVFromChange($event)" -->
+                                    <span class="col-1 fL text-center"> - </span>
+                                    <input type="text" class="form-control col-form-label col-4 fL" 
+                                        disabled
+                                        (keypress)="onlyNumbersWithDecimal($event)"
+                                    >
+                                    <!-- [(ngModel)] ="indicationvaluevocto" 
+                                    (input)="onOCIVToChange($event)" -->
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-md-12 p-15">
+                                    <div class="custom-control custom-radio fL m-r-20">
+                                        <input type="radio" id="customRadio1" name="customRadio1" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadio1">Low</label>
+                                    </div>
+                                    <div class="custom-control custom-radio fL m-r-20">
+                                        <input type="radio" id="customRadio2" name="customRadio1" class="custom-control-input" selected="selected" checked="checked">
+                                        <label class="custom-control-label" for="customRadio2">Fair</label>
+                                    </div>
+                                    <div class="custom-control custom-radio fL m-r-20">
+                                        <input type="radio" id="customRadio3" name="customRadio1" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadio3">High</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+
+                            <div class="form-group m-t-4 row">
+                                <div class="col-md-6">
+                                    <!-- <label class="col-form-label wid-25 fL"></label> -->
+                                    <label class="col-form-label fL col-5 pad-l-0 m-r-40">Purchase ( Home Currency )</label>
+                                    <label class="col-form-label fL col-5 FL ">Asking ( Home Currency )</label>
+                                    <div class="clearfix"></div>
+                                    <label class="col-form-label m-r-10 fL">{{homecurrency}}</label>
+                                    <input type="text" class="form-control col-form-label fL col-5 m-r-10" 
+                                        [(ngModel)] ="purchasehc" 
+                                        
+                                        (keypress)="onlyNumbersWithDecimal($event)"
+                                    >
+                                    <!-- (input)="onPurchaseHCChange($event)" -->
+                                    <input type="text" class="form-control col-form-label fL col-5" 
+                                        [(ngModel)] ="askinghc" 
+                                        
+                                        (keypress)="onlyNumbersWithDecimal($event)"
+                                    >
+                                    <!-- (input)="onAskingHCChange($event)" -->
+                                </div>
+                                <div class="col-md-6">
+                                    <!-- <label class="col-form-label wid-25 fL"></label> -->
+                                    <label class="col-form-label fL col-5 pad-l-0 m-r-40">Purchase ( Other Currency )</label>
+                                    <label class="col-form-label fL col-5 FL ">Asking ( Other Currency )</label>
+                                    <div class="clearfix"></div>
+                                    <label class="col-form-label m-r-10 fL">{{selectedcurrencyunit}}</label>
+                                    <input type="text" class="form-control col-form-label fL col-5 m-r-10" 
+                                        [(ngModel)] ="purchaseoc" 
+                                        (input)="onPurchaseOCChange($event)"
+                                        (keypress)="onlyNumbersWithDecimal($event)"
+                                        disabled
+                                    >
+                                    <input type="text" class="form-control col-form-label fL col-5" 
+                                        [(ngModel)] ="askingoc" 
+                                        (input)="onAskingOCChange($event)"
+                                        (keypress)="onlyNumbersWithDecimal($event)"
+                                        disabled
+                                    >
+                                </div>
+                                <div class="clearfix"></div>
+                                <!-- <div class="col-md-3">
+                                    <label for="">Purchase (Home Currency)</label>
+                                    <div class="clearix"></div>
+                                    <p class="col-form-label col-4 fL"><b>SGD</b> </p>
+                                    <input type="text" class="form-control col-form-label col-8 fL" value="2,850,000">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Asking (Home Currency)</label>
+                                    <div class="clearix"></div>
+                                    <input type="text" class="form-control col-form-label col-12 fL" value="2,850,000">
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label for="">Purchase (Other Currency)</label>
+                                    <div class="clearix"></div>
+                                    <p class="col-form-label col-4 fL"><b>MYR</b> </p>
+                                    <input type="text" class="form-control col-form-label col-8 fL" value="2,850,000">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Asking (Other Currency)</label>
+                                    <div class="clearix"></div>
+                                    <input type="text" class="form-control col-form-label col-12 fL" value="2,850,000">
+                                </div> -->
+                            </div>
+
+                            <div class="form-group m-t-4 row">
+                                <div class="col-md-6">
+                                    <label for="">Occupancy</label>
+                                    <div class="clearfix"></div>
+                                    <select class="custom-select fL col-8" id="selectedoccupancy" [(ngModel)] ="selectedoccupancy" >
+                                            <option [value]="0" > Select</option>
+                                            <option [value]="occupancy.id" *ngFor="let occupancy of occupancies"> {{occupancy.display_text}}</option>
+                                        
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="" class="h-19">Land Rate $</label>
+                                            <div class="clearfix"></div>
+                                            <input type="text" class="form-control col-form-label col-8 fL cust-readonly" 
+                                                [(ngModel)] ="propvalues.landratepsm"
+                                                (keypress)="onlyNumbersWithDecimal($event)"
+                                                readonly
+                                            >
+                                            <label class="col-form-label col-4 fL">PSM </label>
+                                        </div>
+                                        <div class="col-md-6" >
+                                            <label for="" class="h-19"></label>
+                                            <div class="clearfix"></div>
+                                            <input type="text" class="form-control col-form-label col-8 fL cust-readonly" 
+                                                [(ngModel)] ="propvalues.landratepsf"
+                                                (keypress)="onlyNumbersWithDecimal($event)"
+                                                readonly
+                                            >
+                                            <label class="col-form-label col-4 fL">PSF </label>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="form-group m-t-4 row">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="">Rental Amount $</label>
+                                            <div class="clearfix"></div>
+                                            <input type="text" class="form-control col-form-label fL" 
+                                                [(ngModel)] ="propvalues.rentalamount"
+                                                (input)="rentalAmountChange($event)"
+                                                (keypress)="onlyNumbersWithDecimal($event)"
+                                            >
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="">Rental Rate $</label>
+                                            <div class="clearfix"></div>
+                                            <input type="text" class="form-control col-form-label col-8 fL cust-readonly" 
+                                                [(ngModel)] ="propvalues.rentalrate"
+                                                (keypress)="onlyNumbersWithDecimal($event)"
+                                                readonly
+                                                
+                                            >
+                                            <label class="col-form-label col-4 fL">PSF</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="">Floor Rate $</label>
+                                            <div class="clearfix"></div>
+                                            <input type="text" class="form-control col-form-label col-8 fL cust-readonly" 
+                                                [(ngModel)] ="propvalues.floorratepsm"
+                                                (keypress)="onlyNumbersWithDecimal($event)"
+                                                readonly
+                                            >
+                                            <label class="col-form-label col-4 fL">PSM</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for=""></label>
+                                            <div class="clearfix"></div>
+                                            <input type="text" class="form-control col-form-label col-8 fL cust-readonly" 
+                                                [(ngModel)] ="propvalues.floorratepsf"
+                                                (keypress)="onlyNumbersWithDecimal($event)"
+                                                readonly
+                                            >
+                                            <label class="col-form-label col-4 fL">PSF</label>
+                                        </div>
+                                    </div>
+                            
+                                </div>
+                            </div>
+
+                            <div class="form-group m-t-4 row">
+                                <div class="col-md-6">
+                                    <label for="">Lease Commencement</label>
+                                    <div class="clearfix"></div>
+                                    <input type="date" class="form-control col-form-label fL col-12"  
+                                        [(ngModel)] ="leasecommencedate" id="leasecommencedate"
+                                    >
+                                    <!-- <label class="col-4 col-form-label fL"><i class="fa fa-calendar"></i></label> -->
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="">Lease Expiry</label>
+                                    <div class="clearfix"></div>
+                                    <input type="date" class="form-control col-form-label fL col-12" 
+                                        [(ngModel)] ="leaseexpirydate" id="leaseexpirydate"
+                                    >
+                                    <!-- <label class="col-4 col-form-label fL"><i class="fa fa-calendar"></i></label> -->
+                                </div>
+                            </div>
+
+                            <div class="form-group m-t-4 row">
+                                <div class="col-md-12 p-t-20">
+                                    <button class="btn btn-danger btn-sm fL bcolor-blue" type="button"><i class="fa fa-refresh"></i> Create Valuation Job </button>
+                                    <button class="btn btn-danger btn-sm fL bcolor-blue" type="button" (click)="clearFields()"><i class="fa fa-refresh"></i> Clear </button>
+                                    <button class="btn btn-danger btn-sm fL bcolor-green" type="button" (click)="openIndicationConfirmation(modalconfirm,'indication')">
+                                        <i class="fa fa-save"></i> Save 
+                                    </button>
+                                    <button class="btn btn-danger btn-sm fL bcolor-green" type="button"><i class="fa fa-save"></i> Copy Info (Text) </button>
+                                </div>
+                            
+                              
+                                
+                            </div>
+                            <div class="alert alert-danger" *ngIf="showerroralert"> Please check required fields.</div>
+                            
+
+                        </div>
+                        <br> <hr>
+                        <!-- end of section 5 -->
+                    </div>
+                    <!-- end of full page -->
+                </div>
+                
+            </div>
+            <!--end of card body-->
+        </div>
+    </div>
+</div>
+
+
+
+<!-- ANGULAR MODAL NGBOOTSTRAP MODULE PROPERTY -->
+<ng-template id="modal_property" #modalproperty let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">{{modalpropertytitle}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div *ngIf="isloading" class="pageloader-modals">
+            <div class="loader loader-modals">
+                <div class="loader__figure"></div>
+                <p class="loader__label">Processing ...</p>
+            </div>
+    </div>
+
+    <div class="modal-body modal_scroll" *ngIf="!isloading">
+        <div class="p-30">
+            <div class="form-group m-t-4 row">
+                <div class="col-md-6">
+                    <label for="">Postal Code <span class="color-red">*</span></label>
+                    <div class="clearix"></div>
+                    <input type="text" class=" form-control col-form-label addprop"  
+                            [(ngModel)] ="propertydata.postal_code" 
+                            [ngClass]="{'is-invalid':formaddpropertysubmitted && !propertydata.postal_code}"
+                            (keypress)="onlyNumbers($event)"
+                            required>
+                        <div class="invalid-feedback">
+                                <div>This field is required</div>
+                        </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="">Old Code </label>
+                    <div class="clearix"></div>
+                    <input type="text" class="form-control col-form-label fL" 
+                    [(ngModel)] ="propertydata.old_postal_code"
+                    (keypress)="onlyNumbers($event)"
+                    >
+                </div>
+            </div>
+        
+            <div class="form-group m-t-4 row">
+                <div class="col-md-12">
+                    <label for="">Property Name </label>
+                    <div class="clearix"></div>
+                    <input type="text" class="form-control col-form-label addprop" 
+                    [(ngModel)] ="propertydata.name"
+                   
+                    >
+            
+                </div>
+            </div>
+        
+            <div class="form-group m-t-4 row">
+                <div class="col-md-4">
+                    <label for="">Blk / No.<span class="color-red">*</span></label>
+                    <div class="clearix"></div>
+                    <input type="text" class="form-control col-form-label " 
+                    [(ngModel)] ="propertydata.block_num"
+                    [ngClass]="{'is-invalid':formaddpropertysubmitted && !propertydata.block_num}"
+                    (keypress)="onlyNumbers($event)"
+                    required>
+                    <div class="invalid-feedback">
+                            <div>This field is required</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                        <label for="">Floor no.<span class="color-red">*</span></label>
+                        <div class="clearix"></div>
+                        <input type="text" class="form-control col-form-label " 
+                        [(ngModel)] ="propertydata.floor_num"
+                        [ngClass]="{'is-invalid':formaddpropertysubmitted && !propertydata.floor_num}"
+                        (keypress)="onlyNumbers($event)"
+                        required>
+                        <div class="invalid-feedback">
+                            <div>This field is required</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                            <label for="">Unit no.<span class="color-red">*</span></label>
+                            <div class="clearix"></div>
+                            <input type="text" class="form-control col-form-label " 
+                            [(ngModel)] ="propertydata.unit_num"
+                            [ngClass]="{'is-invalid':formaddpropertysubmitted && !propertydata.unit_num}"
+                            (keypress)="onlyNumbers($event)"
+                            required>
+                            <div class="invalid-feedback">
+                                <div>This field is required</div>
+                            </div>
+                        </div>
+
+
+            </div>
+           
+            <div class="form-group m-t-4 row">
+          
+                    <div class="col-md-12">
+                        <label for="">Street Name<span class="color-red">*</span></label>
+                        <div class="clearix"></div>
+                        <input type="text" class="form-control col-form-label " 
+                        [(ngModel)] ="propertydata.street_name"
+                        [ngClass]="{'is-invalid':formaddpropertysubmitted && !propertydata.street_name}"
+                        required>
+                        <div class="invalid-feedback">
+                            <div>This field is required</div>
+                        </div>
+                    </div>
+            </div>
+         
+        
+            
+        <div *ngIf="!isSingapore">
+            <div class="form-group m-t-4 row">
+                <div class="col-md-6">
+                    <label for="">City</label>
+                    <div class="clearix"></div>
+                    <select class="custom-select " id="inlineFormCustomSelect" disabled="disabled" [(ngModel)] ="propertydata.city">
+                        <option selected="">City</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="">District</label>
+                    <div class="clearix"></div>
+                    <select class="custom-select " id="inlineFormCustomSelect" disabled="disabled" [(ngModel)] ="propertydata.district">
+                        <option selected="">District</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+        
+            </div>
+        
+            <div class="form-group m-t-4 row">
+                <div class="col-md-12">
+                    <label for="">Country</label>
+                    <div class="clearix"></div>
+                    <select class="custom-select " id="inlineFormCustomSelect" [(ngModel)] ="propertydata.city">
+                        <option selected="">Singapore</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+              
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm" (click)="d('Cross click')"><i
+                class="fa fa-plus-circle"></i> Back</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="openPropertyModalConfirm(modalconfirm,'propertyaddress')"> 
+           {{!isupdateproperty?'Create': 'Update'}} 
+        
+        </button>
+    </div>
+</ng-template>
+
+<!-- ANGULAR MODAL NGBOOTSTRAP MODULE  searchindication -->
+<ng-template id="myModal_searchindication" class="modal-xl" #mymodalsearchindication let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Search Past Indications</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body modal_scroll">
+        <div class="p-30">
+            <div class="form-group m-t-4 row">
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">Date From</label>
+                            <div class="clearfix"></div>
+                            <input type="date" class="form-control col-form-label fL col-12" 
+                                id="indicationfrmdate" [(ngModel)] ="searhindicationdetails.indicationfrmdate" >
+                            <!-- <label class="col-4 col-form-label fL"><i class="fa fa-calendar"></i></label> -->
+                        </div>
+                        <div class="col-6">
+                            <label for="">To</label>
+                            <div class="clearfix"></div>
+                            <input type="date" class="form-control col-form-label fL col-12" 
+                            id="indicationtodate" [(ngModel)] ="searhindicationdetails.indicationtodate" >
+                            <!-- <label class="col-4 col-form-label fL"><i class="fa fa-calendar"></i></label> -->
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="">Postal Code</label>
+                    <div class="clearfix"></div>
+                    <input type="text" class="form-control col-form-label fL " 
+                        [(ngModel)] ="searhindicationdetails.indication_postal"
+                        (keypress)="onlyNumbers($event)"
+                        >
+                </div>
+                <div class="col-md-4">
+                    <label for="">Old Postal Code</label>
+                    <div class="clearfix"></div>
+                    <input type="text" class="form-control col-form-label fL " 
+                        [(ngModel)] ="searhindicationdetails.indication_postal_old"
+                        (keypress)="onlyNumbers($event)"
+                        >
+                </div>
+            </div>
+
+            <div class="form-group m-t-4 row">
+                <div class="col-md-4">
+                    <label for="">Property Name</label>
+                    <div class="clearfix"></div>
+                    <input type="text" class="form-control col-form-label " [(ngModel)] ="searhindicationdetails.indication_proptitle">
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="">Blk / No <span class="color-red">*</span></label>
+                            <div class="clearfix"></div>
+                            <input type="text" class="form-control col-form-label " 
+                                [(ngModel)] ="searhindicationdetails.indication_hsenum"
+                                (keypress)="onlyNumbers($event)"
+                                >
+                        </div>
+                        <div class="col-4">
+                            <label for="">Floor <span class="color-red">*</span></label>
+                            <div class="clearfix"></div>
+                            <input type="number" class="form-control col-form-label"
+                            [(ngModel)] ="searhindicationdetails.indication_floor_num"
+                            (keypress)="onlyNumbers($event)"
+                            >
+                        </div>
+                        <div class="col-4">
+                            <label for="">Unit no. <span class="color-red">*</span></label>
+                            <div class="clearfix"></div>
+                            <input type="text" class="form-control col-form-label " 
+                                [(ngModel)] ="searhindicationdetails.indication_unitnum"
+                                (keypress)="onlyNumbers($event)"
+                                >
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="">Street Name</label>
+                    <div class="clearfix"></div>
+                    <input type="text" class="form-control col-form-label " [(ngModel)] ="searhindicationdetails.indication_stname">
+                </div>
+            </div>
+
+            <div class="form-group m-t-4 row">
+                <div class="col-md-4">
+                    <label for="">Company Name</label>
+                    <div class="clearfix"></div>
+                    <select 
+                            class="form-control custom-select fL col-8" 
+                            [(ngModel)] ="searhindicationdetails.company_id" 
+                            name="selectseachcompany" id="selectseachcompany" 
+                            (change)="onCompanySearchChange($event)"
+                        >
+                            <option [value]="0" > Choose Company</option>
+                            <option [value]="company.id" *ngFor="let company of companies"> {{company.name}}</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="">Client Name <span class="color-red">*</span></label>
+                    <div class="clearfix"></div>
+                    <select 
+                        class="form-control custom-select fL col-8" 
+                        [(ngModel)] ="searhindicationdetails.company_client_id" 
+                        name="selectsearchclient" 
+                        id="selectsearchclient" 
+                        [disabled]="!searchcompanyselected"
+                    >
+                        <option [value]="0" > Choose Client</option>
+                        <option [value]="filteredclient.id" *ngFor="let filteredclient of filteredclients"> {{filteredclient.title}} {{filteredclient.name}}</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for=""></label>
+                    <div class="clearfix"></div>
+                    <button class="btn btn-danger btn-sm fR bcolor-green" type="button" (click)="processSearchIndications()"><i
+                        class="fa fa-search"></i> Search Past Indications</button>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row" *ngIf="searchinginprocess" style="height: 100px;">
+                <div  class="col-md-12">
+                    <div class="loader loader-modals">
+                            <div class="loader__figure"></div>
+                            <p class="loader__label">Searching ...</p>
+                        </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <table  id="myTablesearch"
+                class="table table-responsive table-bordered table-striped dataTable no-footer text-center" role="grid"
+                aria-describedby="myTable_info">
+                <thead>
+                    <tr role="row">
+                        <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                            aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                            style="width: 38px;">Select</th>
+                        <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                            aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                            style="width: 38px;">Indication Date</th>
+                        <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                            aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                            style="width: 38px;">Property Name</th>
+                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                            aria-label="Position: activate to sort column ascending" style="width: 65px;">Blk</th>
+                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                            aria-label="Age: activate to sort column ascending" style="width: 64px;">Unit No.</th>
+                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                            aria-label="Office: activate to sort column ascending" style="width: 127px;">Street Name
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                            aria-label="Start date: activate to sort column ascending" style="width: 118px;">Postal
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">Company</th>
+                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">Client Name</th>
+                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">Indication Value
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                            aria-label="Salary: activate to sort column ascending" style="width: 92px;">Valuer</th>
+                    </tr>
+                </thead>
+                <!-- *ngFor="let property of allprop" inidicationsearchresults Indication Values ( Home Currency )-->
+                <tbody>
+                        
+                        <tr *ngFor="let searchedproperty of inidicationsearchresults"> 
+                                <td class="sorting_1">
+                                        <input type="radio" id="searchindicationradio" name="customRadio" (change)="searchIndicationRadio($event,searchedproperty.id)">
+                                </td>
+                                <td>{{searchedproperty.indication_created_at_datetime}}</td>
+                                <td>{{searchedproperty.indication_proptitle}}</td>
+                                <td>{{searchedproperty.indication_hsenum}}</td>
+                                <td>{{searchedproperty.indication_unitnum}}</td>
+                                <td>{{searchedproperty.indication_stname}}</td>
+                                <td>{{searchedproperty.indication_postal}}</td>
+                                <td>{{searchedproperty.company_name}}</td>
+                                <td>{{searchedproperty.company_client_name}}</td>
+                                <td>SGD {{searchedproperty.indication_indication_value_frm_hc}} - {{searchedproperty.indication_indication_value_to_hc}}</td>
+                                <td>{{searchedproperty.users_name}}</td>
+
+                        </tr>
+
+                  
+                </tbody>
+                <tbody *ngIf="inidicationsearchresults.length <= 0">
+                        <tr>
+                            <td colspan="11" class="no-data-available">No data available in table!</td>
+                        </tr>
+                <tbody> 
+            </table>
+            <div class="clearfix"></div>
+        </div>
+       
+    </div>
+    
+    <div class="modal-footer">
+        <span class="mr-auto" *ngIf="showerroralertsearch" style="color:red"> Please select one Past Indication.</span>  
+        <button type="button" class="btn btn-primary btn-sm" (click)="c()"><i
+                class="fa fa-plus-circle"></i> Back</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="populateIndication()"> Load Past Indication </button>
+    </div>
+</ng-template>
+
+<!--CONFIRMATION MODAL --->
+<ng-template id="modalconfirm" #modalconfirm let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h4 class="modal-title title-sm" id="myModalLabel">{{cfmtitlemessage}}</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')" [disabled]="spinnershow" *ngIf="!processsavedone">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <button type="button" class="close" aria-label="Close" (click)="closeModal()" [disabled]="spinnershow" *ngIf="processsavedone">
+                    <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body" *ngIf="!spinnershow">
+            <p style="text-align: center;" *ngIf="processsavedone">{{message}}</p>
+            <p style="text-align: center;" *ngIf="!processsavedone">{{questionmessage}}</p>
+        </div>
+
+        <div *ngIf="spinnershow" class="pageloader-modals">
+                <div class="loader loader-modals">
+                    <div class="loader__figure"></div>
+                    <p class="loader__label">Saving ...</p>
+                </div>
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger btn-sm" (click)="d('Cross click')" [disabled]="spinnershow" *ngIf="!processsavedone">
+                <i class="fa fa-remove" ></i> &nbsp; Cancel
+            </button>
+            <button type="button" class="btn btn-danger btn-sm" (click)="closeModal()" [disabled]="spinnershow" *ngIf="processsavedone">
+                    <i class="fa fa-remove"> </i> &nbsp; Close
+            </button>
+
+            <button type="button" *ngIf="!processsavedone" class="btn btn-primary btn-sm" (click)="confirmSaveData()" [disabled]="spinnershow"> {{isupdateproperty || isdeleteproperty?'Confirm':'Save'}} </button>
+        </div>
+</ng-template>
+
+<!-- ANGULAR MODAL NGBOOTSTRAP MODULE  newindication ADD COMPANY-->
+<ng-template id="addcompanyinidcation" #addcompanyinidcation let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Add Company</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body" id="addcindication">
+        <div class="p-30">
+            <div class="form-group m-t-4 row">
+                <div class="col-md-12">
+                   
+                    <label for="">Company Name <span class="color-red">*</span></label>
+                    <div class="clearfix"></div>
+                    <input type="text" class="form-control col-form-label fL" 
+                        [(ngModel)] ="companydetails.name"
+                        [ngClass]="{'is-invalid':saveCompanySubmitted && !companydetails.name}"
+                    >
+                    <div class="invalid-feedback">
+                        <div>This field is required</div>
+                    </div>
+                  
+                </div>
+            </div>
+            <div class="form-group m-t-4 row">
+                <div class="col-md-4">
+                    <label for="">Company Category <span class="color-red">*</span></label>
+                    <div class="clearfix"></div>
+                    <select 
+                        [ngClass]="{'is-invalid':saveCompanySubmitted && companydetails.company_category_id==0}"
+                        class="form-control custom-select fL col-8" 
+                        [(ngModel)] ="companydetails.company_category_id" 
+                        name="selectcompanycat" id="selectcompanycat" 
+                        >
+                        <option [value]="0" > Choose Category</option>
+                        <option [value]="companycat.id" *ngFor="let companycat of company_cats"> {{companycat.value}}</option>
+                    </select>    
+                    <div class="clearfix"></div>                
+                    <div class="invalid-feedback">
+                            <div>This field is required</div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <label for="">Company Code <span class="color-red">*</span></label>
+                    <div class="clearfix"></div>
+                    <select 
+                        [ngClass]="{'is-invalid':saveCompanySubmitted && companydetails.company_code_id==0}"
+                        class="form-control custom-select fL col-8" 
+                        [(ngModel)] ="companydetails.company_code_id" 
+                        name="selectcompanycode" id="selectcompanycode" 
+                        >
+                        <option [value]="0" > Choose Code</option>
+                        <option [value]="companycode.id" *ngFor="let companycode of company_codes"> {{companycode.value}}</option>
+                    </select>     
+                    <div class="clearfix"></div>                  
+                    <div class="invalid-feedback">
+                            <div>This field is required</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">Finance Code</label>
+                            <div class="clearfix"></div>
+                            <p class="col-form-label">YYY</p>
+                        </div>
+                        <div class="col-6">
+                           <button class="btn btn-info btn-sm col-12 m-t-30"> Create</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group m-t-4 row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="">Blk / No <span class="color-red">*</span></label>
+                            <div class="clearfix"></div>
+                            <input type="text" class="form-control col-form-label fL"
+                                [ngClass]="{'is-invalid':saveCompanySubmitted && !companydetails.block_num}"
+                                [(ngModel)] ="companydetails.block_num" 
+                                name="addcompanyblock_num" id="addcompanyblock_num"
+                                (keypress)="onlyNumbers($event)"
+                            >
+                            <div class="invalid-feedback">
+                                <div>This field is required</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">Floor <span class="color-red">*</span></label>
+                            <div class="clearfix"></div>
+                            <input type="text" class="form-control col-form-label fL " 
+                                [ngClass]="{'is-invalid':saveCompanySubmitted && !companydetails.floor_num}"
+                                [(ngModel)] ="companydetails.floor_num" 
+                                name="addcompanyfloor_num" id="addcompanyfloor_num"
+                                (keypress)="onlyNumbers($event)"
+                            >
+                            <div class="invalid-feedback">
+                                <div>This field is required</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">Unit No. <span class="color-red">*</span></label>
+                            <div class="clearfix"></div>
+                            <input type="text" class="form-control col-form-label fL "
+                                [ngClass]="{'is-invalid':saveCompanySubmitted && !companydetails.unit_num}"
+                                [(ngModel)] ="companydetails.unit_num" 
+                                name="addcompanyunit_num" id="addcompanyunit_num"
+                                (keypress)="onlyNumbers($event)"
+                            >
+                            <div class="invalid-feedback">
+                                <div>This field is required</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="">Street Name <span class="color-red">*</span></label>
+                    <div class="clearfix"></div>
+                    <input type="text" class="form-control col-form-label fL " 
+                        [ngClass]="{'is-invalid':saveCompanySubmitted && !companydetails.street_name}"
+                        [(ngModel)] ="companydetails.street_name" 
+                        name="addcompanystreet_name" id="addcompanystreet_name"
+                    >
+                    <div class="invalid-feedback">
+                        <div>This field is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group m-t-4 row">
+                <div class="col-md-6">
+                    <label for="">City <span class="color-red">*</span></label>
+                    <div class="clearfix"></div>
+                    <select class="custom-select fL" id="inlineFormCustomSelect" disabled>
+                        <option selected="">City</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="">District <span class="color-red">*</span></label>
+                    <div class="clearfix"></div>
+                    <select class="custom-select fL" id="inlineFormCustomSelect" disabled>
+                        <option selected="">District</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group m-t-4 row">
+                <div class="col-md-6">
+                    <label for="">Country <span class="color-red">*</span></label>
+                    <div class="clearfix"></div>
+                    <select class="custom-select fL" id="inlineFormCustomSelect" disabled>
+                        <option selected="">Singapore</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="">Postal Code <span class="color-red">*</span></label>
+                    <div class="clearfix"></div>
+                    <input type="text" class="form-control col-form-label fL "
+                        [ngClass]="{'is-invalid':saveCompanySubmitted && !companydetails.postal_code}"
+                        [(ngModel)] ="companydetails.postal_code" 
+                        name="addcompanypostal_code" id="addcompanypostal_code"
+                        (keypress)="onlyNumbers($event)"
+                    >
+                    <div class="invalid-feedback">
+                        <div>This field is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group m-t-4 row">
+                <div class="col-md-6">
+                    <label for="">Phone No <span class="color-red">*</span></label>
+                    <div class="row">
+                        <div class="col-4">
+                            <select class="form-control" [(ngModel)] ="companydetails.phone_country_code" name="addcompanyphone_country_code" id="addcompanyphone_country_code">
+                                <option [value]="ccode.code" *ngFor="let ccode of countrycodes"> +{{ccode.code}}</option>
+                            </select> 
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="form-control col-form-label fL " 
+                                [ngClass]="{'is-invalid':saveCompanySubmitted && !companydetails.phone_number}"
+                                [(ngModel)] ="companydetails.phone_number" 
+                                name="addcompanyphone_number" id="addcompanyphone_number"
+                                (keypress)="onlyNumbers($event)"
+                            >
+                            <div class="invalid-feedback">
+                                <div>This field is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="col-md-6">
+                    <label for="">Fax <span class="color-red">*</span></label>
+                    <div class="row">
+                        <div class="col-4">
+                            <select class="form-control" 
+                                [(ngModel)] ="companydetails.fax_country_code" 
+                                name="addcompanyfax_country_code" 
+                                id="addcompanyfax_country_code">
+                                <option [value]="ccode.code" *ngFor="let ccode of countrycodes"> +{{ccode.code}}</option>
+                            </select> 
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="form-control col-form-label fL " 
+                                [ngClass]="{'is-invalid':saveCompanySubmitted && !companydetails.fax_number}"
+                                [(ngModel)] ="companydetails.fax_number" 
+                                name="addcompanyfax_number" id="addcompanyfax_number"
+                                (keypress)="onlyNumbers($event)"
+                            >
+                            <div class="invalid-feedback">
+                                <div>This field is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="form-group m-t-4 row">
+                <div class="col-md-12">
+                    <label for="">Website <span class="color-red">*</span></label>
+                    <div class="clearfix"></div>
+                    <input type="text" class="form-control col-form-label fL "
+                        [ngClass]="{'is-invalid':saveCompanySubmitted && !companydetails.website}"
+                        [(ngModel)] ="companydetails.website" 
+                        name="addcompanywebsite" id="addcompanywebsite"
+                    >
+                    <div class="invalid-feedback">
+                        <div>This field is required</div>
+                    </div>
+                </div>
+            </div>
+                
+                
+
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm" (click)="d('Cross click')"><i
+                class="fa fa-plus-circle"></i> Back</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="openConfirmAddCompany(modalconfirm)"> Save </button>
+    </div>
+</ng-template>
+
+<!-- ANGULAR MODAL NGBOOTSTRAP MODULE  newvaluation ADD CLIENT CONTACT-->
+<ng-template id="addclientinidcation" #addclientinidcation let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Add Client Company</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body" id="addclientindication">
+        <div class="p-30">
+            <div class="form-group m-t-4 row">
+                <div class="col-md-12">
+                    <label for="">Company Name <span class="color-red">*</span></label>
+                    <div class="clearfix"></div>
+                        <select [ngClass]="{'is-invalid':saveClientSubmitted && clientdetails.company_id==0}"
+                            class="form-control custom-select fL col-8" 
+                            [(ngModel)] ="clientdetails.company_id" 
+                            name="selectcompanyid" id="selectcompanyid" 
+                        >
+                            <option [value]="0" > Choose Company</option>
+                            <option [value]="company.id" *ngFor="let company of companies"> {{company.name}}</option>
+                        </select>
+                    
+                        <div class="clearfix"></div>
+                        <div class="invalid-feedback">
+                                <div>This field is required</div>
+                        </div>
+                </div>
+            </div>
+
+            <div class="form-group m-t-4 row">
+                <div class="col-md-4">
+                    <label for="">Title</label>
+                    <div class="clearfix"></div>
+                    <select class="custom-select fL" id="inlineFormCustomSelect">
+                        <option value="Mr">Mr</option>
+                        <option value="Ms">Ms</option>
+                    </select>
+                </div>
+                <div class="col-md-8">
+                    <label for="">Name <span class="color-red">*</span></label>
+                    <div class="clearfix"></div>
+                    <input type="text" class="form-control col-form-label fL" 
+                        [ngClass]="{'is-invalid':saveClientSubmitted && !clientdetails.name}"
+                        [(ngModel)] ="clientdetails.name" 
+                        name="addclientname" id="addclientname"
+                    >
+                    <div class="invalid-feedback">
+                        <div>This field is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group m-t-4 row">
+                <div class="col-md-6">
+                    <label for="">Designation </label>
+                    <div class="clearfix"></div>
+                    <input type="text" class="form-control col-form-label fL " 
+                        [ngClass]="{'is-invalid':saveClientSubmitted && !clientdetails.designation}"
+                        [(ngModel)] ="clientdetails.designation" 
+                        name="addclientdesignation" id="addclientdesignation"
+                    >
+                    <div class="invalid-feedback">
+                        <div>This field is required</div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="">Department </label>
+                    <div class="clearfix"></div>
+                    <input type="text" class="form-control col-form-label fL " 
+                        [ngClass]="{'is-invalid':saveClientSubmitted && !clientdetails.department}"
+                        [(ngModel)] ="clientdetails.department" 
+                        name="addclientdepartment" id="addclientdepartment"
+                    >
+                    <div class="invalid-feedback">
+                        <div>This field is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group m-t-4 row">
+                <div class="col-md-12">
+                    <label for="">Email <span class="color-red">*</span> </label>
+                    <div class="clearfix"></div>
+                    <input type="text" class="form-control col-form-label fL " 
+                        [ngClass]="{'is-invalid':saveClientSubmitted && !clientdetails.email}"
+                        [(ngModel)] ="clientdetails.email" 
+                        name="addclientemail" id="addclientemail"
+                    >
+                    <div class="invalid-feedback">
+                        <div>This field is required</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-group m-t-4 row">
+                <div class="col-md-6">
+                    <label for="">Phone 1<span class="color-red">*</span></label>
+                    <div class="row">
+                        <div class="col-4">
+                            <select class="form-control" 
+                                [(ngModel)] ="clientdetails.phone_1_country_code" 
+                                name="addclientphone_country_code" 
+                                id="addclientphone_country_code">
+                                <option [value]="ccode.code" *ngFor="let ccode of countrycodes"> +{{ccode.code}}</option>
+                            </select> 
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="form-control col-form-label fL"
+                                [ngClass]="{'is-invalid':saveClientSubmitted && !clientdetails.phone_1_number}"
+                                [(ngModel)] ="clientdetails.phone_1_number" 
+                                name="addclientphone_1_number" id="addclientphone_1_number"
+                                (keypress)="onlyNumbers($event)"
+                                (input)="onlyNumbers($event)"
+                                autocomplete="off"
+                            >
+                            <div class="invalid-feedback">
+                                <div>This field is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="col-md-6">
+                    <label for="">Phone 2 </label>
+                    <div class="row">
+                        <div class="col-4">
+                            <select class="form-control" 
+                                [(ngModel)] ="clientdetails.phone_2_country_code" 
+                                name="addclientphone_2_country_code" 
+                                id="addclientphone_2_country_code">
+                                <option [value]="ccode.code" *ngFor="let ccode of countrycodes"> +{{ccode.code}}</option>
+                            </select> 
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="form-control col-form-label fL"
+                                [(ngModel)] ="clientdetails.phone_2_number" 
+                                name="addclientphone_2_number" id="addclientphone_2_number"
+                                (keypress)="onlyNumbers($event)"
+                                (input)="onlyNumbers($event)"
+                                autocomplete="off"
+                            >
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="form-group m-t-4 row">
+                <div class="col-md-12">
+                    <label for="">Comments</label>
+                    <div class="clearfix"></div>
+                    <textarea name="" id="" cols="5" rows="5" class="form-control" [(ngModel)] ="clientdetails.comments" ></textarea>
+                </div>
+                
+            </div>
+
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm" (click)="d('Cross click')"><i
+                class="fa fa-plus-circle"></i> Back</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="openConfirmAddClient(modalconfirm)"> Save </button>
+    </div>
+</ng-template>
+

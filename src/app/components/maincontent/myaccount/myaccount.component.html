@@ -1,0 +1,100 @@
+<app-breadcrumbs [pagetitle]="pageTitle"></app-breadcrumbs>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4>My Account</h4>
+                <button id="edit_btn" (click)="handleEditClick()" class="myaccount_editbtn btn btn-success btn-xs"
+                    type="button"><i class="fa  fa-edit ti-menu"></i>Edit</button>
+                <form class="form">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!--NAME-->
+                            <div class="form-group m-t-4 row">
+                                <label for="example-text-input"
+                                    class="col-4 col-form-label"><strong>Name</strong></label>
+                                <div class="col-8">
+                                    <!-- <p class="col-form-label">{{userData && userData[0]?.name==null ? '--': userData && userData[0]?.name}}</p> -->
+                                    <p class="col-form-label">{{userData?.name==null ? '--': userData?.name}}</p>
+                                </div>
+                            </div>
+
+                            <!--EMAIL-->
+                            <div class="form-group m-t-4 row">
+                                <label for="example-text-input"
+                                    class="col-4 col-form-label"><strong>Email</strong></label>
+                                <div class="col-8">
+                                    <p class="col-form-label">{{userData?.email==null ? '--': userData?.email}}</p>
+                                    <!-- <p class="col-form-label">{{userData && userData[0]?.email==null ? '--': userData && userData[0]?.email}}</p> -->
+                                </div>
+                            </div>
+
+                            <!--Username-->
+                            <div class="form-group m-t-4 row">
+                                <label for="example-text-input" class="col-4 col-form-label"><strong>User
+                                        Name</strong></label>
+                                <div class="col-8">
+                                    <p class="col-form-label">{{userData?.username==null ? '--': userData?.username}}</p>
+                                    <!-- <p class="col-form-label">{{userData && userData[0]?.username==null ? '--': userData && userData[0]?.username}}</p> -->
+                                </div>
+                            </div>
+
+                            <!--Office-->
+                            <div class="form-group m-t-4 row">
+                                <label for="example-text-input" class="col-4 col-form-label"><strong>Savills
+                                        office</strong></label>
+                                <div class="col-8">
+                                    <p class="col-form-label">{{userData?.office_display_name==null ? 'Singapore': userData?.office_display_name}}</p>
+                                    <!-- <p class="col-form-label">{{userData && userData[0]?.office_display_name==null ? 'Singapore': userData && userData[0]?.office_display_name}}</p> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                            <!--Display Name-->
+                            <div class="form-group m-t-4 row">
+                                <label for="example-text-input" class="col-4 col-form-label"><strong>Display
+                                        Name</strong></label>
+                                <div class="col-8">
+                                    <p class="col-form-label">{{userData?.display_name==null ? '--': userData?.display_name}}</p>
+                                    <!-- <p class="col-form-label">{{userData && userData[0]?.display_name==null ? '--': userData && userData[0]?.display_name}}</p> -->
+                                </div>
+                            </div>
+
+                            <!--User Role-->
+                            <div class="form-group m-t-4 row">
+                                <label for="example-text-input" class="col-4 col-form-label"><strong>User
+                                        Role</strong></label>
+                                <div class="col-8">
+                                    <p class="col-form-label">{{userData?.role_display_name==null ? '--': userData?.role_display_name}}</p>
+                                    <!-- <p class="col-form-label">{{userData && userData[0]?.role_display_name==null ? '--': userData && userData[0]?.role_display_name}}</p> -->
+                                </div>
+                            </div>
+
+                            <!--Mobile No.-->
+                            <div class="form-group m-t-4 row">
+                                <label for="example-text-input" class="col-4 col-form-label"><strong>Mobile
+                                        No.</strong></label>
+                                <div class="col-8">
+                                    <p class="col-form-label">+{{userData?.mobile_country_calling_code==0 ? '--': userData?.mobile_country_calling_code}} {{userData?.mobile_phone==0 ? '--': userData?.mobile_phone}} </p>
+                                    <!-- <p class="col-form-label">+{{userData && userData[0]?.mobile_country_calling_code==0 ? '--': userData && userData[0]?.mobile_country_calling_code}} {{userData && userData[0]?.mobile_phone==0 ? '--': userData && userData[0]?.mobile_phone}} </p> -->
+                                </div>
+                            </div>
+
+                            <!--Office No.-->
+                            <div class="form-group m-t-4 row">
+                                <label for="example-text-input" class="col-4 col-form-label"><strong>Office
+                                        No.</strong></label>
+                                <div class="col-8">
+                                    <p class="col-form-label">+{{userData?.office_country_calling_code==0 ? '--': userData?.office_country_calling_code}} {{userData?.office_phone==0 ? '--': userData?.office_phone}}</p>
+                                    <!-- <p class="col-form-label">+{{userData && userData[0]?.office_country_calling_code==0 ? '--': userData && userData[0]?.office_country_calling_code}} {{userData && userData[0]?.office_phone==0 ? '--': userData && userData[0]?.office_phone}}</p> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

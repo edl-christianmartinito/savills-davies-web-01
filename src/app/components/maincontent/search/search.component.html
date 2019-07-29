@@ -1,0 +1,530 @@
+<app-breadcrumbs [pagetitle]="pageTitle"></app-breadcrumbs>
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body nopad" id="section-search">
+        <div class="p-40">
+          <div id="fullpage">
+            <nav id="cd-vertical-nav">
+                <ul>
+                    <li>
+                        <a href="#section1" data-number="1">
+                            <span class="cd-dot"></span>
+                            <span class="cd-label">Top</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section2" data-number="2">
+                            <span class="cd-dot"></span>
+                            <span class="cd-label">Property Address</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section3" data-number="3">
+                            <span class="cd-dot"></span>
+                            <span class="cd-label">Property Details</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section4" data-number="4">
+                            <span class="cd-dot"></span>
+                            <span class="cd-label">Client Details</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section5" data-number="5">
+                            <span class="cd-dot"></span>
+                            <span class="cd-label">Report</span>
+                        </a>
+                    </li>
+            
+                </ul>
+            </nav>
+            <div id="section1" class="section cd-section">
+                <div class="form-group m-t-4 row">
+                    <div class="col-md-3">
+                        <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="searchcustomCheck1">
+                        <label class="custom-control-label" for="customCheck1">Others</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="searchcustomCheck2">
+                        <label class="custom-control-label" for="customCheck2">Caveats</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="searchcustomCheck3">
+                        <label class="custom-control-label" for="customCheck2">Valuation</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="searchcustomCheck4">
+                        <label class="custom-control-label" for="customCheck">Indication</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group m-t-4 row">
+                    <div class="col-md-6">
+                        <label for="">Typist:</label>
+                        <div class="clearfix"></div>
+                        <select class="custom-select col-12" id="inlineFormCustomSelect">
+                            <option selected="">--select--</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Valuer</label>
+                        <div class="clearfix"></div>
+                        <select class="custom-select col-12" id="inlineFormCustomSelect">
+                            <option selected="">--select--</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group m-t-4 row">
+                    <div class="col-md-6">
+                        <label for="">Reference #:</label>
+                        <div class="clearfix"></div>
+                        <input type="text" class="form-control col-form-label">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Valuation type</label>
+                        <div class="clearfix"></div>
+                        <select class="custom-select col-12" id="inlineFormCustomSelect">
+                            <option selected="">--select--</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group m-t-4 row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="">Request Date:</label>
+                                <div class="clearfix"></div>
+                                <input type="date" class="form-control col-form-label fL col-9" value="1/1/10">
+                                <label class="col-3 col-form-label fL"><i class="fa fa-calendar"></i></label>
+                            </div>
+                            <div class="col-6">
+                                <label for="">To:</label>
+                                <div class="clearfix"></div>
+                                <input type="date" class="form-control col-form-label fL col-9" value="1/1/10">
+                                <label class="col-3 col-form-label fL"><i class="fa fa-calendar"></i></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="">Valuation / Contract Date :</label>
+                                <div class="clearfix"></div>
+                                <input type="date" class="form-control col-form-label fL col-9" value="1/1/10">
+                                <label class="col-3 col-form-label fL"><i class="fa fa-calendar"></i></label>
+                            </div>
+                            <div class="col-6">
+                                <label for="">To:</label>
+                                <div class="clearfix"></div>
+                                <input type="date" class="form-control col-form-label fL col-9" value="1/1/10">
+                                <label class="col-3 col-form-label fL"><i class="fa fa-calendar"></i></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group m-t-4 row">
+                    <div class="col-md-6">
+                        <label for="">Supervisor:</label>
+                        <div class="clearfix"></div>
+                        <input type="text" class="form-control col-form-label fL" value="text">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Applicant Name:</label>
+                        <div class="clearfix"></div>
+                        <input type="text" class="form-control col-form-label fL" value="text">
+                    </div>
+                </div>
+
+                <div class="form-group m-t-4 row">
+                    <div class="col-md-6">
+                        <label for="">Invoice #:</label>
+                        <div class="clearfix"></div>
+                        <input type="text" class="form-control col-form-label fL" value="text">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Taken By:</label>
+                        <div class="clearfix"></div>
+                        <select class="custom-select col-12" id="inlineFormCustomSelect">
+                            <option selected="">--select--</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="clearfix"></div>
+            <br>
+            <hr>
+            <!-- end of section1 -->
+
+            <div id="section2" class="section cd-section">
+                <h3>Property Address</h3>
+                <div class="clearfix"></div>
+                <div class="form-group m-t-4 row">
+                    <div class="col-md-6">
+                        <label for="">Postal Code <span class="color-red">*</span></label>
+                        <div class="clearfix"></div>
+                        <input type="text" class="form-control col-form-label fL" value="449269">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Old Postal Code </label>
+                        <div class="clearfix"></div>
+                        <input type="text" class="form-control col-form-label fL" value="449289">
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group m-t-4 row">
+                    <div class="col-md-5">
+                        <label for="">Property Name</label>
+                        <div class="clearfix"></div>
+                        <input type="text" class="form-control col-form-label fL" value="Parkway Parade">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="">Blk / No </label>
+                                <div class="clearfix"></div>
+                                <input type="text" class="form-control col-form-label fL" value="80">
+                            </div>
+                            <div class="col-4">
+                                <label for="">Floor </label>
+                                <div class="clearfix"></div>
+                                <input type="text" class="form-control col-form-label fL" value="80">
+                            </div>
+                            <div class="col-4">
+                                <label for="">Unit No.</label>
+                                <div class="clearfix"></div>
+                                <input type="text" class="form-control col-form-label fL" value="80">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-2">
+                        <label for="">Blk / No <span class="color-red">*</span></label>
+                        <div class="clearfix"></div>
+                        <input type="text" class="form-control col-form-label fL" value="80">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="">Address1 <span class="color-red">*</span></label>
+                        <div class="clearfix"></div>
+                        <input type="text" class="form-control col-form-label fL" value="marine Parade Road">
+                    </div> -->
+                </div>
+
+                <div class="form-group m-t-4 row">
+                    <div class="col-md-4">
+                        <label for="">Street Name <span class="color-red">*</span></label>
+                        <div class="clearfix"></div>
+                        <input type="text" class="form-control col-form-label fL" value="#01-02">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="" class="h-19"></label>
+                        <div class="clearfix"></div>
+                        <input type="text" class="form-control col-form-label fL" value="City" disabled>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="" class="h-19"></label>
+                        <div class="clearfix"></div>
+                        <input type="text" class="form-control col-form-label fL" value="District" disabled>
+                    </div>
+                </div>
+
+                <div class="form-group m-t-4 row">
+                    <div class="col-md-6">
+                        <label for=""></label>
+                        <div class="clearfix"></div>
+                        <select class="custom-select " id="inlineFormCustomSelect">
+                            <option selected="">Singapore</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <br><hr>
+            <!-- end of section 2   -->
+
+            <div id="section3" class="section cd-section">
+                <h3>Property Details</h3>
+                <div class="clearfix"></div>
+                <div class="form-group m-t-4 row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label for="">Tenure</label>
+                                <div class="clearix"></div>
+                                <select class="custom-select " id="inlineFormCustomSelect">
+                                    <option selected="">Leasehold</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="">No.of yrs</label>
+                                <div class="clearix"></div>
+                                <input type="text" class="form-control col-form-label fL" value="99 (only#)">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">Commencement Date</label>
+                                <div class="clearix"></div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <select class="custom-select " id="inlineFormCustomSelect">
+                                            <option selected="">DD</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-4">
+                                        <select class="custom-select " id="inlineFormCustomSelect">
+                                            <option selected="">MM</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-4">
+                                        <select class="custom-select " id="inlineFormCustomSelect">
+                                            <option selected="">YY</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Property Type</label>
+                        <div class="clearix"></div>
+                        <select class="custom-select " id="inlineFormCustomSelect">
+                            <option selected="">Apartment / Condo (APT)</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group m-t-4 row">
+                    <div class="col-md-3">
+                        <label for="">Lot #</label>
+                        <div class="clearix"></div>
+                        <input type="text" class="form-control col-form-label fL" value="99 (only#)">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="">MK/TS</label>
+                        <div class="clearix"></div>
+                        <input type="text" class="form-control col-form-label fL" value="99 (only#)">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="">Condition</label>
+                        <div class="clearix"></div>
+                        <select class="custom-select " id="inlineFormCustomSelect">
+                            <option selected="">Good</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="">Age / TOP</label>
+                        <div class="clearix"></div>
+                        <select class="custom-select " id="inlineFormCustomSelect">
+                            <option selected="">Pre-war</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group m-t-4 row">
+                    <div class="col-md-3">
+                        <label for="">Land Area</label>
+                        <div class="clearix"></div>
+                        <input type="text" class="form-control col-form-label fL col-8" value="15">
+                        <label class="col-4 col-form-label fL">SM</label>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="" class="h-19"></label>
+                        <div class="clearix"></div>
+                        <input type="text" class="form-control col-form-label fL col-8" value="15">
+                        <label class="col-4 col-form-label fL">SF</label>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="">Floor Area</label>
+                        <div class="clearix"></div>
+                        <input type="text" class="form-control col-form-label fL col-8" value="15">
+                        <label class="col-4 col-form-label fL">SM</label>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="" class="h-19"></label>
+                        <div class="clearix"></div>
+                        <input type="text" class="form-control col-form-label fL col-8" value="15">
+                        <label class="col-4 col-form-label fL">SF</label>
+                    </div>
+                </div>
+                <div class="form-group m-t-4 row">
+                    <div class="col-md-12">
+                        <label for="">Remarks:</label>
+                        <div class="clearfix"></div>
+                        <textarea name="" id="" cols="5" rows="5" class="form-control"></textarea>
+                    </div>
+                    
+                </div>
+
+            </div>
+            <div class="clearfix"></div>
+            <br>
+            <hr>
+            <!-- end of section 3   -->
+
+            <div id="section4" class="section cd-section">
+                <h3>Client Details</h3>
+                <div class="clearfix"></div>
+                <div class="form-group m-t-4 row">
+                    <div class="col-md-4">
+                        <label for="">Company Name <span class="color-red">*</span></label>
+                        <div class="clearfix"></div>
+                        <select class="custom-select fL col-9" id="inlineFormCustomSelect">
+                            <option selected="">Select</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <label class="col-3 col-form-label color-blue fL"><i class="fas fa-plus"></i></label>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="">Company Category <span class="color-red">*</span></label>
+                        <div class="clearfix"></div>
+                        <input type="text" class="form-control col-form-label" value="text">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="">Company Code <span class="color-red">*</span></label>
+                        <div class="clearfix"></div>
+                        <input type="text" class="form-control col-form-label" value="text">
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="form-group m-t-4 row">
+                    <div class="col-md-4">
+                        <label for="">Client Name <span class="color-red">*</span></label>
+                        <div class="clearfix"></div>
+                        <select class="custom-select fL col-9" id="inlineFormCustomSelect">
+                            <option selected="">Select</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <label class="col-3 col-form-label color-blue fL"><i class="fas fa-plus"></i></label>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="">Email Address </label>
+                        <div class="clearfix"></div>
+                        <input type="text" class="form-control col-form-label" value="jess.cheng.sif.com.sg">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="">Contact</label>
+                        <div class="clearfix"></div>
+                        <input type="text" class="form-control col-form-label" value="+65 9823 2423">
+                    </div>
+                </div>
+
+                <div class="form-group m-t-4 row">
+                    <div class="col-md-3">
+                        <label for="">Propoed Fees $ </label>
+                        <div class="clearfix"></div>
+                        <select class="custom-select " id="inlineFormCustomSelect">
+                            <option selected="">SGD</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="" class="h-19"></label>
+                        <div class="clearfix"></div>
+                        <input type="text" class="form-control col-form-label" value="5000">
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <br>
+            <hr>
+            <!-- end of section4 -->
+
+            <div id="section5" class="section cd-section">
+                <h3>Report</h3>
+                <div class="clearfix"></div>
+                <div class="form-group m-t-4 row">
+                    <div class="col-md-6">
+                        <label for="">Format: </label>
+                        <div class="clearfix"></div>
+                        <select class="custom-select " id="inlineFormCustomSelect">
+                            <option selected="">--Select--</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="clearfix"></div>
+                    <br><br>
+                </div>
+                <div class="form-group m-t-4 row">
+                   
+                    <div class="col-md-6">
+                        <label for="">Limit Results Per Database Group To:: </label>
+                        <div class="clearfix"></div>
+                        <input type="number" class="form-control col-form-label" value="5000">
+                    </div>
+                    <div class="col-md-6 p-t-30">
+                    
+                        <!-- <a class="nav-link  d-none d-lg-block d-md-block waves-effect waves-dark" routerLink="caveats"
+                            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"> -->
+                            <button [routerLink]="['/dashboard/searchresults']" class="btn btn-danger btn-sm fL bcolor-blue" type="button" ><i class="fa fa-refresh"></i> Search </button>
+                        <!-- </a> -->
+                        <button class="btn btn-danger btn-sm fL bcolor-green" type="button"><i class="fa fa-save"></i> Clear </button>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+
+          </div>
+
+        </div>
+        <!-- div p-40 -->
+      </div>
+      <!--end section-search -->
+    </div>
+  </div>
+</div>

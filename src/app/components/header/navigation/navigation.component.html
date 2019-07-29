@@ -1,0 +1,249 @@
+<div class="navbar-collapse">
+    <!-- ============================================================== -->
+    <!-- toggle and nav items -->
+    <!-- ============================================================== -->
+    <ul class="navbar-nav mr-auto">
+        <!-- This is  -->
+        <li class="nav-item"> <a class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark"
+                href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+        <li class="nav-item"> <a class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark"
+                href="javascript:void(0)"><i class="icon-menu"></i></a> </li>
+        <li class="nav-item header_navbuttons">
+            <a class="nav-link d-none d-lg-block d-md-block waves-effect waves-dark"
+                 routerLink="search" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-search"></i> Search</button>
+            </a>
+        </li>
+        <li class="nav-item header_navbuttons">
+            <a class="nav-link  d-none d-lg-block d-md-block waves-effect waves-dark"
+                routerLink="newindication" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >
+                <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i>
+                    Indication</button> 
+            </a>
+        </li>
+        <li class="nav-item header_navbuttons">
+            <a class="nav-link d-none d-lg-block d-md-block waves-effect waves-dark"
+                routerLink="newvaluation" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i>
+                    Valuation</button>
+            </a>
+        </li>
+        <li class="nav-item header_navbuttons">
+            <a class="nav-link d-none d-lg-block d-md-block waves-effect waves-dark"
+                 (click)="open(content)">
+                <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i> Portfolio
+                    Valuation</button>
+            </a>
+           
+        </li>
+        <!-- ============================================================== -->
+        <!-- Search -->
+        <!-- ============================================================== -->
+        <!-- <li class="nav-item">
+            <form class="app-search d-none d-md-block d-lg-block">
+                <input type="text" class="form-control" placeholder="Search & enter">
+            </form>
+        </li> -->
+
+        <!-- <button type="button" class="btn btn-info"><i class="fa fa-heart"></i> Info</button> -->
+    </ul>
+    <!-- ============================================================== -->
+    <!-- User profile and search -->
+    <!-- ============================================================== -->
+    <ul class="navbar-nav my-lg-0">
+        <!-- ============================================================== -->
+        <!-- Settings -->
+        <!-- ============================================================== -->
+        <li class="nav-item dropdown u-pro" *ngIf="issuperuser">
+            <a class="nav-link dropdown-toggle waves-effect waves-dark settings" href="" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fa  fa-cogs "></i> <span class="hidden-md-down"
+                    style="font-size: 14px; margin-left: 10px;">Settings &nbsp;</span> </a>
+            <div class="dropdown-menu dropdown-menu-right animated flipInY">
+                <!-- text-
+                <a href="javascript:void(0)" class="dropdown-item"><i class="ti-user"></i>Settings</a>
+                text-->
+                <a  routerLink="settings/systemsettings" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="dropdown-item" class="dropdown-item"><i class="ti-user"></i> System Settings</a>
+
+                <a routerLink="settings/usermanagement" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="dropdown-item" class="dropdown-item"><i class="ti-wallet"></i> Users Management</a>
+                <!-- text-->
+                <a routerLink="settings/useraccessrole" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="dropdown-item" class="dropdown-item"><i class="ti-email"></i> User Role Access</a>
+                <!-- text-->
+                <!-- <div class="dropdown-divider"></div> -->
+                <!-- text-->
+                <a  routerLink="settings/dropdownlist" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" href="javascript:void(0)" class="dropdown-item"><i class="ti-settings"></i> Dropdown List</a>
+                <!-- text-->
+                <!-- <div class="dropdown-divider"></div> -->
+                <!-- text-->
+                <a (click)="logout()" class="dropdown-item"><i class="fa fa-power-off"></i> Audit Logs</a>
+                <!-- text-->
+            </div>
+        </li>
+
+      
+
+        <!-- ============================================================== -->
+        <!-- User Profile -->
+        <!-- ============================================================== -->
+        <li class="nav-item dropdown u-pro">
+            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span class="hidden-md-down">{{userData && userData[0]?.display_name}}
+                    &nbsp;<i class="fa fa-angle-down"></i></span> </a>
+            <div class="dropdown-menu dropdown-menu-right animated flipInY">
+                <!-- text [routerLink]="['user', user.id, 'details']" =-->
+                <a routerLink="myaccount" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="dropdown-item"><i class="ti-user"></i> My Account</a>
+                <!-- text-->
+         
+                <!-- text-->
+                <div class="dropdown-divider"></div>
+                <!-- text-->
+                <a href="javascript:void(0)" class="dropdown-item"><i class="ti-settings"></i> Account Setting</a>
+                <!-- text-->
+                <div class="dropdown-divider"></div>
+                <!-- text-->
+                <a (click)="logout()" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
+                <!-- text-->
+            </div>
+        </li>
+        <!-- ============================================================== -->
+        <!-- End User Profile -->
+        <!-- ============================================================== -->
+        <!-- <li class="nav-item right-side-toggle"> <a class="nav-link  waves-effect waves-light" href="javascript:void(0)"><i class="ti-settings"></i></a></li> -->
+    </ul>
+
+</div>
+
+<!-- ANGULAR MODAL NGBOOTSTRAP MODULE  NAVIGATION -->
+<ng-template  id="myModal"  #content let-c="close" let-d="dismiss">
+    <form class="form-horizontal" name="form"  #f="ngForm"  novalidate>
+        <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">New Portfolio Valuation</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body modalcheckbox">
+            <div class="p-40">
+                
+                    <div class="custom-control custom-radio form-group m-t-4 row">
+                        <input 
+                            type="radio" 
+                            name="customRadio_a" 
+                            class="custom-control-input customRadio_ainput" 
+                            [(ngModel)]="model.value"
+                            #customRadio_a="ngModel"
+                            value="1"
+                            [ngClass]="{'is-invalid':f.submitted && customRadio_a.invalid}"
+                            required>
+                        <label class="custom-control-label" for="customRadio_a">Open New Portfolio?</label>
+                        <div class="clearfix"></div>
+                        <input
+                            type="radio"
+                            name="customRadio_a"
+                            class="custom-control-input customRadio_binput"
+                            [(ngModel)]="model.value"
+                            #customRadio_b="ngModel"
+                            value="2"
+                            [ngClass]="{'is-invalid':f.submitted && customRadio_a.invalid}"
+                            required>
+                        <label class="custom-control-label" for="customRadio_b">For existing portfolio val. ref. no.</label>
+
+                        <!-- <input type="radio" 
+                            name="customRadio_a" 
+                            class="custom-control-input " 
+                            [(ngModel)]="model.value" 
+                            #customRadio_c="ngModel"
+                            value="3" 
+                            [ngClass]="{'is-invalid':f.submitted && customRadio_a.invalid}"
+                            required>
+                        <label class="custom-control-label" for="customRadio_c">For existing portfolio val. ref. no.</label> -->
+                        <div class="help-block"></div>
+                        <div class="clearfix"></div>
+                        <div class="invalid-feedback">
+                            <div>Please select an option</div>
+                        </div>
+                    </div>
+    
+                    <div class="form-group m-t-4 row">
+                        <select
+                        name="inlineFormCustomSelect"
+                        class="custom-select" 
+                        id="inlineFormCustomSelect"
+                        [(ngModel)]="model.selections"
+                        #inlineFormCustomSelect="ngModel"
+                        [ngClass]="{'is-invalid':f.submitted && inlineFormCustomSelect.invalid}"
+                        required>
+                            <option selected="">Choose...</option>
+                            <option value="1">2019 / 3215</option>
+                            <option value="2">2019 / 3212</option>
+                            <option value="3">2019 / 3210</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            <div>This field is required</div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-12">
+                        <label for="">Indication Date</label>
+                        <div class="clearfix"></div>
+                        <div class="form-group">
+                            <input 
+                            type="date"
+                            class="form-control col-form-label fL col-9"
+                            name="new_ind_date"
+                            [(ngModel)]="model.date"
+                            #new_ind_date="ngModel" 
+                            [ngClass]="{'is-invalid':f.submitted && new_ind_date.invalid}"
+                            required>
+                            <label class="col-3 col-form-label fL">
+                                <i class="fa fa-calendar"></i>
+                            </label>
+                            <div class="clearfix"></div>
+                            <div class="invalid-feedback">
+                                <div>This field is required</div>
+                            </div>
+                        </div>
+                       
+                    </div> -->
+                    <!-- <div class="form-group">
+                        <label class="control-label">firstName</label>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            name="firstName"
+                            [(ngModel)]="model.firstName" 
+                            #firstName="ngModel" 
+                            [ngClass]="{'is-invalid':f.submitted && firstName.invalid}"
+                            required>
+                            <div class="invalid-feedback">
+                                <div>First Name is required</div>
+                            </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">lastName</label>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            name="lastName" 
+                            [(ngModel)]="model.lastName" 
+                            #lastName="ngModel"
+                            [ngClass]="{'is-invalid':f.submitted && lastName.invalid}" 
+                            required>
+                        <div class="invalid-feedback">
+                            <div>First Name is required</div>
+                        </div>
+                    </div> -->
+                   
+                    <!-- {{model | json}} -->
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary btn-sm" (click)="d('Cross click')"><i class="fa fa-plus-circle"></i> Back</button>
+            <button type="submit" class="btn btn-primary btn-sm"> Create </button>
+        
+        </div>
+    </form>
+</ng-template>
+
+

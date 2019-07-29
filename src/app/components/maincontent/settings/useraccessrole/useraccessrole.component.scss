@@ -1,0 +1,32 @@
+#userAccessTab {
+    text-align: center;
+    margin: 0 auto;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    z-index: 9;
+    .p-40{
+        overflow: hidden!important;
+    }
+    .nav-item {
+        margin-bottom: -1px;
+        text-align: center;
+        float: none;
+        display: inline-block;
+        margin: 0 auto;
+        position: relative;
+        width:33.33%;
+
+        .nav-link.active{
+            background: #dfeaee;
+            border-bottom: 1px solid #dfeaee!important;
+        }
+    }   
+    
+}
+
+#topbutton{
+    position: absolute;
+    top: -75px;
+    right: 0;
+}

@@ -1,0 +1,21 @@
+<!-- ============================================================== -->
+<!-- Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+<div class="row page-titles appbread">
+    <div class="col-md-12 align-self-center">
+        <h4 class="text-themecolor">{{pagetitle}} </h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Home </a></li>
+           
+            <li class="breadcrumb-item active" *ngIf="pagecrumbs !== 'Database'">{{pagetitleBC != null ? pagetitleBC : pagetitle}} </li>
+
+            <li class="breadcrumb-item" *ngIf="pagecrumbs === 'Database'">Database</li>
+            <li class="breadcrumb-item active" *ngIf="pagecrumbs === 'Database'">{{pagetitleBC != null ? pagetitleBC : pagetitle}}</li>
+
+        </ol>
+    </div>
+
+</div>
+<!-- ============================================================== -->
+<!-- End Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->

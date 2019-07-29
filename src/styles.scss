@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import "assets/css/dev.scss";
+
+.pageloader-container{
+    height:75vh;
+}
+.pageloader-modals{
+    height:10vh;
+}
+.loader-modals{
+    top: 45%!important;
+}
+.title-sm{
+    font-size: 1.2em;
+}

@@ -1,0 +1,664 @@
+<app-breadcrumbs [pagetitle]="pageTitle" [pagecrumbs]="crumbs"></app-breadcrumbs>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body nopad" id="section-database">
+                <div id="topbutton">
+                    <button class="btn btn-danger btn-sm fL bcolor-green" (click)="openXL(mymodaldatabaseproperty)" type="button"><i class="fa fa-edit"></i> New Property </button>
+                </div>
+                <div class="p-40">
+                    <table datatable id="myTable" class="table table-bordered table-striped dataTable no-footer text-center" role="grid"
+                        aria-describedby="myTable_info">
+                        <thead>
+                            <tr role="row">
+                                <th class="" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="" aria-label=""
+                                    width="14%">ID</th>
+                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                    aria-label="Position: activate to sort column ascending" width="14%">Property</th>
+                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                    aria-label="Age: activate to sort column ascending" width="14%">Block</th>
+                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                    aria-label="Office: activate to sort column ascending" width="14%">Street Name</th>
+                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                    aria-label="Start date: activate to sort column ascending" width="14%">Postal Code</th>
+                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                    aria-label="Salary: activate to sort column ascending" width="14%">Created At</th>
+                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                    aria-label="Salary: activate to sort column ascending" width="14%">Action</th>
+                    
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--  1-->
+                            <tr role="row" class="odd">
+                                <td class="">
+                                    <p class="col-form-label">1</p>
+                                </td>
+                                <td>
+                                    <p class="col-form-label">Victoria Street</p>
+                                </td>
+                                <td>
+                                    <p class="col-form-label">134</p>
+                                </td>
+                                <td>
+                                    <p class="col-form-label">The Towers</p>
+                                </td>
+                                <td>
+                                    <p class="col-form-label">221423</p>
+                                </td>
+                                <td>
+                                    <p class="col-form-label">ddmmyyyy hh:mm</p>
+                                </td>
+                                <td>
+                                    <div class="centerbuttons row">
+                                        <button class="btn btn-info btn-sm col-5 fL" type="button"><i class="fa fa-edit"></i></button>
+                                        <button class="btn btn-danger btn-sm col-5 fL" type="button"><i class="fa fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!--  1-->
+                            <tr role="row" class="odd">
+                                <td class="">
+                                    <p class="col-form-label">2</p>
+                                </td>
+                                <td>
+                                    <p class="col-form-label">Upper East Coast</p>
+                                </td>
+                                <td>
+                                    <p class="col-form-label">134</p>
+                                </td>
+                                <td>
+                                    <p class="col-form-label">The Towers</p>
+                                </td>
+                                <td>
+                                    <p class="col-form-label">221423</p>
+                                </td>
+                                <td>
+                                    <p class="col-form-label">ddmmyyyy hh:mm</p>
+                                </td>
+                                <td>
+                                    <div class="centerbuttons row">
+                                        <button class="btn btn-info btn-sm col-5 fL" type="button"><i class="fa fa-edit"></i></button>
+                                        <button class="btn btn-danger btn-sm col-5 fL" type="button"><i class="fa fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- COI 2-->
+                        </tbody>
+                    </table>
+                </div>
+                <!-- end of p 40 -->
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ANGULAR MODAL NGBOOTSTRAP MODULE  newvaluation -->
+<ng-template id="myModal_databaseproperty" #mymodaldatabaseproperty let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">New Property</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body modal_scroll">
+        
+            <ul class="nav nav-tabs" role="tablist" id="databasepropertytab">
+                <li class="nav-item">
+                    <a class="nav-link active show" data-toggle="tab" href="#section-details" role="tab"
+                        aria-selected="false">
+                        <span class="hidden-xs-down">Details</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " data-toggle="tab" href="#section-attachements" role="tab" aria-selected="true">
+                        <span class="hidden-xs-down">Property Documents</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#section-units" role="tab" aria-selected="false">
+                        <span class="hidden-xs-down">Units</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#section-description" role="tab" aria-selected="false">
+                        <span class="hidden-xs-down">Description</span>
+                    </a>
+                </li>
+            
+            </ul>
+            <div class="tab-content tabcontent-border">
+                <!-- SECTION DETAILS -->
+                <div class="tab-pane active show" id="section-details" role="tabpanel">
+                    <div class="p-30">
+                        <div class="col-md-6 fL">
+                           
+                            <div class="form-group m-t-4 row">
+                                <div class="col-12">
+                                    <div class="col-12 fL nopad">
+                                        <h5 class="col-form-label">Language 1 - English</h5>
+                                    </div>
+                                    <br>
+                                    <div class="clearfix"></div>
+                                    <label for="">Property Name</label>
+                                    <div class="clearix"></div>
+                                    <input type="text" class="form-control col-form-label fL" value="Trellis Towers">
+                                </div>
+                            </div>
+                            <div class="form-group m-t-4 row">
+                                <div class="col-3">
+                                    <label for="">Blk / No <span class='color-red'>*</span></label>
+                                    <div class="clearix"></div>
+                                    <input type="text" class="form-control col-form-label fL" value="700">
+                                </div>
+                                <div class="col-9">
+                                    <label for="">Street Name <span class='color-red'>*</span></label>
+                                    <div class="clearix"></div>
+                                    <input type="text" class="form-control col-form-label fL" value="Lorong 1 Toa Payoh">
+                                </div>
+                            </div>
+                            <div class="form-group m-t-4 row">
+                                <div class="col-6">
+                                    <select class="custom-select " id="inlineFormCustomSelect" disabled="disabled">
+                                        <option selected="">City</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <select class="custom-select " id="inlineFormCustomSelect" disabled="disabled">
+                                        <option selected="">District</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group m-t-4 row">
+                                <div class="col-12">
+                                    <select class="custom-select " id="inlineFormCustomSelect">
+                                        <option selected="">Singapore</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group m-t-4 row">
+                                <div class="col-6">
+                                    <label for="">Postal Code<span class="color-red">*</span></label>
+                                    <div class="clearix"></div>
+                                    <input type="text" class="form-control col-form-label " value="3199773">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">Old Postal Code</label>
+                                    <div class="clearix"></div>
+                                    <input type="text" class="form-control col-form-label " value="1231">
+                                </div>
+                            </div>
+                            <!-- -->
+                        </div>
+                        <!-- end of first -->
+                        <div class="col-md-6 fL">
+                            <div class="form-group m-t-4 row">
+                                <div class="col-12">
+                                    <div class="col-4 fL nopad">
+                                       <h5 class="col-form-label">Language 2 </h5>
+                                    </div>
+                                    <div class="col-8 fL nopad">
+                                        <select class="custom-select " id="inlineFormCustomSelect">
+                                            <option selected="">Chinese</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    
+                                    <br>
+                                    <div class="clearfix"></div>
+                                    <label for="">Property Name</label>
+                                    <div class="clearix"></div>
+                                    <input type="text" class="form-control col-form-label fL" value="Trellis Towers">
+                                </div>
+                            </div>
+                            <div class="form-group m-t-4 row">
+                                <div class="col-3">
+                                    <label for="">Blk / No <span class='color-red'>*</span></label>
+                                    <div class="clearix"></div>
+                                    <input type="text" class="form-control col-form-label fL" value="700">
+                                </div>
+                                <div class="col-9">
+                                    <label for="">Street Name <span class='color-red'>*</span></label>
+                                    <div class="clearix"></div>
+                                    <input type="text" class="form-control col-form-label fL" value="Lorong 1 Toa Payoh">
+                                </div>
+                            </div>
+                            <div class="form-group m-t-4 row">
+                                <div class="col-6">
+                                    <select class="custom-select " id="inlineFormCustomSelect" disabled="disabled">
+                                        <option selected="">City</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <select class="custom-select " id="inlineFormCustomSelect" disabled="disabled">
+                                        <option selected="">District</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group m-t-4 row">
+                                <div class="col-12">
+                                    <select class="custom-select " id="inlineFormCustomSelect">
+                                        <option selected="">Singapore</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group m-t-4 row">
+                                <div class="col-6">
+                                    <label for="">Postal Code<span class="color-red">*</span></label>
+                                    <div class="clearix"></div>
+                                    <input type="text" class="form-control col-form-label " value="">
+                                </div>
+                                <div class="col-6">
+                                    <label for="">Old Postal Code</label>
+                                    <div class="clearix"></div>
+                                    <input type="text" class="form-control col-form-label " value="">
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <!-- end of 6 -->
+                        <div class="clearfix"></div>
+                        <br>
+                        <hr>
+                        <div class="clearfix"></div>
+                        <!-- PROPERTY SPCS -->
+                        <div class="form-group m-t-4 row">
+                            <div class="col-12">
+                                <h5>Property Specification</h5>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="col-6 fL">
+                            <div class="form-group m-t-4 row">
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label for="">Tenure</label>
+                                            <div class="clearix"></div>
+                                            <select class="custom-select " id="inlineFormCustomSelect">
+                                                <option selected="">Freehold</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="">No. of Yrs</label>
+                                            <div class="clearix"></div>
+                                            <input type="text" class="form-control col-form-label " value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                        <label for="">Year of Completion</label>
+                                        <div class="clearfix"></div>
+                                        <div class="col-4 fL nopad">
+                                            <select class="custom-select " id="inlineFormCustomSelect">
+                                                <option selected="">dd</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-4 fL">
+                                            <select class="custom-select " id="inlineFormCustomSelect">
+                                                <option selected="">mm</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-4 fL nopad">
+                                            <select class="custom-select " id="inlineFormCustomSelect">
+                                                <option selected="">yyyy</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group m-t-4 row">
+                                <div class="col-12">
+                                    <label for="">Property Type </label>
+                                    <div class="clearix"></div>
+                                    <select class="custom-select " id="inlineFormCustomSelect">
+                                        <option selected="">Apartment</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group m-t-4 row">
+                                <div class="col-4">
+                                    <label for="">No. of Storeys</label>
+                                    <div class="clearix"></div>
+                                    <input type="text" class="form-control col-form-label " value="">
+                                </div>
+                                <div class="col-4">
+                                    <label for="">No. of Carparks</label>
+                                    <div class="clearix"></div>
+                                    <input type="text" class="form-control col-form-label " value="">
+                                </div>
+                                <div class="col-4">
+                                    <label for="">No. of Blocks</label>
+                                    <div class="clearix"></div>
+                                    <input type="text" class="form-control col-form-label " value="">
+                                </div>
+                            </div>
+                            <div class="form-group m-t-4 row">
+                                <div class="col-12">
+                                    <label for="">Facilities</label>
+                                    <div class="clearix"></div>
+                                    <textarea name="" id="" cols="3" rows="5" class="form-control col-form-label "></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 fL">
+                            <div class="form-group m-t-4 row">
+                                <div class="col-12">
+                                    <label for="">Property Developer</label>
+                                    <div class="clearix"></div>
+                                    <input type="text" class="form-control col-form-label " value="">
+                                </div>
+                             
+                            </div>
+                            <div class="form-group m-t-4 row">
+                                <div class="col-12">
+                                    <label for="">Source</label>
+                                    <div class="clearix"></div>
+                                    <input type="text" class="form-control col-form-label " value="">
+                                </div>
+                                
+                            </div>
+                            <div class="form-group m-t-4 row">
+                                <div class="col-12">
+                                    <label for="">Remarks</label>
+                                    <div class="clearix"></div>
+                                    <textarea name="" id="" cols="5" rows="5" class="form-control col-form-label "></textarea>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <!-- end of col6 -->
+                        
+                    </div>
+                </div>
+                <!-- SECTION ATTACHMENTS -->
+                <div class="tab-pane p-20 " id="section-attachements" role="tabpanel">
+                    <div class="p-30">
+                        <div class="form-group m-t-4 row">
+                            <div class="col-12">
+                                <h4 class="col-md-6 fL nopad">Site Layout Plan</h4>
+                                <div class="fileinput fileinput-new input-group col-md-3 fR nopad" data-provides="fileinput">
+                                    <span class="input-group-addon btn btn-default btn-file">
+                                         <input type="hidden"><input type="file" name="...">
+                                    </span>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                                <div class="table-responsive">
+                                    <table datatable id="myTablesearch" class="table table-bordered table-striped dataTable no-footer text-center"
+                                        role="grid" aria-describedby="myTable_info">
+                                        <thead>
+                                            <tr role="row">
+                                                <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="ascending"
+                                                    aria-label="Name: activate to sort column descending" style="width: 38px;">ID</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="ascending"
+                                                    aria-label="Name: activate to sort column descending" style="width: 38px;">Created On</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="ascending"
+                                                    aria-label="Name: activate to sort column descending" style="width: 38px;">Filename</th>
+                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-label="Position: activate to sort column ascending" style="width: 65px;">By</th>
+                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-label="Age: activate to sort column ascending" style="width: 64px;">User ID</th>
+                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-label="Office: activate to sort column ascending" style="width: 127px;">Action </th>
+                                    
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr role="row" class="odd">
+                                                <td class="sorting_1">
+                                                    <p class="col-form-label">1</p>
+                                                </td>
+                                                <td>
+                                                    <p class="col-form-label">01-Feb-19 <br>09:10am GMT+8</p>
+                                                </td>
+                                                <td>sitelayout.pdf</td>
+                                                <td>Nicole Eng</td>
+                                                <td>21</td>
+                                                <td>
+                                                    <div class="centerbuttons row">
+                                                        <button class="btn btn-info btn-sm col-5 fL" type="button"><i class="fa fa-eye"></i></button>
+                                                        <button class="btn btn-danger btn-sm col-5 fL" type="button"><i class="fa fa-trash"></i></button>
+                                                    </div>
+                                                </td>
+                                    
+                                            </tr>
+                                    
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- end of table table-responsive -->
+                            </div>
+                        </div>
+                        <br>
+                        <hr>
+                        <!-- end of site layout plan -->
+                        <div class="form-group m-t-4 row">
+                            <div class="col-12">
+                                <h4 class="col-md-6 fL nopad">Other Attachments</h4>
+                                <div class="fileinput fileinput-new input-group col-md-3 fR nopad" data-provides="fileinput">
+                                    <span class="input-group-addon btn btn-default btn-file">
+                                        <input type="hidden"><input type="file" name="...">
+                                    </span>
+                                </div>
+                        
+                                <div class="clearfix"></div>
+                                <div class="table-responsive">
+                                    <table datatable id="myTablesearch"
+                                        class="table table-bordered table-striped dataTable no-footer text-center" role="grid"
+                                        aria-describedby="myTable_info">
+                                        <thead>
+                                            <tr role="row">
+                                                <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                                    style="width: 38px;">ID</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                                    style="width: 38px;">Description</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                                    style="width: 38px;">Filename</th>
+                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-label="Position: activate to sort column ascending" style="width: 65px;">Created By</th>
+                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-label="Age: activate to sort column ascending" style="width: 64px;">User ID</th>
+                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-label="Office: activate to sort column ascending" style="width: 127px;">Created On </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                        aria-label="Office: activate to sort column ascending" style="width: 127px;">Action</th>
+                        
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr role="row" class="odd">
+                                                <td class="sorting_1">
+                                                    <p class="col-form-label">1</p>
+                                                </td>
+                                                <td>
+                                                    <p class="col-form-label">Brochure</p>
+                                                </td>
+                                                <td>
+                                                    <p class="col-form-label">Filename.jpg</p>
+                                                </td>
+                                                <td>
+                                                    <p class="col-form-label">Nicole Eng</p>
+                                                </td>
+                                                <td><p class="col-form-label">21</p></td>
+                                                <td><p class="col-form-label">ddmmyy hh:mm</p></td>
+                                                <td>
+                                                    <div class="centerbuttons row">
+                                                        <button class="btn btn-info btn-sm col-5 fL" type="button"><i
+                                                                class="fa fa-eye"></i></button>
+                                                        <button class="btn btn-danger btn-sm col-5 fL" type="button"><i
+                                                                class="fa fa-trash"></i></button>
+                                                    </div>
+                                                </td>
+                        
+                                            </tr>
+                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- end of table table-responsive -->
+                            </div>
+                        </div>
+                        <!-- end of other attachements  -->
+                    </div>
+                </div>
+                <!-- END OF ATTACHEMENTS -->
+                <!-- SECTION UNITS -->
+                <div class="tab-pane p-20 " id="section-units" role="tabpanel">
+                    <div class="p-10">
+                        <div class="form-group m-t-4 row">
+                            <div class="col-12">
+                                <div class="table-responsive">
+                                    <table datatable id="myTablesearch" class="table table-bordered table-striped dataTable no-footer text-center"
+                                        role="grid" aria-describedby="myTable_info">
+                                        <thead>
+                                            <tr role="row">
+                                                <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 38px;">
+                                                    ID</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 38px;">
+                                                    Blk</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 38px;">
+                                                    Unit</th>
+                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-label="Position: activate to sort column ascending" style="width: 65px;">
+                                                    FA (SM)</th>
+                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-label="Age: activate to sort column ascending" style="width: 64px;">
+                                                    FA (SF)</th>
+                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-label="Office: activate to sort column ascending" style="width: 127px;">
+                                                    LA (SM)</th>
+                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-label="Office: activate to sort column ascending" style="width: 127px;">
+                                                    LA (SF)</th>
+                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-label="Office: activate to sort column ascending" style="width: 127px;">
+                                                    Property Classification</th>
+                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-label="Office: activate to sort column ascending" style="width: 127px;">
+                                                    Occupancy</th>
+                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-label="Office: activate to sort column ascending" style="width: 127px;">
+                                                    Lease Commencement</th>
+                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-label="Office: activate to sort column ascending" style="width: 127px;">
+                                                    Lease Expiry</th>
+                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-label="Office: activate to sort column ascending" style="width: 127px;">
+                                                    Floor Plan</th>
+                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                    aria-label="Office: activate to sort column ascending" style="width: 127px;">
+                                                    Action</th>
+                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr role="row" class="odd">
+                                                <td class="sorting_1">
+                                                    <p class="col-form-label">1</p>
+                                                </td>
+                                                <td >
+                                                    <p class="col-form-label">700</p>
+                                                </td>
+                                                <td>
+                                                    <p class="col-form-label">#01-11</p>
+                                                </td>
+                                                <td>
+                                                    <p class="col-form-label">106.00</p>
+                                                </td>
+                                                <td>
+                                                    <p class="col-form-label">1141</p>
+                                                </td>
+                                                <td>
+                                                    <p class="col-form-label"></p>
+                                                </td>
+                                                <td>
+                                                    <p class="col-form-label"></p>
+                                                </td>
+                                                <td>
+                                                    <p class="col-form-label">Residential</p>
+                                                </td>
+                                                <td>
+                                                    <p class="col-form-label">Occupied</p>
+                                                </td>
+                                                <td>
+                                                    <p class="col-form-label"></p>
+                                                </td>
+                                                <td>
+                                                    <p class="col-form-label">ddmmyy</p>
+                                                </td>
+                                                <td>
+                                                    <a class="col-form-label alink" href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank">Floor Plan Dummy.pdf</a>
+                                                </td>
+                                                <td>
+                                                    <div class="centerbuttons row">
+                                                        <button class="btn btn-info btn-sm col-10 fL" type="button"><i class="fa fa-eye"></i></button>
+                                                        
+                                                    </div>
+                                                </td>
+                                
+                                            </tr>
+                                
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane p-20 " id="section-description" role="tabpanel">
+                    <div class="p-30">2</div>
+                </div>
+            </div>
+         </div>  
+    
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm" (click)="d('Cross click')"><i
+                class="fa fa-plus-circle"></i> Back</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="c('Save click')"> Create </button>
+    </div>
+</ng-template>

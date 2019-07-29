@@ -1,0 +1,56 @@
+<app-breadcrumbs [pagetitle]="pageTitle"></app-breadcrumbs>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body nopad" id="section-usermanagement">
+                <div class="p-40">
+                    <h4>{{pageTitle}}</h4>
+                   
+                        <div class="form-group m-t-4 row">
+                            <div class="col-md-6">
+                                <label for="" class="col-label-form">Settings for Savill Office</label>
+                                <div class="clearfix"></div>
+                                <select 
+                                    class="form-control" 
+                                    [(ngModel)]="selectedoffice"
+                                    name="selectedoffice"
+                                    id="selectedoffice"
+                                >
+                                    <option>Singapore</option>
+                                    <option>Hongkong</option>
+                                    <option>Macau</option>
+                                    <option>China</option>
+                                </select>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-6">
+                            
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group m-t-4 row">
+                            <div class="col-md-6">
+                                <label for="" class="col-label-form">Home Currency</label>
+                                <div class="clearfix"></div>
+                                <select class="form-control" [(ngModel)]="selectedoffice2" name="selectedoffice" id="selectedoffice">
+                                    <option>Singapore</option>
+                                    <option>Hongkong</option>
+                                    <option>Macau</option>
+                                    <option>China</option>
+                                </select>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-6">
+                        
+                            </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                        <div class="form-group m-t-4 row">
+                            <button type="button" class="btn btn-primary btn-sm">Close</button>
+                            <button type="button" class="btn btn-primary btn-sm" > Save </button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

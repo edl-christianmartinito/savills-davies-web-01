@@ -1,0 +1,423 @@
+.fL{ float: left!important }
+.fR{ float: right!important }
+.clr{ clear: both }
+.nopad{ padding:0!important }
+.nopad-l{ padding-left:0!important }
+.nopad-r{ padding-right:0!important }
+
+input[type=date] {
+    font-size: 13px;
+    &::-webkit-clear-button {
+        color: transparent;
+        font-size: 18px;
+        height: 30px;
+        position: relative;
+         font-size: 10px
+        // right: 5px;
+        // margin-right: 4px;
+    }
+    &::-webkit-inner-spin-button {
+        height: 20px;
+        color: transparent;
+    }
+    &::-webkit-calendar-picker-indicator {
+        right: -5px;
+        margin-right: -4px;
+        font-size: 18px;
+        font-size: 10px;
+        &:hover {
+            background-color: lighten(#2f2f2f,40%);
+            color: darken(#fff, 10%);
+            cursor: pointer;
+        }
+        &:active {
+            color: blue;
+        }
+    }
+}
+
+.settings .appbread h4.text-themecolor{
+    display:none!important;
+}
+
+.p-0-20{
+    padding: 0 20px;
+}
+// input[value=""]::-webkit-datetime-edit{ color: transparent; }
+// input:focus::-webkit-datetime-edit{ color: #000; }
+
+// ::-webkit-datetime-edit-year-field:not([aria-valuenow]),
+// ::-webkit-datetime-edit-month-field:not([aria-valuenow]),
+// ::-webkit-datetime-edit-day-field:not([aria-valuenow]) {
+//     color: transparent;
+// }
+
+.test{
+    background:red;
+}
+
+.someClass{
+    width: 100%!important;
+}
+
+.profile-pic{
+    .user{
+        margin-right:10px;
+    }
+}
+.fa-plus{
+    cursor: pointer;
+}
+
+.centerbuttons{
+    text-align: center;
+    // width: 100%;
+    // margin: 0 auto;
+    display: inline-table;
+    display: -webkit-inline-box;
+}
+
+.alink{
+    color: #007bff!important;
+    text-decoration: underline!important; 
+}
+.fnt-12{
+    font-size:11px!important;
+}
+.h-19{
+    height: 19px;
+}
+.wid-25{
+    width: 25px;
+}
+.pad-l-0{
+    padding-left: 0
+}
+
+.modal_scroll{
+    max-height:450px;
+    overflow-y: scroll;
+}
+
+.modal-dialog.modal-xl{
+    max-width: 1140px;
+}
+
+.settings {
+    .sidemenu {
+        display: none;
+    }
+    .page-wrapper {
+        margin-left: 0!important;
+    }
+}
+
+/*BREADCRUMBS*/
+
+.appbread {
+    h4 {
+        width: auto;
+        float: left;
+        margin-right: 30px;
+    }
+}
+
+.color-red{
+    color: red!important;
+}
+.bcolor-red{
+    background-color: red!important;
+}
+
+.color-blue{
+    color: #4285f4 !important
+}
+
+.bcolor-blue{
+    background-color: #4285f4 !important;
+}
+
+.color-darkblue{
+    color: #001643 !important
+}
+
+.bcolor-darkblue{
+    background-color: #001643 !important;
+}
+
+.color-skyblue{
+    color: #4285f4 !important
+}
+
+.bcolor-skyblue{
+    background-color: #4285f4 !important
+}
+
+
+.color-green{
+    color: #00c292!important;
+}
+
+.bcolor-green{
+    background-color: #00c292 !important;
+    color:#fff!important;
+}
+
+.color-yellow{
+    color: #fec107!important;
+}
+
+.bcolor-yellow{
+    background-color: #fec107 !important;
+}
+
+.dataTables_empty {
+    display: none;
+} 
+
+// FONT ICON FIX
+.fa-calendar:before{
+    content: "\f073"!important;
+}
+label .fa{
+    font-size: 20px;
+    color: #b7b3b3;
+    font-weight: normal;
+}
+
+.form-group.m-t-4.row{
+    label{
+        // font-weight: bold;
+        font-weight: normal;
+        font-size: 13px; 
+    }
+}
+
+// SCROLL CSS
+
+
+
+/* No Touch devices */
+.cd-nav-trigger {
+  display: none;
+}
+
+#cd-vertical-nav {
+    list-style: none;
+  position: fixed;
+  right: 30px;
+  top: 50%;
+  bottom: auto;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+#cd-vertical-nav ul{
+    list-style: none;
+}
+
+#cd-vertical-nav li {
+  text-align: right;
+  height: 25px;
+}
+#cd-vertical-nav a {
+  display: inline-block;
+  /* prevent weird movements on hover when you use a CSS3 transformation - webkit browsers */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+#cd-vertical-nav a:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#cd-vertical-nav a span {
+//   float: right;
+  display: inline-block;
+  -webkit-transform: scale(0.6);
+  -moz-transform: scale(0.6);
+  -ms-transform: scale(0.6);
+  -o-transform: scale(0.6);
+  transform: scale(0.6);
+}
+#cd-vertical-nav a:hover span {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+#cd-vertical-nav a:hover .cd-label {
+  opacity: 1;
+}
+#cd-vertical-nav a.is-selected .cd-dot {
+  background-color: blue;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+#cd-vertical-nav .cd-dot {
+  position: relative;
+  /* we set a top value in order to align the dot with the label. If you change label's font, you may need to change this top value*/
+  top: 8px;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: #d88683;
+  -webkit-transition: -webkit-transform 0.2s, background-color 0.5s;
+  -moz-transition: -moz-transform 0.2s, background-color 0.5s;
+  transition: transform 0.2s, background-color 0.5s;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+#cd-vertical-nav .cd-label {
+  position: relative;
+  margin-right: 10px;
+  padding: .4em .5em;
+  color: blue;
+  font-size: 14px;
+  font-size: 0.875rem;
+  -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
+  -moz-transition: -moz-transform 0.2s, opacity 0.2s;
+  transition: transform 0.2s, opacity 0.2s;
+  opacity: 0;
+  -webkit-transform-origin: 100% 50%;
+  -moz-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  -o-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+}
+
+#cd-vertical-nav{
+    width: 15px;
+}
+
+#cd-vertical-nav ul{
+    margin:0;
+    padding:0;
+}
+#cd-vertical-nav ul li a{
+    width: 100%;
+}
+#cd-vertical-nav ul li a span{
+    white-space: nowrap;
+}
+
+#cd-vertical-nav .cd-label{
+    position: absolute;
+    right: 10px;
+}
+
+// TABLE
+#myTable_wrapper{
+    table{
+        thead{
+            tr{
+                th{
+                    padding:10px; 
+                    vertical-align: middle; 
+                }
+            } 
+        }
+        tbody{
+            tr{
+                td{
+                    padding: 10px; 
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+}
+
+table{
+    thead{
+        background: #e1e1e1!important;
+        tr{
+            th{
+                font-weight: bold!important;
+            }
+        }
+    }
+    tbody{
+        tr{
+            td{
+                font-size: 12px!important;
+                font-weight: normal;
+            }
+        }
+    }
+}
+
+.invalid-feedback{
+    font-size: 10px;
+}
+
+.custom-checkbox .custom-control-label{
+    margin-left: -40px;
+}
+.custom-checkbox .col-form-label{
+    margin-left: -20px;
+}
+
+.custom-checkbox .custom-control-label::before {
+    border-radius: .25rem;
+}
+
+.custom-control-label::after, .custom-control-label::before {
+    top: .15rem;
+}
+
+.custom-control-label::before {
+    pointer-events: none;
+    user-select: none;
+    background-color: #dee2e6;
+}
+
+.custom-control-label::after, .custom-control-label::before {
+    position: absolute;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    content: "";
+    left: 0;
+}
+
+.custom-control-label::after {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+}
+
+.custom-control{
+    min-height: 1em;
+}
+
+.preloadermodal{
+    position: relative!important;
+    padding:50px!important;
+    display: block!important;
+}
+
+.hideborder{
+    border:none!important;
+}
+
+#tblusermanagement_first{
+    display: none;
+}
+
+#tblusermanagement_last{
+    display: none;
+}
+
+

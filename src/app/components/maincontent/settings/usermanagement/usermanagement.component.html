@@ -1,0 +1,473 @@
+<app-breadcrumbs [pagetitle]="pageTitle"></app-breadcrumbs>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body nopad" id="section-usermanagement">
+                <div class="p-40">
+                    <h4>{{pageTitle}}</h4>
+                    <div class="table-responsive nopad">
+                        <table datatable id="tblusermanagement"
+                            class="table table-bordered table-striped  dataTable no-footer text-center cust-table" role="grid"
+                            aria-describedby="myTable_info" [dtOptions]="dtOptions" width="100%" >
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                        style="width: 38px;">ID</th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                        style="width: 38px;">Name</th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                        style="width: 38px;">Display Name</th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                        style="width: 38px;">Username</th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                        style="width: 38px;">User Role</th>
+
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                        style="width: 38px;">Savills Office</th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="ascending"
+                                            aria-label="Name: activate to sort column descending" style="width: 38px;">Office No.</th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                        style="width: 38px;">Mobile No.</th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                        style="width: 38px;">Email</th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                        style="width: 38px;">Updated At</th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                        style="width: 38px;">By</th>
+
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                        style="width: 38px;">Account Status</th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                        style="width: 38px;">Created At</th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                        style="width: 38px;">Super User?</th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                        style="width: 38px;">Set / Remove <br>Superuser</th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                        style="width: 38px;">Actions</th>
+
+                                </tr>
+                            </thead>
+                           
+                            <tbody *ngIf="allusers?.length != 0">
+                                <tr *ngFor="let user of allusers">
+                                    <td>{{ user.id }}</td>
+                                    <td>{{ user.name == null ||user.name == "" ?"--" : user.name }}</td>
+                                    <td>{{ user.display_name }}</td>
+                                    <td>{{ user.username }}</td>
+                                    <td>{{ user.role_name == null ||user.role_name == "" ?"--" : user.role_name }}</td>
+                                    <td>{{ user.office_name == null ||user.office_name == "" ?"--" : user.office_name }}</td>
+                                    <td>{{ user.office_id == null ||user.office_id == "" ?"--" : user.office_id }}</td>
+                                    <td>{{ user.mobile_phone == 0?"--" : user.mobile_phone}}</td>
+                                    <td>{{ user.email }}</td>
+                                    <td>{{ user.updated_at_datetime =="1900-01-01T00:00:00"?"--": user.updated_at_datetime | date: 'dd/MM/yyyy'}}</td>
+                                    <td>{{ user.updated_by_user_display_name  == null?"--" : user.updated_by_user_display_name}}</td>
+                                    <td>{{ user.account_status == 1?"Active" : "Inactive" }}</td>
+                                    <td>{{ user.created_at_datetime | date: 'dd/MM/yyyy'}}</td>
+                                    <td>{{ user.is_super_user == 1?"Yes" : "No"}}</td>
+                                    <td>
+                                        <div class="centerbuttons row p-10">
+                                            <button class="btn btn-info btn-sm col-md-10 fL" type="button" (click)="getUserDetails(mymodalremoveaccount,user.email,'mymodalremoveaccount')"><i class="fa fa-edit"></i></button>
+                                        </div>
+                                    </td>
+                                    <td class="">
+                                        <div class="centerbuttons row p-10">
+                                            <button class="btn btn-success btn-sm col-5 fL" type="button" (click)="getUserDetails(mymodaleditaccount,user.email,'mymodaleditaccount')"><i
+                                                    class="fa fa-edit" ></i></button>
+                                            <button class="btn btn-danger btn-sm col-5 fL" type="button" (click)="getUserDetails(mymodaldeleteaccount,user.email,'mymodaldeleteaccount')"><i
+                                                    class="fa fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr> 
+                               
+                            </tbody>
+                            <tbody *ngIf="allusers?.length == 0">
+                                <tr>
+                                    <td colspan="3" class="no-data-available">No data!</td>
+                                </tr>
+                            <tbody>
+                        
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ANGULAR MODAL NGBOOTSTRAP MODULE  editaccout -->
+<ng-template id="myModal_editaccout" #mymodaleditaccount let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Edit Account</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div *ngIf="spinnershow" class="pageloader-modals">
+            <div class="loader loader-modals">
+                <div class="loader__figure"></div>
+                <p class="loader__label">Loading ...</p>
+            </div>
+    </div>
+
+
+    <div class="modal-body" *ngIf="!spinnershow">
+        <div class="p-0-20">
+            <div class="form-group m-t-4 row">
+                <div class="col-md-3">
+                    <label for="example-text-input" class="col-form-label">Is Superuser</label>
+                    <div class="clearfix"></div>
+                    <p class="col-form-label">{{issuperuser ==1 ? "Yes": "No"}}</p>
+                </div>
+                <div class="col-md-3">
+                    <label for="example-text-input" class="col-form-label">Set BY</label>
+                    <div class="clearfix"></div>
+                    <p class="col-form-label">-</p>
+                </div>
+                <div class="col-md-3">
+                    <label for="example-text-input" class="col-form-label">On</label>
+                    <div class="clearfix"></div>
+                    <p class="col-form-label">-</p>
+                </div>
+                <div class="col-md-3">
+                    <label for="example-text-input" class="col-form-label">Last Login</label>
+                    <div class="clearfix"></div>
+                    <p class="col-form-label">-</p>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <!--NAME-->
+                    <div class="form-group m-t-4 row">
+                        <label for="example-text-input" class="col-4 col-form-label"><strong>Name</strong></label>
+                        <div class="col-8">
+                            <input type="type" class="form-control col-form-label" 
+                                name="name" 
+                                [(ngModel)] ="name" 
+                                [ngClass]="{'is-invalid':updatesubmitted && !name }"
+                            
+                                />
+                                <div class="invalid-feedback">
+                                        <div>This field is required</div>
+                                </div>
+                        </div>
+                    </div>
+
+                    <!--EMAIL-->
+                    <div class="form-group m-t-4 row">
+                        <label for="example-text-input"
+                            class="col-4 col-form-label"><strong>Email</strong></label>
+                        <div class="col-8">
+                            <input type="type" 
+                                [(ngModel)] ="email" 
+                                class="form-control col-form-label" 
+                                name="email"
+                                [ngClass]="{'is-invalid':updatesubmitted && !email }"
+                            
+                            />
+                            <div class="invalid-feedback">
+                                    <div>This field is required</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!--Username-->
+                    <div class="form-group m-t-4 row">
+                        <label for="example-text-input" class="col-4 col-form-label"><strong>User Name</strong></label>
+                        <div class="col-8">
+                            <input type="type" class="form-control col-form-label" name="username" [(ngModel)] ="username" />
+
+                        </div>
+                    </div>
+
+                    <!--Office-->
+                    <div class="form-group m-t-4 row">
+                        <label for="example-text-input" class="col-4 col-form-label"><strong>Savills office</strong></label>
+                        <div class="col-8">
+                            <select class="form-control" [(ngModel)] ="selectedoffice" name="selectedoffice" id="selectedoffice">
+                                <option [value]="office.id" *ngFor="let office of offices"> {{office.name}}</option>
+                            </select> 
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+
+                    <!--Display Name-->
+                    <div class="form-group m-t-4 row">
+                        <label for="example-text-input" class="col-4 col-form-label"><strong>Display Name</strong></label>
+                        <div class="col-8">
+                            <input type="type" class="form-control col-form-label" 
+                            name="displayname" 
+                            [(ngModel)] ="displayname"  
+                            [ngClass]="{'is-invalid':createsubmitted && !displayname }"
+                        
+                        />
+                        <div class="invalid-feedback">
+                                <div>This field is required</div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!--User Role-->
+                    <div class="form-group m-t-4 row">
+                        <label for="example-text-input" class="col-4 col-form-label"><strong>User
+                                Role</strong></label>
+                        <div class="col-8">
+                            <select class="form-control" [(ngModel)] ="selectedrole" name="selectrole" id="selectrole">
+                                <option [value]="role.id" *ngFor="let role of roles"> {{role.name}}</option>
+                            </select> 
+
+                        </div>
+                    </div>
+
+                    <!--Mobile No.-->
+                    <div class="form-group m-t-4 row">
+                        <label for="example-text-input" class="col-4 col-form-label"><strong>Mobile
+                                No.</strong></label>
+                        <div class="col-8">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <select class="form-control" [(ngModel)] ="mobileccode" name="mobileccode" id="mobileccode">
+                                        <option [value]="ccode.code" *ngFor="let ccode of countrycodes"> +{{ccode.code}}</option>
+                                    </select> 
+                                </div>
+                                <div class="col-md-8 nopad-l">
+                                    <input type="type" class=" form-control col-form-label fL" 
+                                    name="mobile_phone" 
+                                    [(ngModel)] ="mobile_phone" 
+                                    (keypress)="OnlyNumbers($event)"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Office No.-->
+                    <div class="form-group m-t-4 row">
+                        <label for="example-text-input" class="col-4 col-form-label"><strong>Office
+                                No.</strong></label>
+                        <div class="col-8">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <select class="form-control" [(ngModel)] ="officeccode" name="officeccode" id="officeccode">
+                                        <option [value]="ccode.code" *ngFor="let ccode of countrycodes"> +{{ccode.code}}</option>
+                                    </select> 
+                                </div>
+                                <div class="col-md-8 nopad-l">
+                                    <input type="type" class=" form-control col-form-label fL" 
+                                        [(ngModel)] ="office_phone" 
+                                        name="office_phone" 
+                                        [ngClass]="{'is-invalid':createsubmitted && !office_phone }"
+                                        (keypress)="OnlyNumbers($event)"
+                                    
+                                    />
+                                    <div class="invalid-feedback">
+                                            <div>This field is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <!--end of form row-->
+                <div class="clearfix"></div>
+                <br>
+           
+            <div class="form-group m-t-4 row">
+                <label for=""><strong>Disabled Users will not be able to access this system</strong></label>
+                <hr>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="example-text-input" class="col-form-label">Account Status</label>
+                            <div class="clearfix"></div>
+                            <select class="custom-select fL col-8" id="selectacctstatus" [(ngModel)] ="selectacctstatus">
+                                <option value="1">Enabled</option>
+                                <option value="0">Disabled</option>
+                                
+                            </select>
+                        </div>
+                        <div class="col-3">
+                            <label for="example-text-input" class="col-form-label">Updated At</label>
+                            <div class="clearfix"></div>
+                            <p class="col-form-label">-</p>
+                        </div>
+                        <div class="col-3">
+                            <label for="example-text-input" class="col-form-label">Updated By</label>
+                            <div class="clearfix"></div>
+                            <p class="col-form-label">-</p>
+                        </div>
+                        <div class="col-3">
+                            <label for="example-text-input" class="col-form-label">By User ID</label>
+                            <div class="clearfix"></div>
+                            <p class="col-form-label">-</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm" (click)="d('Cross click')"><i
+                class="fa fa-plus-circle"></i>
+                     Back</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="openModal(modalconfirm)"> Save </button>
+    </div>
+</ng-template>
+
+<!-- ANGULAR MODAL NGBOOTSTRAP MODULE  setaccout -->
+<ng-template id="myModal_setaccount" #mymodalsetaccount let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">SET Account</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body ">
+        <div class="p-40">
+            <p class="col-form-label">Work In Progress</p>
+           
+            <!--end of form row-->
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm" (click)="d('Cross click')"><i
+                class="fa fa-plus-circle"></i>
+            Back</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="c('Save click')"> Save </button>
+    </div>
+</ng-template>
+
+<!-- ANGULAR MODAL NGBOOTSTRAP MODULE  changesuperuser -->
+<ng-template id="myModal_removeaccount" #mymodalremoveaccount let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title title-sm" id="myModalLabel">Set Super User</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div *ngIf="spinnershow" class="pageloader-modals">
+            <div class="loader loader-modals">
+                <div class="loader__figure"></div>
+                <p class="loader__label">Loading ...</p>
+        </div>
+    </div>
+    <div class="modal-body " *ngIf="!spinnershow">
+        <div class="p-10">
+                <div class="form-group row">
+                        
+                        <div class="col-12">
+                            <!-- <select class="form-control" [(ngModel)] ="selectedsetsuperuser" name="selectedoffice" id="selectedsetsuperuser">
+                                <option [value]="0" > Set Super User</option>
+                                <option [value]="1" > Remove Super User</option>
+                            </select>  -->
+                            <p style="text-align: center;" *ngIf="processeditdone">{{message}}</p>
+
+                            <div style="text-align: center;" *ngIf="!processeditdone">
+                                <p *ngIf=issuperuser> <strong>{{userData.name}}</strong> is already a super user.</p>
+                                <p *ngIf=issuperuser> You want to change to regular user?</p>
+                                <p *ngIf=!issuperuser> <strong>{{userData.name}}</strong> is not a super user.</p>
+                                <p *ngIf=!issuperuser> You want to set it as super user?</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+            <!--end of form row-->
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger btn-sm" (click)="d('Cross click')"><i
+                class="fa fa-plus-circle"></i>
+            {{processeditdone? "Close" : "No"}}</button>
+        <button type="button" *ngIf="!processeditdone" class="btn btn-primary btn-sm" (click)="changeSuperUser()"> Yes </button>
+    </div>
+</ng-template>
+
+<!-- ANGULAR MODAL NGBOOTSTRAP MODULE  deleteaccount -->
+<ng-template id="myModal_deleteaccount" #mymodaldeleteaccount let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Delete Account</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div *ngIf="spinnershow" class="pageloader-modals">
+            <div class="loader loader-modals">
+                <div class="loader__figure"></div>
+                <p class="loader__label">Loading ...</p>
+        </div>
+    </div>
+    <div class="modal-body modal_scroll" *ngIf="!spinnershow">
+        <div class="p-10">
+            <div style="text-align: center;">
+                <p class="col-form-label">Are you sure you want to delete</p>
+                <p class="col-form-label">{{userData.name}}?</p>
+            </div>
+            <!--end of form row-->
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm" (click)="d('Cross click')"><i
+                class="fa fa-plus-circle"></i>
+            Back</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="c('Save click')"> Save </button>
+    </div>
+</ng-template>
+
+
+<!--CONFIRMATION MODAL EDIT USER--->
+<ng-template id="modalconfirm" #modalconfirm let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title title-sm" id="myModalLabel">Confirm Edit Account</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body modal_scroll" *ngIf="!spinnercfmshow">
+        <p style="text-align: center;" *ngIf="processeditdone">{{message}}</p>
+        <p style="text-align: center;" *ngIf="!processeditdone">Are you sure you want to save changes?</p>
+    </div>
+
+    <div *ngIf="spinnercfmshow" class="pageloader-modals">
+            <div class="loader loader-modals">
+                <div class="loader__figure"></div>
+                <p class="loader__label">Saving ...</p>
+            </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger btn-sm" (click)="d('Cross click')"><i
+                class="fa fa-plus-circle"></i>
+            {{processeditdone? "Close" : "Cancel"}}</button>
+        <button type="button" *ngIf="!processeditdone" class="btn btn-primary btn-sm" (click)="confirmEdit()"> Save </button>
+    </div>
+</ng-template>

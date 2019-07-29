@@ -1,0 +1,65 @@
+<app-breadcrumbs [pagetitle]="pageTitle"></app-breadcrumbs>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body nopad" id="section-newindication">
+                <div class="p-40">
+                    <table datatable id="myTable" [dtOptions]="dtOptions" class="table table-bordered table-striped dataTable no-footer text-center" role="grid"
+                        aria-describedby="myTable_info">
+                        <thead>
+                            <tr role="row">
+                                <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="ascending"
+                                    aria-label="Name: activate to sort column descending" style="width: 38px;">ID</th>
+                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                    aria-label="Position: activate to sort column ascending" style="width: 65px;">AGE</th>
+                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                    aria-label="Age: activate to sort column ascending" style="width: 64px;">NAME</th>
+                                <!-- <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                    aria-label="Office: activate to sort column ascending" style="width: 127px;">SALARY</th> -->
+                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Office: activate to sort column ascending" style="width: 127px;">ACTIONS</th>
+                               
+                            </tr>
+                        </thead>
+                       <!--- <tbody>
+                          <tr role="row" class="odd">
+                                <td class="sorting_1">1</td>
+                                <td>80</td>
+                                <td>test</td>
+                                <td>20k</td>
+                                <td class="">
+                                    <div class="centerbuttons row p-10">
+                                        <button class="btn btn-info btn-sm col-5 fL" type="button"><i class="fa fa-edit"></i></button>
+                                        <button class="btn btn-info btn-sm col-5 fL" type="button"><i class="fa fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                           
+                        </tbody> -->
+                        <tbody *ngIf="persons?.length != 0">
+                            <tr *ngFor="let person of persons">
+                                <td>{{ person.id }}</td>
+                                <td>{{ person.firstName }}</td>
+                                <td>{{ person.lastName }}</td>
+                                <td>
+                                    <div class="centerbuttons row p-10">
+                                        <button class="btn btn-info btn-sm col-5 fL" type="button"><i class="fa fa-edit"></i></button>
+                                        <button class="btn btn-info btn-sm col-5 fL" type="button"><i class="fa fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody *ngIf="persons?.length == 0">
+                            <tr>
+                                <td colspan="3" class="no-data-available">No data!</td>
+                            </tr>
+                        <tbody>
+                    </table>
+                    <br>
+                    <p class="col-form-label"></p>
+                    {{persons.length}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

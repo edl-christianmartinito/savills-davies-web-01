@@ -1,0 +1,248 @@
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div class="preloader" *ngIf="loadingalldata">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">Savills admin</p>
+        </div>
+    </div>
+    <div *ngIf="!loadingalldata">
+    <app-header></app-header>
+    <app-sidebar></app-sidebar>
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+    
+     
+    
+        <router-outlet></router-outlet>
+    
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+    
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <app-footer></app-footer>
+    
+    </div>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+    
+    <!-- ============================================================== -->
+    <!-- MODALS -->
+    <!-- ============================================================== -->
+    
+    <div class="modal fade" id="modalupdateopen" #modalupdateopen tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">First Time Login Details</h5>
+                <button (click)="cancelUpdate()" type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+    
+                <div *ngIf="processing" class="loader-container" style="margin-top: 25px;margin-bottom: 25px;padding-bottom:25px">
+                        <div class="loader">
+                                <div class="loader__figure"></div>
+                                <p class="loader__label">Processing ...</p>
+                        </div>
+                </div>
+                <div *ngIf="!processing && processdone">
+                    <p style="font-size:.9em; text-align: center">{{message}}</p>
+                </div>
+    
+                <div *ngIf="!processing && !processdone">
+        
+                    <p style="font-size:.9em; text-align: center">Welcome to
+                        <strong>DAVIES</strong>! Please enter your details below:</p>
+        
+                    <div class="form-group m-t-4 row">
+                        <label for="example-text-input" class="col-12 col-form-label"><strong>Savills
+                                office</strong></label>
+                        <div class="col-12">
+                            <select class="form-control" [(ngModel)]="selectedoffice" name="selectedoffice"
+                                id="selectedoffice">
+                                <option [value]="office.id" *ngFor="let office of offices"> {{office.name}}</option>
+                            </select>
+        
+                        </div>
+                    </div>
+        
+                    <div class="form-group m-t-4 row">
+                        <label for="example-text-input" class="col-12 col-form-label"><strong>
+                                Name</strong></label>
+                        <div class="col-12">
+                            <input type="type" class="form-control col-form-label" name="name"
+                                [(ngModel)]="name" 
+                                [ngClass]="{'is-invalid':createsubmitted && !name }"
+                                />
+                                <div class="invalid-feedback">
+                                        <div>This field is required</div>
+                                </div>
+        
+                        </div>
+                    </div>
+        
+                    <div class="form-group m-t-4 row">
+                        <label for="example-text-input" class="col-12 col-form-label"><strong>Preferred display
+                                name</strong></label>
+                        <div class="col-12">
+                            <input type="type" class="form-control col-form-label" name="displayname"
+                                [(ngModel)]="displayname" />
+        
+                        </div>
+                    </div>
+        
+                    <div class="form-group m-t-4 row">
+                            <label for="example-text-input" class="col-12 col-form-label"><strong>Office No.</strong></label>
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <select class="form-control" [(ngModel)] ="officeccode" name="officeccode" id="officeccode">
+                                            <option [value]="ccode.code" *ngFor="let ccode of countrycodes"> +{{ccode.code}}</option>
+                                        </select> 
+                                    </div>
+                                    <div class="col-md-9 nopad-l">
+                                        <input type="type" class=" form-control col-form-label fL" 
+                                            [(ngModel)] ="office_phone" name="office_phone" 
+                                            [ngClass]="{'is-invalid':createsubmitted && !office_phone }"
+                                            (keypress)="OnlyNumbers($event)"
+                                            required
+                                        />
+                                        <div class="invalid-feedback">
+                                            <div>This field is required</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="form-group m-t-4 row">
+                                <label for="example-text-input" class="col-12 col-form-label"><strong>Mobile No.</strong></label>
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <select class="form-control" [(ngModel)] ="mobileccode" name="mobileccode" id="mobileccode">
+                                                <option [value]="ccode.code" *ngFor="let ccode of countrycodes"> +{{ccode.code}}</option>
+                                            </select> 
+                                        </div>
+                                        <div class="col-md-9 nopad-l">
+                                            <input type="type" class=" form-control col-form-label fL" 
+                                                [(ngModel)] ="mobile_phone" name="mobile_phone" 
+                                            
+                                                (keypress)="OnlyNumbers($event)"
+                                                required
+                                            />
+                                            <div class="invalid-feedback">
+                                                <div>This field is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        
+                </div>
+    
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="cancelUpdate()" class="btn btn-danger btn-sm"
+                    data-dismiss="modal" [disabled] ="processing"  *ngIf="!processdone">Cancel</button>
+
+                <button *ngIf="processdone" type="button" (click)="closeUpdate()" class="btn btn-danger btn-sm"
+                    data-dismiss="modal">Close</button>
+
+                <button type="button" (click)="createNewUser()" class="btn btn-primary btn-sm" 
+                [disabled] ="processing"
+                *ngIf="!processdone"
+                >Save</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+  <ng-template id="modalDisabledUser" #modalDisabledUser let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Access Denied!</h4>
+        <button type="button" class="close" aria-label="Close" (click)="cancelUpdate()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body modal_scroll">
+    
+        <p style="font-size:.9em; text-align: center">Access to VMS is denied.</p>
+        <p style="font-size:.9em; text-align: center">Please contact Administrator.</p>  
+    
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger btn-sm" (click)="cancelUpdate()"><i class="fa fa-plus-circle"></i>
+          Close</button>
+       
+    </div>
+    </ng-template> 
+    
+    <!--
+    <div class="modal fade" id="updateUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Update My Account</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" (click)="UpdatePersonalInfo()" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+    
+      <ng-template id="modalUpdateCountry" #modalupdateopen let-c="close" let-d="dismiss">
+          <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">Edit Account</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body modal_scroll">
+        
+              <p *ngIf="processeditdone">{{message}}</p>
+              <p *ngIf="!processeditdone">Please select office:</p>
+        
+             
+        
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger btn-sm" (click)="d('Cross click')"><i
+                      class="fa fa-plus-circle"></i>
+                  {{processeditdone? "Close" : "Cancel"}}</button>
+              <button type="button" *ngIf="!processeditdone" class="btn btn-primary btn-sm" (click)="confirmEdit()"> Save </button>
+          </div>
+      </ng-template>
+    -->
+    <!-- ============================================================== -->
+    <!-- END MODALS -->
+    <!-- ============================================================== -->
+    
+    

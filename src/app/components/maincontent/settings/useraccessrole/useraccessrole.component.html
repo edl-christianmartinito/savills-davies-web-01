@@ -1,0 +1,2247 @@
+<app-breadcrumbs [pagetitle]="pageTitle"></app-breadcrumbs>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body nopad" id="section-usermanagement">
+                <div class="p-40">
+                    <h4>{{pageTitle}}</h4>
+                    <div class="form-group m-t-4 row">
+                        <div class="col-md-6">
+                            <label for="" class="col-form-label">Settings for Savills Office</label>
+                            <div class="clearfix"></div>
+                            <select class="custom-select " id="inlineFormCustomSelect">
+                                <option selected="">Singapore</option>
+                                <option value="1">Hong Kong</option>
+                                <option value="2">Macau</option>
+                                <option value="3">China</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+
+                <div id="topbutton">
+                    <!-- <button class="btn btn-danger btn-sm fL bcolor-blue" type="button"><i class="fa fa-refresh"></i> Refresh </button> -->
+                    <button class="btn btn-danger btn-sm fL bcolor-green" type="button" (click)="useraccess_edit()"
+                        [hidden]="showEditButton"><i class="fa fa-edit"></i> Edit
+                    </button>
+                    <button class="btn btn-edit btn-sm fL bcolor-green" type="button" [hidden]="showSaveButton"
+                        (click)="useraccess_save()"><i class="fa fa-edit"></i> Save
+                    </button>
+                </div>
+                <!-- <h4>{{pageTitle}}</h4> -->
+                <div class="clearfix"></div>
+                <ul class="nav nav-tabs" role="tablist" id="userAccessTab">
+                    <li class="nav-item">
+                        <a class="nav-link active show" data-toggle="tab" href="#section-administrator" role="tab"
+                            aria-selected="false">
+                            <span class="hidden-xs-down">Administrator</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " data-toggle="tab" href="#section-director" role="tab" aria-selected="true">
+                            <span class="hidden-xs-down">Director</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#section-valuer" role="tab" aria-selected="false">
+                            <span class="hidden-xs-down">Valuer</span>
+                        </a>
+                    </li>
+
+                </ul>
+                <!-- valuation tab -->
+
+                <div class="tab-content tabcontent-border">
+                    <div class="tab-pane active show" id="section-administrator" role="tabpanel">
+                        <div class="p-40">
+                            <div class="table-reponsive">
+                                <table id="myTable"
+                                    class="table table-bordered table-striped dataTable no-footer text-center"
+                                    role="grid" aria-describedby="myTable_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th class="" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                aria-sort="" aria-label="" width="14%">Module / Feature</th>
+                                            <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1"
+                                                colspan="1" aria-label="Position: activate to sort column ascending"
+                                                width="14%">View</th>
+                                            <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1"
+                                                colspan="1" aria-label="Age: activate to sort column ascending"
+                                                width="14%">Create / Add</th>
+                                            <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1"
+                                                colspan="1" aria-label="Office: activate to sort column ascending"
+                                                width="14%">Edit / Update</th>
+                                            <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1"
+                                                colspan="1" aria-label="Start date: activate to sort column ascending"
+                                                width="14%">Delete</th>
+                                            <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1"
+                                                colspan="1" aria-label="Salary: activate to sort column ascending"
+                                                width="14%">Approve</th>
+                                            <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1"
+                                                colspan="1" aria-label="Salary: activate to sort column ascending"
+                                                width="14%">Assigning</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- VALUATIONS 1-->
+                                        <tr role="row" class="odd">
+                                            <!-- <td class="">Valuations2 {{disablecheck}} - {{pageTitle}}</td> -->
+                                            <td class="">Valuations</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow1_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow1_1"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow1_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow1_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow1_2"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow1_2"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow1_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow1_3"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow1_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow1_4"
+                                                        [(ngModel)]="model_useraccess.customCheckrow1_4"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow1_4"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow1_5"
+                                                        [(ngModel)]="model_useraccess.customCheckrow1_5"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow1_5"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow1_6"
+                                                        [(ngModel)]="model_useraccess.customCheckrow1_6"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow1_6"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- COI 2-->
+                                        <tr role="row" class="even">
+                                            <td class="">COI</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <!-- <input type="checkbox" class="custom-control-input" id="customCheckrow1_1">
+                            <label class="custom-control-label" for="customCheckrow1_1"></label> -->
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <!-- <input type="checkbox" class="custom-control-input" id="customCheckrow1_2">
+                            <label class="custom-control-label" for="customCheckrow1_2"></label> -->
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <!-- <input type="checkbox" class="custom-control-input" id="customCheckrow1_3">
+                            <label class="custom-control-label" for="customCheckrow1_3"></label> -->
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <!-- <input type="checkbox" class="custom-control-input" id="customCheckrow1_4">
+                            <label class="custom-control-label" for="customCheckrow1_4"></label> -->
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <!-- <input type="checkbox" class="custom-control-input" id="customCheckrow1_5">
+                            <label class="custom-control-label" for="customCheckrow1_5"></label> -->
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <!-- <input type="checkbox" class="custom-control-input" id="customCheckrow1_6">
+                            <label class="custom-control-label" for="customCheckrow1_6"></label> -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Indication 3-->
+                                        <tr role="row" class="odd">
+                                            <td class="">Indications</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow3_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow3_1"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow3_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow3_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow3_2"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow3_2"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow3_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow3_3"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow3_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow3_4"
+                                                        [(ngModel)]="model_useraccess.customCheckrow3_4"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow3_4"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Cavets 4 -->
+
+                                        <tr role="row" class="even">
+                                            <td class="">Caveats</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow4_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow4_1"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow4_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow4_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow4_3"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow4_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Others 5 -->
+                                        <tr role="row" class="odd">
+                                            <td class="">Others</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow5_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow5_1"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow5_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow5_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow5_2"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow5_2"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow5_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow5_3"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow5_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow5_4"
+                                                        [(ngModel)]="model_useraccess.customCheckrow5_4"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow5_4"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- AVM 6 -->
+                                        <tr role="row" class="even">
+                                            <td class="">AVM</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow6_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow6_1"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow6_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Appendix 7 -->
+                                        <tr role="row" class="odd">
+                                            <td class="">Appendix Report</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow7_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow7_1"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow7_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow7_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow7_2"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow7_2"></label>
+                                                </div>
+
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Search 8 -->
+                                        <tr role="row" class="even">
+                                            <td class="">Search</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow8_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow8_1"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow8_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- HBD 9 -->
+                                        <tr role="row" class="odd">
+                                            <td class="">HDB Seach</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow9_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow9_1"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow9_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Properties 10 -->
+                                        <tr role="row" class="even">
+                                            <td class="">Properties</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow10_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow10_1"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label"
+                                                        for="customCheckrow10_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow10_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow10_2"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label"
+                                                        for="customCheckrow10_2"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow10_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow10_3"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow10_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow10_4"
+                                                        [(ngModel)]="model_useraccess.customCheckrow10_4"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow10_4"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Client Database 11 -->
+                                        <tr role="row" class="odd">
+                                            <td class="">Client Database</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow11_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow11_1"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label"
+                                                        for="customCheckrow11_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow11_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow11_2"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label"
+                                                        for="customCheckrow11_2"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow11_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow11_3"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label"
+                                                        for="customCheckrow11_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow11_4"
+                                                        [(ngModel)]="model_useraccess.customCheckrow11_4"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label"
+                                                        for="customCheckrow11_4"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow11_5"
+                                                        [(ngModel)]="model_useraccess.customCheckrow11_5"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label"
+                                                        for="customCheckrow11_5"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!--Job Fees Record ( JB ) 12 -->
+                                        <tr role="row" class="even">
+                                            <td class="">Job Fees Record ( Job Basis )</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow12_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow12_1"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label"
+                                                        for="customCheckrow12_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow12_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow12_3"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label"
+                                                        for="customCheckrow12_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+
+                                                    <p class="col-form-label">N/A</p>
+
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+
+                                                    <p class="col-form-label">N/A</p>
+
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!--Job Fees Record ( MJ ) 13 -->
+                                        <tr role="row" class="odd">
+                                            <td class="">Job Fees Record ( Monthly Basis )</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow13_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow13_1"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label"
+                                                        for="customCheckrow13_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow13_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow13_3"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label"
+                                                        for="customCheckrow13_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+
+                                                    <p class="col-form-label">N/A</p>
+
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+
+                                                    <p class="col-form-label">N/A</p>
+
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!--Invoices ( MJ ) 14 -->
+                                        <tr role="row" class="even">
+                                            <td class="">Invoices</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow14_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow14_1"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label"
+                                                        for="customCheckrow14_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow14_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow14_2"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label"
+                                                        for="customCheckrow14_2"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow14_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow14_3"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label"
+                                                        for="customCheckrow14_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow14_4"
+                                                        [(ngModel)]="model_useraccess.customCheckrow14_4"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label"
+                                                        for="customCheckrow14_4"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow14_5"
+                                                        [(ngModel)]="model_useraccess.customCheckrow14_5"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label"
+                                                        for="customCheckrow14_5"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!--Credit Notes ( MJ ) 15 -->
+                                        <tr role="row" class="odd">
+                                            <td class="">Credit Notes</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow15_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow15_1"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label"
+                                                        for="customCheckrow15_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow15_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow15_2"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label"
+                                                        for="customCheckrow15_2"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow15_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow15_3"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label"
+                                                        for="customCheckrow15_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow15_4"
+                                                        [(ngModel)]="model_useraccess.customCheckrow15_4"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label"
+                                                        for="customCheckrow15_4"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow15_5"
+                                                        [(ngModel)]="model_useraccess.customCheckrow15_5"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label"
+                                                        for="customCheckrow15_5"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!--Job Reports ( MJ ) 16 -->
+                                        <tr role="row" class="even">
+                                            <td class="">Job Reports ( Statistics Reports )</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow16_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow16_1"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label"
+                                                        for="customCheckrow16_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheckrow16_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow16_2"
+                                                        [disabled]="disablecheck">
+                                                    <label class="custom-control-label"
+                                                        for="customCheckrow16_2"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                                <div class="clearfix"></div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane " id="section-director" role="tabpanel">
+                        <div class="p-40">
+                            <div class="table-reponsive">
+                                <table id="myTable" class="table table-bordered table-striped dataTable no-footer text-center" role="grid"
+                                    aria-describedby="myTable_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th class="" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="" aria-label=""
+                                                width="14%">Module / Feature</th>
+                                            <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                aria-label="Position: activate to sort column ascending" width="14%">View</th>
+                                            <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                aria-label="Age: activate to sort column ascending" width="14%">Create / Add</th>
+                                            <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                aria-label="Office: activate to sort column ascending" width="14%">Edit / Update</th>
+                                            <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                aria-label="Start date: activate to sort column ascending" width="14%">Delete</th>
+                                            <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                aria-label="Salary: activate to sort column ascending" width="14%">Approve</th>
+                                            <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                aria-label="Salary: activate to sort column ascending" width="14%">Assigning</th>
+                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- VALUATIONS 1-->
+                                        <tr role="row" class="odd">
+                                            <!-- <td class="">Valuations2 {{disablecheck}} - {{pageTitle}}</td> -->
+                                            <td class="">Valuations</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow1_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow1_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow1_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow1_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow1_2" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow1_2"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow1_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow1_3" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow1_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow1_4"
+                                                        [(ngModel)]="model_useraccess.customCheckrow1_4" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow1_4"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow1_5"
+                                                        [(ngModel)]="model_useraccess.customCheckrow1_5" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow1_5"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow1_6"
+                                                        [(ngModel)]="model_useraccess.customCheckrow1_6" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow1_6"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- COI 2-->
+                                        <tr role="row" class="even">
+                                            <td class="">COI</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <!-- <input type="checkbox" class="custom-control-input" id="customCheckrow1_1">
+                                                        <label class="custom-control-label" for="customCheckrow1_1"></label> -->
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <!-- <input type="checkbox" class="custom-control-input" id="customCheckrow1_2">
+                                                        <label class="custom-control-label" for="customCheckrow1_2"></label> -->
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <!-- <input type="checkbox" class="custom-control-input" id="customCheckrow1_3">
+                                                        <label class="custom-control-label" for="customCheckrow1_3"></label> -->
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <!-- <input type="checkbox" class="custom-control-input" id="customCheckrow1_4">
+                                                        <label class="custom-control-label" for="customCheckrow1_4"></label> -->
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <!-- <input type="checkbox" class="custom-control-input" id="customCheckrow1_5">
+                                                        <label class="custom-control-label" for="customCheckrow1_5"></label> -->
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <!-- <input type="checkbox" class="custom-control-input" id="customCheckrow1_6">
+                                                        <label class="custom-control-label" for="customCheckrow1_6"></label> -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Indication 3-->
+                                        <tr role="row" class="odd">
+                                            <td class="">Indications</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow3_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow3_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow3_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow3_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow3_2" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow3_2"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow3_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow3_3" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow3_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow3_4"
+                                                        [(ngModel)]="model_useraccess.customCheckrow3_4" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow3_4"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Cavets 4 -->
+                            
+                                        <tr role="row" class="even">
+                                            <td class="">Caveats</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow4_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow4_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow4_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow4_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow4_3" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow4_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Others 5 -->
+                                        <tr role="row" class="odd">
+                                            <td class="">Others</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow5_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow5_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow5_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow5_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow5_2" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow5_2"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow5_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow5_3" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow5_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow5_4"
+                                                        [(ngModel)]="model_useraccess.customCheckrow5_4" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow5_4"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- AVM 6 -->
+                                        <tr role="row" class="even">
+                                            <td class="">AVM</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow6_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow6_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow6_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Appendix 7 -->
+                                        <tr role="row" class="odd">
+                                            <td class="">Appendix Report</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow7_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow7_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow7_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow7_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow7_2" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow7_2"></label>
+                                                </div>
+                            
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Search 8 -->
+                                        <tr role="row" class="even">
+                                            <td class="">Search</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow8_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow8_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow8_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- HBD 9 -->
+                                        <tr role="row" class="odd">
+                                            <td class="">HDB Seach</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow9_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow9_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow9_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Properties 10 -->
+                                        <tr role="row" class="even">
+                                            <td class="">Properties</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow10_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow10_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow10_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow10_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow10_2" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow10_2"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow10_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow10_3" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow10_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow10_4"
+                                                        [(ngModel)]="model_useraccess.customCheckrow10_4" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow10_4"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Client Database 11 -->
+                                        <tr role="row" class="odd">
+                                            <td class="">Client Database</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow11_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow11_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow11_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow11_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow11_2" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow11_2"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow11_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow11_3" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow11_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow11_4"
+                                                        [(ngModel)]="model_useraccess.customCheckrow11_4" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow11_4"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow11_5"
+                                                        [(ngModel)]="model_useraccess.customCheckrow11_5" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow11_5"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!--Job Fees Record ( JB ) 12 -->
+                                        <tr role="row" class="even">
+                                            <td class="">Job Fees Record ( Job Basis )</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow12_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow12_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow12_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow12_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow12_3" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow12_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                            
+                                                    <p class="col-form-label">N/A</p>
+                            
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                            
+                                                    <p class="col-form-label">N/A</p>
+                            
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!--Job Fees Record ( MJ ) 13 -->
+                                        <tr role="row" class="odd">
+                                            <td class="">Job Fees Record ( Monthly Basis )</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow13_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow13_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow13_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow13_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow13_3" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow13_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                            
+                                                    <p class="col-form-label">N/A</p>
+                            
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                            
+                                                    <p class="col-form-label">N/A</p>
+                            
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!--Invoices ( MJ ) 14 -->
+                                        <tr role="row" class="even">
+                                            <td class="">Invoices</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow14_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow14_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow14_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow14_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow14_2" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow14_2"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow14_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow14_3" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow14_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow14_4"
+                                                        [(ngModel)]="model_useraccess.customCheckrow14_4" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow14_4"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow14_5"
+                                                        [(ngModel)]="model_useraccess.customCheckrow14_5" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow14_5"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!--Credit Notes ( MJ ) 15 -->
+                                        <tr role="row" class="odd">
+                                            <td class="">Credit Notes</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow15_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow15_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow15_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow15_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow15_2" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow15_2"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow15_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow15_3" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow15_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow15_4"
+                                                        [(ngModel)]="model_useraccess.customCheckrow15_4" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow15_4"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow15_5"
+                                                        [(ngModel)]="model_useraccess.customCheckrow15_5" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow15_5"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!--Job Reports ( MJ ) 16 -->
+                                        <tr role="row" class="even">
+                                            <td class="">Job Reports ( Statistics Reports )</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow16_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow16_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow16_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow16_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow16_2" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow16_2"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                            
+                                    </tbody>
+                                </table>
+                                <div class="clearfix"></div>
+                            
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane " id="section-valuer" role="tabpanel">
+                        <div class="p-40">
+                            <div class="table-reponsive">
+                                <table id="myTable" class="table table-bordered table-striped dataTable no-footer text-center" role="grid"
+                                    aria-describedby="myTable_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th class="" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="" aria-label=""
+                                                width="14%">Module / Feature</th>
+                                            <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                aria-label="Position: activate to sort column ascending" width="14%">View</th>
+                                            <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                aria-label="Age: activate to sort column ascending" width="14%">Create / Add</th>
+                                            <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                aria-label="Office: activate to sort column ascending" width="14%">Edit / Update</th>
+                                            <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                aria-label="Start date: activate to sort column ascending" width="14%">Delete</th>
+                                            <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                aria-label="Salary: activate to sort column ascending" width="14%">Approve</th>
+                                            <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                                aria-label="Salary: activate to sort column ascending" width="14%">Assigning</th>
+                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- VALUATIONS 1-->
+                                        <tr role="row" class="odd">
+                                            <!-- <td class="">Valuations2 {{disablecheck}} - {{pageTitle}}</td> -->
+                                            <td class="">Valuations</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow1_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow1_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow1_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow1_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow1_2" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow1_2"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow1_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow1_3" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow1_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow1_4"
+                                                        [(ngModel)]="model_useraccess.customCheckrow1_4" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow1_4"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow1_5"
+                                                        [(ngModel)]="model_useraccess.customCheckrow1_5" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow1_5"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow1_6"
+                                                        [(ngModel)]="model_useraccess.customCheckrow1_6" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow1_6"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- COI 2-->
+                                        <tr role="row" class="even">
+                                            <td class="">COI</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <!-- <input type="checkbox" class="custom-control-input" id="customCheckrow1_1">
+                                                        <label class="custom-control-label" for="customCheckrow1_1"></label> -->
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <!-- <input type="checkbox" class="custom-control-input" id="customCheckrow1_2">
+                                                        <label class="custom-control-label" for="customCheckrow1_2"></label> -->
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <!-- <input type="checkbox" class="custom-control-input" id="customCheckrow1_3">
+                                                        <label class="custom-control-label" for="customCheckrow1_3"></label> -->
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <!-- <input type="checkbox" class="custom-control-input" id="customCheckrow1_4">
+                                                        <label class="custom-control-label" for="customCheckrow1_4"></label> -->
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <!-- <input type="checkbox" class="custom-control-input" id="customCheckrow1_5">
+                                                        <label class="custom-control-label" for="customCheckrow1_5"></label> -->
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <!-- <input type="checkbox" class="custom-control-input" id="customCheckrow1_6">
+                                                        <label class="custom-control-label" for="customCheckrow1_6"></label> -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Indication 3-->
+                                        <tr role="row" class="odd">
+                                            <td class="">Indications</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow3_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow3_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow3_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow3_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow3_2" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow3_2"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow3_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow3_3" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow3_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow3_4"
+                                                        [(ngModel)]="model_useraccess.customCheckrow3_4" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow3_4"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Cavets 4 -->
+                            
+                                        <tr role="row" class="even">
+                                            <td class="">Caveats</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow4_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow4_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow4_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow4_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow4_3" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow4_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Others 5 -->
+                                        <tr role="row" class="odd">
+                                            <td class="">Others</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow5_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow5_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow5_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow5_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow5_2" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow5_2"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow5_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow5_3" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow5_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow5_4"
+                                                        [(ngModel)]="model_useraccess.customCheckrow5_4" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow5_4"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- AVM 6 -->
+                                        <tr role="row" class="even">
+                                            <td class="">AVM</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow6_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow6_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow6_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Appendix 7 -->
+                                        <tr role="row" class="odd">
+                                            <td class="">Appendix Report</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow7_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow7_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow7_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow7_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow7_2" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow7_2"></label>
+                                                </div>
+                            
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Search 8 -->
+                                        <tr role="row" class="even">
+                                            <td class="">Search</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow8_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow8_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow8_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- HBD 9 -->
+                                        <tr role="row" class="odd">
+                                            <td class="">HDB Seach</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow9_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow9_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow9_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Properties 10 -->
+                                        <tr role="row" class="even">
+                                            <td class="">Properties</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow10_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow10_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow10_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow10_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow10_2" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow10_2"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow10_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow10_3" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow10_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow10_4"
+                                                        [(ngModel)]="model_useraccess.customCheckrow10_4" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow10_4"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Client Database 11 -->
+                                        <tr role="row" class="odd">
+                                            <td class="">Client Database</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow11_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow11_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow11_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow11_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow11_2" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow11_2"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow11_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow11_3" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow11_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow11_4"
+                                                        [(ngModel)]="model_useraccess.customCheckrow11_4" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow11_4"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow11_5"
+                                                        [(ngModel)]="model_useraccess.customCheckrow11_5" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow11_5"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!--Job Fees Record ( JB ) 12 -->
+                                        <tr role="row" class="even">
+                                            <td class="">Job Fees Record ( Job Basis )</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow12_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow12_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow12_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow12_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow12_3" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow12_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                            
+                                                    <p class="col-form-label">N/A</p>
+                            
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                            
+                                                    <p class="col-form-label">N/A</p>
+                            
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!--Job Fees Record ( MJ ) 13 -->
+                                        <tr role="row" class="odd">
+                                            <td class="">Job Fees Record ( Monthly Basis )</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow13_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow13_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow13_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow13_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow13_3" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow13_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                            
+                                                    <p class="col-form-label">N/A</p>
+                            
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                            
+                                                    <p class="col-form-label">N/A</p>
+                            
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!--Invoices ( MJ ) 14 -->
+                                        <tr role="row" class="even">
+                                            <td class="">Invoices</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow14_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow14_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow14_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow14_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow14_2" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow14_2"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow14_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow14_3" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow14_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow14_4"
+                                                        [(ngModel)]="model_useraccess.customCheckrow14_4" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow14_4"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow14_5"
+                                                        [(ngModel)]="model_useraccess.customCheckrow14_5" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow14_5"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!--Credit Notes ( MJ ) 15 -->
+                                        <tr role="row" class="odd">
+                                            <td class="">Credit Notes</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow15_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow15_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow15_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow15_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow15_2" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow15_2"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow15_3"
+                                                        [(ngModel)]="model_useraccess.customCheckrow15_3" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow15_3"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow15_4"
+                                                        [(ngModel)]="model_useraccess.customCheckrow15_4" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow15_4"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow15_5"
+                                                        [(ngModel)]="model_useraccess.customCheckrow15_5" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow15_5"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!--Job Reports ( MJ ) 16 -->
+                                        <tr role="row" class="even">
+                                            <td class="">Job Reports ( Statistics Reports )</td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow16_1"
+                                                        [(ngModel)]="model_useraccess.customCheckrow16_1" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow16_1"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheckrow16_2"
+                                                        [(ngModel)]="model_useraccess.customCheckrow16_2" [disabled]="disablecheck">
+                                                    <label class="custom-control-label" for="customCheckrow16_2"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="custom-control custom-checkbox centerbuttons">
+                                                    <p class="col-form-label">N/A</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                            
+                                    </tbody>
+                                </table>
+                                <div class="clearfix"></div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of tab content -->
+
+            </div>
+        </div>
+    </div>
+</div>

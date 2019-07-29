@@ -1,0 +1,112 @@
+<!-- ============================================================== -->
+<!-- Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+<aside class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+                <!-- //DASHBOARD -->
+                <li> 
+                    <a class="waves-effect waves-dark" routerLink='/dashboard' routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" aria-expanded="false">
+                        <i class="icon-speedometer"></i><span class="hide-menu">Dashboard </span>
+                    </a>
+                    
+                </li>
+                <!-- //NEW -->
+                <li> 
+                    <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                        <i class="ti-check"></i><span class="hide-menu">New</span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a routerLink="newindication" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Indication</a></li>
+                        <li><a routerLink="newvaluation" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Valuation</a></li>
+                        <li><a (click)="open(mymodalsideportfolio)" >Portfolio Valuation</a></li>
+                        <li><a routerLink="newothers" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Others</a></li>
+                    </ul>
+                </li>
+                <!-- //AVM -->
+                <li> 
+                    <a class="waves-effect waves-dark" routerLink="avm" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" aria-expanded="false">
+                        <i class="ti-target"></i><span class="hide-menu">AVM (Auto Valuation)</span>
+                    </a>
+                </li> 
+
+                <li> 
+                    <a class="waves-effect waves-dark" routerLink="hdb" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" aria-expanded="false">
+                        <i class="ti-zoom-in"></i><span class="hide-menu">HDB Search</span>
+                    </a>
+                </li> 
+
+                <li> 
+                    <a class="waves-effect waves-dark" routerLink="invoices" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" href="javascript:void(0)" aria-expanded="false">
+                        <i class="ti-money"></i><span class="hide-menu">Invoices</span>
+                    </a>
+                </li>
+
+                <li> 
+                    <a class="waves-effect waves-dark" routerLink="jobreports" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" href="javascript:void(0)" aria-expanded="false">
+                        <i class="ti-notepad"></i><span class="hide-menu">Job Reports</span>
+                    </a>
+                </li> 
+                <li> 
+                    <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                        <i class="ti-server"></i><span class="hide-menu">Database</span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a routerLink="database/property" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Property</a></li>
+                        <li><a routerLink="databaseclient" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Company</a></li>
+                        <li><a routerLink="databasevaluation" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Valuation</a></li>
+                        <li><a routerLink="databaseindication" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Indication</a></li>
+                        <li><a routerLink="databaseothers" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Others</a></li>
+                        <li><a routerLink="caveats" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Caveats</a></li>
+                        <li><a routerLink="samplepage" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Sample</a></li>
+                    </ul>
+                </li> 
+
+                
+            </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+</aside>
+<!-- ============================================================== -->
+<!-- End Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+<!-- ANGULAR MODAL NGBOOTSTRAP MODULE  NAVIGATION -->
+<ng-template id="myModal_sideportfolio" #mymodalsideportfolio let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">New Portfolio Valuation</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body modalcheckbox">
+        <div class="p-40">
+            <div class="custom-control custom-radio form-group m-t-4 row">
+                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                <label class="custom-control-label" for="customRadio1">Open New Portfolio?</label>
+            </div>
+            <div class="custom-control custom-radio form-group m-t-4 row">
+                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                <label class="custom-control-label" for="customRadio2">For existing portfolio val. ref. no.</label>
+            </div>
+            <div class="form-group m-t-4 row">
+                <select class="custom-select" id="inlineFormCustomSelect">
+                    <option selected="">Choose...</option>
+                    <option value="1">2019 / 3215</option>
+                    <option value="2">2019 / 3212</option>
+                    <option value="3">2019 / 3210</option>
+                </select>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm" (click)="d('Cross click')"><i
+                class="fa fa-plus-circle"></i> Back</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="c('Save click')"> Create </button>
+    </div>
+</ng-template>

@@ -1,0 +1,206 @@
+<app-breadcrumbs [pagetitle]="pageTitle"></app-breadcrumbs>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body nopad" id="section-searchresults">
+                <div class="p-40">
+                    <div class="form-group m-t-4 row">
+                        <div class="col-md-12 m-b-20">
+                            <label for="">2 Records Found.</label>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-md-8">
+                            <div class="row">
+                               
+                                <div class="col-md-3">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="searchcustomCheck1">
+                                        <label class="custom-control-label bg_violet"
+                                            for="customCheck1">Indication</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="searchcustomCheck1">
+                                        <label class="custom-control-label bg_skyblue"
+                                            for="customCheck1">Valuation</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="searchcustomCheck1">
+                                        <label class="custom-control-label bg_green" for="customCheck1">Caveats</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="searchcustomCheck1">
+                                        <label class="custom-control-label bg_orange" for="customCheck1">Others</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-6">
+                                    <button type="submit" class="btn btn-primary btn-sm col-12"> Generate Report </button>
+                                </div>
+                                <div class="col-6">
+                                    <button type="submit" class="btn btn-primary btn-sm col-12"> Back to Search </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="table-responsive">
+
+                        <table datatable id="myTablesearch"
+                            class="table table-responsive table-bordered table-striped dataTable no-footer text-center"
+                            role="grid" aria-describedby="myTable_info" width="100%">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                        style="width: 38px;">Select</th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                        style="width: 38px;">ID</th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                        style="width: 38px;">Property Address <br>-<br> Val Ref. No <br>-<br> Administrator</th>
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Office: activate to sort column ascending" style="width: 127px;">
+                                        Postal Code <br>-<br> Old Postal Code <br>-<br> Typist</th>
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Start date: activate to sort column ascending"
+                                        style="width: 118px;">LA (SM) <br /> LA (SF)</th>
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Start date: activate to sort column ascending"
+                                        style="width: 118px;">FA (SM) <br /> FA (SF)</th>
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Start date: activate to sort column ascending"
+                                        style="width: 118px;">LR <br /> (PSF)</th>
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Start date: activate to sort column ascending"
+                                        style="width: 118px;">FR  (PSF) <br>-<br>Rental (PSF)</th>
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Salary: activate to sort column ascending" style="width: 92px;">
+                                        Indication Value <br />-<br /> Purchase <br />-<br /> Asking <br />-<br /> Rental</th>
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Salary: activate to sort column ascending" style="width: 92px;">
+                                        Contract / Val / Ind. Date <br />-<br /> Lease Commencement <br />-<br /> Lease Expiry</th>
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Salary: activate to sort column ascending" style="width: 92px;">
+                                        Prop. Type <br />-<br /> Completion Date</th>
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Salary: activate to sort column ascending" style="width: 92px;">
+                                        Tenure - Ref No.</th>
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Salary: activate to sort column ascending" style="width: 92px;">Age
+                                        - Condition - EFR (PSF) - Built Area (SF)</th>
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Salary: activate to sort column ascending" style="width: 92px;">
+                                        Appendix Report<br /> - <br />Floor Plan</th>
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Salary: activate to sort column ascending" style="width: 92px;">
+                                        Upload Photos</th>
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Salary: activate to sort column ascending" style="width: 92px;">
+                                        Remarks</th>
+                                    <!-- <div class="controls">
+    <input type="file" name="file" class="form-control" required="" aria-invalid="false">
+    <div class="help-block"></div>
+</div> -->
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr role="row" class="odd">
+                                    <td class="bg_skyblue">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="searchcustomCheck1">
+                                            <label class="custom-control-label" for="customCheck1"></label>
+                                        </div>
+                                    </td>
+                                    <td>32</td>
+                                    <td>Grande Vista, 18 Cactus Drive, #03-06 <br> <a href=""
+                                            class="alink">2019/66/SIF</a></td>
+                                    <td>8096912880 <br>Cindy Lam</td>
+                                    <td> - </td>
+                                    <td>79.0850.3</td>
+                                    <td>0</td>
+                                    <td><b>2300</b> <br> 0.00</td>
+                                    <td>1,110,000 - 950,000 -</td>
+                                    <td>26-Jan-2019 <br> 12-Jan-2018 <br> 12-Jan-2020</td>
+                                    <td>Apt</td>
+                                    <td>Freehold</td>
+                                    <td>1900s <br> Average <br> - <br> -</td>
+                                    <td> <a href="" class="alink">AR link</a> <br><a href="" class="alink">FP link</a>
+                                    </td>
+                                    <td>-</td>
+                                    <td>-</td>
+
+                                </tr>
+                                <tr role="row" class="odd">
+                                    <td class="bg_violet">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="searchcustomCheck1">
+                                            <label class="custom-control-label" for="customCheck1"></label>
+                                        </div>
+                                    </td>
+                                    <td>32</td>
+                                    <td>Tanglin Regency, 381 Tanglin Road, #13-21 <br> <a href=""
+                                            class="alink">2019/65/DBS</a></td>
+                                    <td>8096912880 <br>Cindy Lam</td>
+                                    <td> - </td>
+                                    <td>79.0850.3</td>
+                                    <td>0</td>
+                                    <td><b>2300</b> <br> 0.00</td>
+                                    <td>1,110,000 - 950,000 -</td>
+                                    <td>26-Jan-2019 <br> 12-Jan-2018 <br> 12-Jan-2020</td>
+                                    <td>Apt</td>
+                                    <td>Freehold</td>
+                                    <td>1900s <br> Average <br> - <br> -</td>
+                                    <td> <a href="" class="alink">AR link</a> <br><a href="" class="alink">FP link</a>
+                                    </td>
+                                    <td>-</td>
+                                    <td>-</td>
+
+                                </tr>
+
+                                <!-- <tr role="row" class="odd">
+                                    <td class="bg_green">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="searchcustomCheck1">
+                                            <label class="custom-control-label" for="customCheck1"></label>
+                                        </div>
+                                    </td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+
+
+                                </tr> -->
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

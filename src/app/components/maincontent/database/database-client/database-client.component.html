@@ -1,0 +1,649 @@
+<app-breadcrumbs [pagetitle]="pageTitle" [pagecrumbs]="crumbs"></app-breadcrumbs>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body nopad" id="section-database">
+                <div class="p-40">
+                    <div class="table-responsive">
+                        <table datatable id="myTable" class="table table-bordered table-striped dataTable no-footer text-center" role="grid"
+                            aria-describedby="myTable_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="" aria-label=""
+                                        width="14%">
+                                        ID</th>
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Position: activate to sort column ascending" width="14%">
+                                        Company</th>
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Age: activate to sort column ascending" width="14%">
+                                        Company Category</th>
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Office: activate to sort column ascending" width="14%">
+                                        Company Code</th>
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Start date: activate to sort column ascending" width="14%">
+                                        Created On</th>
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Salary: activate to sort column ascending" width="14%">
+                                        Action</th>
+                        
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!--  1-->
+                                <tr role="row" class="odd">
+                                    <td class="">
+                                        <p class="col-form-label">1</p>
+                                    </td>
+                                    <td>
+                                        <p class="col-form-label">Sing Invetmentss & Finance Pte. LD</p>
+                                    </td>
+                                    <td>
+                                        <p class="col-form-label">Bank</p>
+                                    </td>
+                                    <td>
+                                        <p class="col-form-label">SIFs</p>
+                                    </td>
+                                    <td>
+                                        <p class="col-form-label">25-01-19 <br>10:12am</p>
+                                    </td>
+                                    <td>
+                                        <div class="centerbuttons row">
+                                            <a class="btn btn-info btn-sm col-12 fL" (click)="openXL(mymodalclientcompanies)" type="button"><i class="fa fa-edit"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr role="row" class="odd">
+                                    <td class="">
+                                        <p class="col-form-label">2</p>
+                                    </td>
+                                    <td>
+                                        <p class="col-form-label">DBS Bank Ltd.</p>
+                                    </td>
+                                    <td>
+                                        <p class="col-form-label">Bank</p>
+                                    </td>
+                                    <td>
+                                        <p class="col-form-label">BBS</p>
+                                    </td>
+                                    <td>
+                                        <p class="col-form-label">25-01-19 <br>10:12am</p>
+                                    </td>
+                                    <td>
+                                        <div class="centerbuttons row">
+                                            <a class="btn btn-info btn-sm col-12 fL" (click)="openXL(mymodalclientcompanies)"  type="button"><i class="fa fa-edit"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr role="row" class="odd">
+                                    <td class="">
+                                        <p class="col-form-label">3</p>
+                                    </td>
+                                    <td>
+                                        <p class="col-form-label">NCS</p>
+                                    </td>
+                                    <td>
+                                        <p class="col-form-label">Corporate</p>
+                                    </td>
+                                    <td>
+                                        <p class="col-form-label">CORP</p>
+                                    </td>
+                                    <td>
+                                        <p class="col-form-label">25-01-19 <br>10:12am</p>
+                                    </td>
+                                    <td>
+                                        <div class="centerbuttons row">
+                                            <a class="btn btn-info btn-sm col-12 fL" (click)="openXL(mymodalclientcompanies)" type="button"><i class="fa fa-edit"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr role="row" class="odd">
+                                    <td class="">
+                                        <p class="col-form-label">4</p>
+                                    </td>
+                                    <td>
+                                        <p class="col-form-label">Assets Company</p>
+                                    </td>
+                                    <td>
+                                        <p class="col-form-label">Corporate</p>
+                                    </td>
+                                    <td>
+                                        <p class="col-form-label">CORP</p>
+                                    </td>
+                                    <td>
+                                        <p class="col-form-label">25-01-19 <br>10:12am</p>
+                                    </td>
+                                    <td>
+                                        <div class="centerbuttons row">
+                                            <a class="btn btn-info btn-sm col-12 fL" (click)="openXL(mymodalclientcompanies)" type="button"><i class="fa fa-edit"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr role="row" class="odd">
+                                    <td class="">
+                                        <p class="col-form-label">5</p>
+                                    </td>
+                                    <td>
+                                        <p class="col-form-label">ng Beng Choon</p>
+                                    </td>
+                                    <td>
+                                        <p class="col-form-label">Private</p>
+                                    </td>
+                                    <td>
+                                        <p class="col-form-label">PTE</p>
+                                    </td>
+                                    <td>
+                                        <p class="col-form-label">25-01-19 <br>10:12am</p>
+                                    </td>
+                                    <td>
+                                        <div class="centerbuttons row">
+                                            <a class="btn btn-info btn-sm col-12 fL"  (click)="openXL(mymodalclientcompanies)" type="button"><i class="fa fa-edit"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!--  1-->
+                                
+                                <!-- COI 2-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ANGULAR MODAL NGBOOTSTRAP MODULE  Client Companies -->
+<ng-template id="myModal_clientcompanies" #mymodalclientcompanies let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Company</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body modal_scroll">
+       <div class="p-20">
+            <ul class="nav nav-tabs" role="tablist" id="cliencompanyTab">
+                <li class="nav-item">
+                    <a class="nav-link active show" data-toggle="tab" href="#section-valuation" role="tab" aria-selected="false">
+                        <span class="hidden-xs-down">Details</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " data-toggle="tab" href="#section-clientcontacts" role="tab" aria-selected="true">
+                        <span class="hidden-xs-down">Client Contacts</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#section-remarks" role="tab" aria-selected="false">
+                        <span class="hidden-xs-down">Remarks</span>
+                    </a>
+                </li>
+                
+            </ul>
+            <!-- TABS -->
+            <div class="tab-content tabcontent-border">
+                <div class="tab-pane active show" id="section-valuation" role="tabpanel">
+                    <div class="p-t-20">
+                        <div class="form-group m-t-4 row">
+                            <div class="col-md-4">
+                                <label for="">Company Name <span class="color-red">*</span></label>
+                                <div class="clearfix"></div>
+                                <input class="form-control" type="text" value="Sing Investments & Finance Pte Ltd" id="example-date-input">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="">Company Category <span class="color-red">*</span></label>
+                                        <div class="clearfix"></div>
+                                        <select class="custom-select " id="inlineFormCustomSelect">
+                                            <option selected="">Bank</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="">Company Code </label>
+                                        <div class="clearfix"></div>
+                                        <select class="custom-select " id="inlineFormCustomSelect">
+                                            <option selected="">SIF</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-4">
+                                <label for="">Finance Name </label>
+                                <div class="clearfix"></div>
+                                <p class="col-form-label col-5 fL">xxx</p>
+                                <button class="col-form-label col-6 btn btn-info btn-sm fL" (click)="open(mymodalfinancecode)" >Create Code</button>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group m-t-4 row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <label for="">Blk / No <span class="color-red">*</span></label>
+                                        <div class="clearfix"></div>
+                                        <input class="form-control" type="text" value="11" id="example-date-input">
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="">Floor <span class="color-red">*</span></label>
+                                        <div class="clearfix"></div>
+                                        <input class="form-control" type="text" value="11" id="example-date-input">
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="">Unit No <span class="color-red">*</span></label>
+                                        <div class="clearfix"></div>
+                                        <input class="form-control" type="text" value="11-125" id="example-date-input">
+                                    </div>
+                                    <!-- <div class="col-3">
+                                        <label for="">Address <span class="color-red">*</span></label>
+                                        <div class="clearfix"></div>
+                                        <input class="form-control" type="text" value="Collyer Quay" id="example-date-input">
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label for="">Street Name <span class="color-red">*</span></label>
+                                        <div class="clearfix"></div>
+                                        <input class="form-control" type="text" value="Collyer Quay" id="example-date-input">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group m-t-4 row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="">City <span class="color-red">*</span></label>
+                                        <div class="clearfix"></div>
+                                        <select class="custom-select " id="inlineFormCustomSelect" disabled>
+                                            <option selected="">City</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="">District <span class="color-red">*</span></label>
+                                        <div class="clearfix"></div>
+                                        <select class="custom-select " id="inlineFormCustomSelect" disabled>
+                                            <option selected="">District</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group m-t-4 row">
+                            <div class="col-md-6">
+                                <label for="">Country </label>
+                                <div class="clearfix"></div>
+                                <select class="custom-select " id="inlineFormCustomSelect" >
+                                    <option selected="">Singapore</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">Postal Code <span class="color-red">*</span> </label>
+                                <div class="clearfix"></div>
+                                <input class="form-control" type="text" value="048620" id="example-date-input">
+                            </div>
+                        </div>
+
+                        <div class="form-group m-t-4 row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <label for="">Phone <span class="color-red">*</span></label>
+                                        <div class="clearfix"></div>
+                                        <select class="custom-select " id="inlineFormCustomSelect">
+                                            <option selected="">+65</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="" class="h-19"></label>
+                                        <div class="clearfix"></div>
+                                        <input class="form-control" type="text" value="6765 7765" id="example-date-input">
+                                    </div>
+                                    <div class="col-3">
+                                        <label for="">Fax <span class="color-red">*</span></label>
+                                        <div class="clearfix"></div>
+                                        <select class="custom-select " id="inlineFormCustomSelect">
+                                            <option selected="">+65</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="" class="h-19"> </label>
+                                        <div class="clearfix"></div>
+                                        <input class="form-control" type="text" value="6765 7765" id="example-date-input">
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="">Website</label>
+                                        <div class="clearfix"></div>
+                                        <input class="form-control" type="text" value="http://" id="example-date-input">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- form group -->
+                        <button class="fR btn btn-info"> Add Other Address </button>
+                        <div class="clearfix"></div>
+                        <br>
+                        <table datatable id="myTable" class="table table-bordered table-striped dataTable no-footer text-center" role="grid"
+                            aria-describedby="myTable_info">
+                            <thead>
+                                <tr role="row">
+                                    <!-- <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="ascending"
+                                        aria-label="Name: activate to sort column descending" style="width: 38px;">Action</th>
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Position: activate to sort column ascending" style="width: 65px;">ID</th>
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Age: activate to sort column ascending" style="width: 64px;">Blk</th>
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Office: activate to sort column ascending" style="width: 127px;">Address 1</th>
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Start date: activate to sort column ascending" style="width: 118px;">Unit No.</th>
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Salary: activate to sort column ascending" style="width: 92px;">Postal Code</th>
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Salary: activate to sort column ascending" style="width: 92px;">Remarks</th> -->
+
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="ascending"
+                                        aria-label="Name: activate to sort column descending" style="width: 38px;">ID</th>
+
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="ascending"
+                                        aria-label="Name: activate to sort column descending" style="width: 38px;">Blk</th>
+
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="ascending"
+                                        aria-label="Name: activate to sort column descending" style="width: 38px;">Unit No.</th>
+
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="ascending"
+                                        aria-label="Name: activate to sort column descending" style="width: 38px;">Street Name</th>
+
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="ascending"
+                                        aria-label="Name: activate to sort column descending" style="width: 38px;">Postal Code</th>
+
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="ascending"
+                                        aria-label="Name: activate to sort column descending" style="width: 38px;">Remarks</th>
+
+                                    <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="ascending"
+                                        aria-label="Name: activate to sort column descending" style="width: 38px;">Action</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr role="row" class="odd">
+                                    <!-- <td class="sorting_1">
+                                        <div class="centerbuttons row p-10">
+                                            <button class="btn btn-info btn-sm col-5 fL" type="button"><i class="fa fa-eye"></i></button>
+                                            <button class="btn btn-info btn-sm col-5 fL" type="button"><i class="fa fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                    <td>11</td>
+                                    <td>16</td>
+                                    <td>Collyer Quay</td>
+                                    <td>#23-76</td>
+                                    <td>04918</td>
+                                    <td></td> -->
+
+                                    <td>11</td>
+                                    <td>16</td>
+                                    <td>Collyer Quay</td>
+                                    <td>#23-76</td>
+                                    <td>04918</td>
+                                        <td>04918</td>
+                                    <td class="sorting_1">
+                                        <div class="centerbuttons row p-10">
+                                            <button class="btn btn-info btn-sm col-5 fL" type="button"><i class="fa fa-eye"></i></button>
+                                            <button class="btn btn-info btn-sm col-5 fL" type="button"><i class="fa fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="clearfix"></div>
+                    </div>
+                    <!-- p 20 -->
+                </div>
+                <div class="tab-pane" id="section-clientcontacts" role="tabpanel">
+                    <div class="p-t-20">
+                        <button class="btn btn-info btn-sm fR" (click)="openXL(mymodaladdcontact)">Add Contacts</button>
+                        <div class="clearfix"></div>
+
+                        <table datatable id="myTable" class="table table-bordered table-striped dataTable no-footer text-center" role="grid"
+                            aria-describedby="myTable_info">
+                            <thead>
+                                <tr role="row">
+
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Salary: activate to sort column ascending" style="width: 92px;">ID</th>
+                                    
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Salary: activate to sort column ascending" style="width: 92px;">Name</th>
+                                    
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Salary: activate to sort column ascending" style="width: 92px;">Email</th>
+
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Salary: activate to sort column ascending" style="width: 92px;">Phone 1</th>
+                                    
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Salary: activate to sort column ascending" style="width: 92px;">Phone 2</th>
+
+                                    <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1"
+                                        aria-label="Salary: activate to sort column ascending" style="width: 92px;">Actions</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr role="row" class="odd">
+                                    <td class="sorting_1"> 25 </td>
+                                    <td>Ms Mandy Tan</td>
+                                    <td>jess.cheng@sif.com.sg</td>
+                                    <td>+65 9823 2423</td>
+                                    <td>+65 9823 2423</td>
+                                    <td>
+                                        <div class="centerbuttons row p-10">
+                                            <button class="btn btn-info btn-sm col-5 fL" type="button"><i class="fa fa-edit"></i></button>
+                                            <button class="btn btn-danger btn-sm col-5 fL" type="button"><i class="fa fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr role="row" class="odd">
+                                    <td class="sorting_1"> 25 </td>
+                                    <td>Ms Mandy Tan</td>
+                                    <td>jess.cheng@sif.com.sg</td>
+                                    <td>+65 9823 2423</td>
+                                    <td>+65 9823 2423</td>
+                                    <td>
+                                        <div class="centerbuttons row p-10">
+                                            <button class="btn btn-info btn-sm col-5 fL" type="button"><i class="fa fa-edit"></i></button>
+                                            <button class="btn btn-danger btn-sm col-5 fL" type="button"><i class="fa fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane" id="section-remarks" role="tabpanel">
+                    <div class="p-20">
+                        <h1>remarks</h1>
+                    </div>
+                </div>
+            </div>
+
+       </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm" (click)="d('Cross click')"><i
+                class="fa fa-plus-circle"></i> Back</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="c('Save click')"> Create </button>
+    </div>
+</ng-template>
+
+<!-- ANGULAR MODAL NGBOOTSTRAP MODULE  Create Finace Code -->
+<ng-template id="myModal_financecode" #mymodalfinancecode let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Create Finance Code</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body text-center">
+        <p class="col-form-label">
+            A Finance Code will be created in VMS and Finance System. <br><br>
+            Confirm that you want to create Finance Code?
+        </p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm" (click)="d('Cross click')"> Back</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="c('Save click')"> Create </button>
+    </div>
+</ng-template>
+
+<!-- ANGULAR MODAL NGBOOTSTRAP MODULE  Add Clients -->
+<ng-template id="myModal_addcontact" #mymodaladdcontact let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Add Contact</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body ">
+        <div class="p-20">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group m-t-4 row">
+                        <div class="col-md-3">
+                            <label for="">Title</label>
+                            <div class="clearfix"></div>
+                            <select class="custom-select " id="inlineFormCustomSelect">
+                                <option selected="">Ms</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="col-md-9">
+                            <label for="">Name <span class="color-red">*</span></label>
+                            <div class="clearfix"></div>
+                            <input class="form-control" type="text" value="0.33" id="example-date-input">
+                        </div>
+                    </div>
+                    <div class="form-group m-t-4 row">
+                        <div class="col-md-6">
+                            <label for="">Designation </label>
+                            <div class="clearfix"></div>
+                            <input class="form-control" type="text" value="" id="example-date-input">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">Department </label>
+                            <div class="clearfix"></div>
+                            <input class="form-control" type="text" value="" id="example-date-input">
+                        </div>
+                    </div>
+                    <div class="form-group m-t-4 row">
+                        <div class="col-md-12">
+                            <label for="">Email </label>
+                            <div class="clearfix"></div>
+                            <input class="form-control" type="text" value="jess.cheng@sif.com.sg" id="example-date-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group m-t-4 row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label for="">Phone 1 </label>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-3">
+                                    <select class="custom-select " id="inlineFormCustomSelect">
+                                        <option selected="">+65</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                                <div class="col-9">
+                                    <input class="form-control" type="text" value="9823 2423" id="example-date-input">
+                                </div>
+                            </div>
+                
+                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label for="">Phone 2 </label>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-3">
+                                    <select class="custom-select " id="inlineFormCustomSelect">
+                                        <option selected="">+65</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                                <div class="col-9">
+                                    <input class="form-control" type="text" value="9823 2423" id="example-date-input">
+                                </div>
+                            </div>
+                
+                        </div>
+                    </div>
+                    <div class="form-group m-t-4 row">
+                        <div class="col-md-12">
+                            <label for="">Remarks</label>
+                            <div class="clearfix"></div>
+                            <textarea name="" id="" cols="5" rows="5" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+        </div>
+        
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm" (click)="d('Cross click')"> Back</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="c('Save click')"> Create </button>
+    </div>
+</ng-template>
+

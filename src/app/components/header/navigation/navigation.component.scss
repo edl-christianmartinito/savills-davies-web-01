@@ -1,0 +1,35 @@
+.modalcheckbox{
+    .custom-radio{
+        .custom-control-label::before{
+            // left: -25px;
+            display: none;
+        }
+    }
+    .custom-control-label::after{
+            left: -25px;
+    }
+}
+
+.error .form-control {
+    border-color: #e46a76;
+}
+
+
+input[type="radio"]{
+    z-index: 99999;
+    display: block;
+    position: absolute;
+    left: 0;
+    display: block;
+    top: 4px;
+    width: auto;
+    opacity: 1;
+}
+
+.customRadio_ainput{
+    top: 4px;
+}
+
+.customRadio_binput{
+     top: 28px!important;
+}

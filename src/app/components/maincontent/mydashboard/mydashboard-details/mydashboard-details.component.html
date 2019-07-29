@@ -1,0 +1,15 @@
+<app-breadcrumbs [pagetitle]="pageTitle"></app-breadcrumbs>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+              My DASHBOARD DETAILS
+              <div class="clearfix"></div>
+              <p>You selected department with id: {{departmentId}}</p>
+              <div class="clearfix"></div> 
+              <button type="button" class="btn btn-primary btn-sm" (click)="goPrevious()"><i class="ti-angle-left"></i> Previous</button>
+              <button type="button" class="btn btn-primary btn-sm" (click)="goNext()">Next <i class="ti-angle-right"></i></button>
+          </div>
+        </div>
+    </div>
+  </div>
