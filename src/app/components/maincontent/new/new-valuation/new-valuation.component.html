@@ -329,8 +329,8 @@
                                                 <button class="btn btn-primary btn-sm fL" type="button" (click)="open(mymodalnewvaluation)"><i class="fa fa-plus-circle"></i> Property </button>
                                             </div>
                                             <div class="col-md-6">
-                                                <button class="btn btn-danger btn-sm fR bcolor-green" type="button" (click)="openXL(mymodalsearchindication)"><i class="fa fa-search"></i> Search Past
-                                                    Indication</button>
+                                                <button class="btn btn-danger btn-sm fR bcolor-green" type="button" (click)="openXL(mymodalsearchindication)"><i class="fa fa-search"></i> Search
+                                                    Indications</button>
                                             </div>
                                             </div>
                                             <div class="clearfix"></div>
@@ -1084,35 +1084,7 @@
                             <div>This field is required</div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <label for="">Floor no.<span class="color-red">*</span></label>
-                        <div class="clearix"></div>
-                        <input type="text" class="form-control col-form-label " 
-                        
-                             (keypress)="onlyNumbers($event)"
-                            required>
-                        <div class="invalid-feedback">
-                            <div>This field is required</div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <label for="">Unit no.<span class="color-red">*</span></label>
-                        <div class="clearix"></div>
-                        <input type="text" class="form-control col-form-label " 
-                       
-                        (keypress)="onlyNumbers($event)"
-                            required>
-                        <div class="invalid-feedback">
-                            <div>This field is required</div>
-                        </div>
-                    </div>
-                    <!-- 
-                        [(ngModel)]="propertydata.floor_num"
-                            [ngClass]="{'is-invalid':formaddpropertysubmitted && !propertydata.floor_num}"
-                         [(ngModel)]="propertydata.unit_num"
-                        [ngClass]="{'is-invalid':formaddpropertysubmitted && !propertydata.unit_num}" 
-                        <div class="form-group-row col-md-8">
+                    <div class="form-group-row col-md-8">
                         <label for="">Street Name<span class="color-red">*</span></label>
                         <div class="clearix"></div>
                         <input 
@@ -1129,29 +1101,19 @@
                         <div class="invalid-feedback">
                             <div>This field is required</div>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
 
                 <div class="form-group m-t-4 row">
-                    <div class="form-group-row col-md-12">
-                        <label for="">Street Name<span class="color-red">*</span></label>
-                        <div class="clearix"></div>
-                        <input type="text" class="form-control col-form-label " value="Marine Parade road" id="new_val_modal_street"
-                            name="new_val_modal_street" [(ngModel)]="model_modalnv.new_val_modal_street" #new_val_modal_street="ngModel"
-                            [ngClass]="{'is-invalid':f_modalnewvaluation.submitted && new_val_modal_street.invalid}" required>
-                        <div class="invalid-feedback">
-                            <div>This field is required</div>
-                        </div>
-                    </div>
-                    <!-- <div class="col-md-12">
+                    <div class="col-md-12">
                         <label for="">Unit no.</label>
                         <div class="clearix"></div>
                         <input type="text" class="form-control col-form-label " value="#01-02">
-                    </div> -->
+                    </div>
                     
                 </div>
 
-                <!-- <div class="form-group m-t-4 row">
+            <div class="form-group m-t-4 row">
                     <div class="col-md-6">
                         <label for="">City</label>
                         <div class="clearix"></div>
@@ -1197,7 +1159,7 @@
                             <div>This field is required</div>
                         </div>
                     </div>
-                </div>  -->
+                </div> 
 
             </div>
         
@@ -1310,7 +1272,7 @@
                     <label for=""></label>
                     <div class="clearfix"></div>
                     <button class="btn btn-danger btn-sm fR bcolor-green" type="button" (click)="openXL(mymodalsearchindication)"><i
-                            class="fa fa-search"></i> Search Past Indication</button>
+                            class="fa fa-search"></i> Search Indications</button>
                 </div>
             </div>
             <div class="clearfix"></div>

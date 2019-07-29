@@ -191,7 +191,7 @@ export class MaincontentComponent implements OnInit {
                     //this.loadingalldata=false;
                     this.processing=false;
                     this.processdone=true;
-                    this.message="Successfully registered to Savills VMS."
+                    this.message="Successfully registered to DAVIES."
                   //  $('#modalupdateopen').modal('hide');
 
                 } else {

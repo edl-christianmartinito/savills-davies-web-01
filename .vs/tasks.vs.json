@@ -1,0 +1,20 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskName": "task-maincontent",
+      "appliesTo": "src/app/components/maincontent/",
+      "type": "launch"
+    },
+    {
+      "taskName": "task-Angular-Bootstrap-with-Material-Design-master",
+      "appliesTo": "/",
+      "type": "launch"
+    },
+    {
+      "taskName": "task-Angular-Bootstrap-with-Material-Design-master",
+      "appliesTo": "/",
+      "type": "launch"
+    }
+  ]
+}
